@@ -1,16 +1,5 @@
 #include "library.h"
 
-/*Список функций:
-Дейкстра кратчайшего
-Дейкстра длиннейшего
-восстановление пути(вершины)
-очищение графа
-установление ребра
-поиск ребра
-создание графа
-освобождение графа
-*/
-
 int getrand(int min, int max)
 {
     return (double)rand() / (RAND_MAX + 1.0) * (max - min) + min;
@@ -69,20 +58,20 @@ void DijkstraLong(struct graph *g, int src, int *d, int **prev)
         {
             d[i] = 0;
         } else{
-            d[i] = INT_MAX;
+            d[i] = -1;
         }
         (*prev)[i] = -1;
         heap_insert(h, d[i], i);
+    //    printf("\n%d  %d\n",i,  d[i]);
+
     }
 
-    //heap_heapify(h, g->nvertices);
-
-    for (int i = 1; i < g->nvertices; i++) 
+    for (int i = 1; i <= g->nvertices; i++) 
     {
+        node = heap_extract_max(h);                                             // Извлекаем узел
 
-        node = heap_extract_max(h);                                              // Извлекаем узел
+        g->visited[node.value - 1] = 1;  
 
-        g->visited[node.value - 1] = 1;                                          // Отмечаем node как посещенную
 
         for (int j = 1; j <= g->nvertices; j++)                                  // Цикл по смежным вершинам node
         {
@@ -346,14 +335,14 @@ void heap_heapify_max(heap *h, int index)
     }
 }
 
-int heap_decrease_key(heap *h, int index, int key) 
+int heap_decrease_key(heap *h, int index, int newkey) 
 {
     index = h->index[index];
 
-    if (h->nodes[index].key < key) {
+    if (h->nodes[index].key < newkey) {
         return -1;
     }
-    h->nodes[index].key = key;
+    h->nodes[index].key = newkey;
     for (; index > 1 && h->nodes[index].key < h->nodes[index / 2].key; index = index / 2) {
         heap_swap(&h->nodes[index], &h->nodes[index / 2], h);
     }
