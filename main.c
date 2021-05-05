@@ -15,7 +15,7 @@ int main()
 
 
     //////////////////программа, если есть ключ "НАЙТИ КРАТЧАЙШИЙ ПУТЬ"////////////////////
-   /* 
+   /*
     struct graph* g = graph_create(N);    
     
     for(int i = 0; i < N; i++)                 
@@ -37,8 +37,8 @@ int main()
     
   // СЧИТЫВАЕМ НОМЕРА ГОРОДОВ (arg_1, arg_2)
 
-    int city_1 = 2; // = arg_1
-    int city_2 = 4; // = arg_2 
+    int city_1 = 4; // = arg_1
+    int city_2 = 2; // = arg_2 
 
     int path[N] = {}; //массив для востановленного пути
     int pathlen = 0;
@@ -67,9 +67,9 @@ int main()
 
     graph_free(g, N); // второй аргумент для удобного использования функции
     
-*/
+    */
     //////////////////программа, если есть ключ "НАЙТИ ДЛИННЕЙШИЙ ПУТЬ"////////////////////
-
+/*
     struct graph* g = graph_create(N);    
     
     for(int i = 0; i < N; i++)                 
@@ -91,8 +91,8 @@ int main()
     
   // СЧИТЫВАЕМ НОМЕРА ГОРОДОВ (arg_1, arg_2)
 
-    int city_1 = 2; // = arg_1
-    int city_2 = 4; // = arg_2 
+    int city_1 = 3; // = arg_1
+    int city_2 = 2; // = arg_2 
 
     int path[N] = {}; //массив для востановленного пути
     int pathlen = 0;
@@ -117,17 +117,19 @@ int main()
     printf("\n");
     }
     
-    graph_free(g, N); // второй аргумент для удобного использования функции
+    graph_free(g, N);*/
+                              // второй аргумент для удобного использования функции
     
-    /*struct graph* g = graph_create(N);    
+    struct graph* g = graph_create(N);    
     
-    for(int i = 0; i < N - 1; i++)                 
+    for(int i = 0; i < N; i++)                 
     {
-        for(int j = i+1; j < N; j++)
+        for(int j = i; j < N; j++)
         {
             graph_set_edge(g, i, j, getrand(10, 30));
         }
     }
+    
     
     for(int i = 0; i  < N; i++)              // вывод графа, для пользователя не обязателен
     {
@@ -152,7 +154,7 @@ int main()
     }
     printf("\n");
 
-    graph_free(g, N);*/
+    graph_free(g, N);
 
     //////////////////программа, если есть ключ "НАЙТИ ВСЕ МАРШРУТЫ"////////////////////
 
