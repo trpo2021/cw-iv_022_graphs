@@ -152,6 +152,66 @@ int SearchLongPath(struct graph* g, int src, int dst, int* path)
     return pathlen;
 }
 
+void AllPaths(int *array_cities)
+{
+    if((array_cities[1]+1 != array_cities[2]) && (array_cities[1]+1 <= 4))
+    {
+        array_cities[3] = array_cities[1]+1;
+        if((array_cities[2]-1 >= 1) && (array_cities[2]-1 != array_cities[3]) && (array_cities[2]-1 != array_cities[1]))
+        {
+            array_cities[4] = array_cities[2]-1;
+        } else {
+            array_cities[4] = array_cities[2]+1;
+        }
+            
+    } else {
+        if((array_cities[1]-1 != array_cities[2]) && (array_cities[1] > 1))
+        {
+                array_cities[3] = array_cities[1]-1;
+        } else {
+            if(array_cities[1] == 1)
+            {
+                array_cities[3] = array_cities[1] + 3;
+            } else {
+                array_cities[3] = array_cities[1] - 3;
+            }
+        }
+        if((array_cities[2]-1 >= 1) && (array_cities[2]-1 != array_cities[3]) && (array_cities[2]-1 != array_cities[1]))
+        {
+            array_cities[4] = array_cities[2]-1;
+        } else {
+            array_cities[4] = array_cities[2]+1;
+        } 
+    }
+}
+
+void Length_and_Paths(int *array_cities, struct graph *g)
+{
+    printf("1 Путь. Вершины:  %d -> %d\n", array_cities[1], array_cities[2]);
+    printf("Длина: %d\n", g->m[array_cities[1]-1][array_cities[2]-1]);
+    int t = array_cities[3];
+    for(int i = 2; i <= 3; i++)
+    { 
+        printf("%d Путь. Вершины:  ", i);
+        printf("%d -> %d -> %d\n", array_cities[1], t, array_cities[2]);
+        // вынести в функцию "Длина"
+        int dlina = 0;
+        dlina = g->m[array_cities[1]-1][t-1] + g->m[t-1][array_cities[2]-1];
+        printf("Длина:  %d\n", dlina);
+        t = array_cities[4];
+    }
+    int b = array_cities[3];
+    for(int i = 4; i <= 5; i++)
+    {
+        printf("%d Путь. Вершины:  ", i);
+        printf("%d -> %d -> %d -> %d\n", array_cities[1], b, t, array_cities[2]);
+        int dlina = 0;
+        dlina = g->m[array_cities[1]-1][b-1] + g->m[b-1][t-1] + g->m[t-1][array_cities[2]-1];
+        printf("Длина:  %d\n", dlina);
+        b = t;
+        t = array_cities[3];
+    }
+}
 
 void graph_clear(struct graph *g, int N)
 {
