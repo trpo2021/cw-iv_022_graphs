@@ -88,6 +88,7 @@ int main(int argc, char *argv[])
                 array_cities[1] = city_1;
 
                 break;
+                
             case 'e':
                 city_2 = atoi(optarg);
 
@@ -101,6 +102,7 @@ int main(int argc, char *argv[])
                 array_cities[2] = city_2;
 
                 break;
+
             case 's':
                 for(int i = 0; i < N; i++)
                 {
@@ -131,13 +133,15 @@ int main(int argc, char *argv[])
                     printf("\n");
                 }
                 break;
-             /*  case 'l':           
+
+             /*case 'l':           
                 for(int i = 0; i < N; i++)
                 {
                     path[i] = 0;
                 }
                 pathlen = 0;
 
+                printf("\n----------------------------------------------");
                 printf("\nСамый длинный путь между городами %d -- %d:  ", city_1, city_2);
 
                 if(city_1 == city_2)
@@ -161,7 +165,8 @@ int main(int argc, char *argv[])
                     }
                     printf("\n");
                 }
-                break;*/
+                break; */
+
             case 'n':    
                 AllPaths(array_cities); // получили номера городов
 
@@ -170,6 +175,7 @@ int main(int argc, char *argv[])
 
                 Length_and_Paths(array_cities, g);
                 break;
+
 			case '?': 
 				printf("Error: unknown argument!\n");
 				break;
