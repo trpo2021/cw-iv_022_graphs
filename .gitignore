@@ -1,2 +1,5 @@
 #ignore object files
-main
+/bin/graphs
+*.o
+*.d
+*.a
