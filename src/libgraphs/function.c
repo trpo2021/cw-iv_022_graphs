@@ -19,7 +19,7 @@ void DijkstraShort(struct graph *g, int src, int *d, int **prev)
         } else {
             d[i] = INT_MAX;
         }
-        
+
         (*prev)[i] = -1;
         heap_insert(h, d[i], i);
     }
@@ -58,7 +58,7 @@ void DijkstraLong(struct graph *g, int src, int *d, int **prev)
         {
             d[i] = 0;
         } else {
-            d[i] = -1;
+            d[i] = 0;
         }
 
         (*prev)[i] = -1;
