@@ -88,7 +88,7 @@ int main(int argc, char *argv[])
                 array_cities[1] = city_1;
 
                 break;
-                
+
             case 'e':
                 city_2 = atoi(optarg);
 
@@ -111,7 +111,7 @@ int main(int argc, char *argv[])
                 pathlen = 0;
 
                 printf("\n----------------------------------------------");
-                printf("\nСамый короткий путь между городами %d -- %d:  ", city_1, city_2);
+                printf("\nСамый короткий путь между городами %d -- %d: ", city_1, city_2);
 
                 if(city_1 == city_2)
                 {
@@ -134,7 +134,7 @@ int main(int argc, char *argv[])
                 }
                 break;
 
-             /*case 'l':           
+            case 'l':           
                 for(int i = 0; i < N; i++)
                 {
                     path[i] = 0;
@@ -142,7 +142,7 @@ int main(int argc, char *argv[])
                 pathlen = 0;
 
                 printf("\n----------------------------------------------");
-                printf("\nСамый длинный путь между городами %d -- %d:  ", city_1, city_2);
+                printf("\nСамый длинный путь между городами %d -- %d: ", city_1, city_2);
 
                 if(city_1 == city_2)
                 {
@@ -165,7 +165,7 @@ int main(int argc, char *argv[])
                     }
                     printf("\n");
                 }
-                break; */
+                break;
 
             case 'n':    
                 AllPaths(array_cities); // получили номера городов
