@@ -7,11 +7,9 @@ int getrand(int min, int max) {
 void DijkstraShort(struct graph *g, int src, int *d, int **prev) {
   heap *h;
   heapnode node;
-  h = heap_create(g->nvertices); // куча создана
-
-  for (int i = 1; i <= g->nvertices;
-       i++) //заполняем кучу вершинами с приоритетом
-  {
+  h = heap_create(g->nvertices);
+  //заполняем кучу вершинами с приоритетом
+  for (int i = 1; i <= g->nvertices; i++) {
     if (i == src) {
       d[i] = 0;
     } else {
@@ -153,7 +151,11 @@ void AllPaths(int *array_cities) {
         (array_cities[2] - 1 != array_cities[1])) {
       array_cities[4] = array_cities[2] - 1;
     } else {
-      array_cities[4] = array_cities[2] + 1;
+      if (array_cities[2] + 1 <= 4) {
+        array_cities[4] = array_cities[2] + 1;
+      } else {
+        array_cities[4] = array_cities[1] - 1;
+      }
     }
 
   } else {
@@ -172,7 +174,11 @@ void AllPaths(int *array_cities) {
         (array_cities[2] - 1 != array_cities[1])) {
       array_cities[4] = array_cities[2] - 1;
     } else {
-      array_cities[4] = array_cities[2] + 1;
+      if (array_cities[2] + 1 <= 4) {
+        array_cities[4] = array_cities[2] + 1;
+      } else {
+        array_cities[4] = array_cities[3] - 1;
+      }
     }
   }
 }

@@ -104,10 +104,10 @@ int main(int argc, char *argv[]) {
 
       if (city_1 == city_2) {
         printf("0\n");
-        printf("Сам путь:  %d\n", city_2);
+        printf("Сам путь1:  %d\n", city_2);
       } else {
         pathlen = SearchShortPath(g, city_1, city_2 - 1, path);
-        printf("Сам путь:  %d ", city_1);
+        printf("Сам путь2:  %d ", city_1);
         for (int i = 1; i <= pathlen; i++) {
           if (path[i] == city_2 - 1) {
             path[i] = city_2;
@@ -146,8 +146,8 @@ int main(int argc, char *argv[]) {
       break;
 
     case 'n':
-      AllPaths(array_cities); // получили номера городов
-
+      AllPaths(array_cities);
+      // получили номера городов
       printf("\n----------------------------------------------");
       printf("\nВы хотите узнать все возможные машруты между данными городами: "
              "%d - %d\n\n",
