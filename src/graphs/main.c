@@ -48,7 +48,7 @@ int main(int argc, char *argv[]) {
     printf("'-l' - длиннейший путь между городами\n");
     return -1;
   }
-
+  int max = -1;
   int opt = 0;
   int city_1;
   int city_2;
@@ -63,7 +63,8 @@ int main(int argc, char *argv[]) {
 
   int path[N]; //массив для востановленного пути
   int pathlen;
-  int array_cities[5] = {0}; //массив городов для удобного использования функций
+  int array_cities[5] = {0};
+  int arr_dlina[5] = {0};
 
   while ((opt = getopt(argc, argv, "nslb:e:")) != -1) {
     switch (opt) {
@@ -104,56 +105,86 @@ int main(int argc, char *argv[]) {
 
       if (city_1 == city_2) {
         printf("0\n");
-        printf("Сам путь1:  %d\n", city_2);
-      } else {
-        pathlen = SearchShortPath(g, city_1, city_2 - 1, path);
-        printf("Сам путь2:  %d ", city_1);
-        for (int i = 1; i <= pathlen; i++) {
-          if (path[i] == city_2 - 1) {
-            path[i] = city_2;
-          }
-          printf("%d ", path[i]);
-        }
-        printf("\n");
-      }
-      break;
-
-    case 'l':
-      for (int i = 0; i < N; i++) {
-        path[i] = 0;
-      }
-      pathlen = 0;
-
-      printf("\n----------------------------------------------");
-      printf("\nСамый длинный путь между городами %d -- %d: ", city_1, city_2);
-
-      if (city_1 == city_2) {
-        printf("0\n");
         printf("Сам путь:  %d\n", city_2);
       } else {
-        pathlen = SearchLongPath(g, city_1, city_2 - 1, path);
-
+        pathlen = SearchShortPath(g, city_1, city_2 - 1, path);
         printf("Сам путь:  %d ", city_1);
-
         for (int i = 1; i <= pathlen; i++) {
           if (path[i] == city_2 - 1) {
             path[i] = city_2;
           }
-          printf("%d ", path[i]);
+          printf("-> %d ", path[i]);
         }
         printf("\n");
       }
       break;
 
     case 'n':
-      AllPaths(array_cities);
-      // получили номера городов
+
       printf("\n----------------------------------------------");
       printf("\nВы хотите узнать все возможные машруты между данными городами: "
-             "%d - %d\n\n",
+             "%d - %d\n",
              array_cities[1], array_cities[2]);
 
-      Length_and_Paths(array_cities, g);
+      AllPaths(array_cities);
+      // получили номера городов
+      int path_long[5] = {0};
+      if (array_cities[1] != array_cities[2]) {
+        int dlina = 0;
+        printf("1 Путь. Вершины:  %d -> %d\n", array_cities[1],
+               array_cities[2]);
+        dlina = Length(array_cities, g, 1, path_long);
+        printf("Длина:  %d\n", dlina);
+        int temp = array_cities[3];
+        for (int i = 2; i <= 3; i++) {
+          printf("%d Путь. Вершины:  ", i);
+          printf("%d -> %d -> %d\n", array_cities[1], temp, array_cities[2]);
+          dlina = Length(array_cities, g, i, path_long);
+          printf("Длина:  %d\n", dlina);
+          temp = array_cities[4];
+        }
+        int temp_2 = array_cities[3];
+        for (int i = 4; i <= 5; i++) {
+          printf("%d Путь. Вершины:  ", i);
+          printf("%d -> %d -> %d -> %d\n", array_cities[1], temp_2, temp,
+                 array_cities[2]);
+          dlina = Length(array_cities, g, i, path_long);
+          printf("Длина:  %d\n", dlina);
+          temp_2 = temp;
+          temp = array_cities[3];
+        }
+      } else {
+        printf("Путей:  0\n");
+      }
+      break;
+
+    case 'l':
+
+      //получили номера городов
+      AllPaths(array_cities);
+      printf("\n----------------------------------------------");
+      int index;
+      if (array_cities[1] != array_cities[2]) {
+        for (int i = 1; i <= 5; i++) {
+          arr_dlina[i] = Length(array_cities, g, i, path_long);
+          if (arr_dlina[i] > max) {
+            max = arr_dlina[i];
+            index = i;
+          }
+        }
+      } else {
+        max = 0;
+      }
+      printf("\nСамый длинный путь между городами %d -- %d: ", city_1, city_2);
+      printf("%d\n", max);
+      printf("Сам путь:  %d ", city_1);
+      if (max != 0) {
+        Length(array_cities, g, index, path_long);
+        for (int i = 2; i <= 4; i++) {
+          printf("-> %d ", path_long[i]);
+        }
+      }
+      printf("\n");
       break;
 
     case '?':
