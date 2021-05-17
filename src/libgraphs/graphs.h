@@ -18,7 +18,7 @@ void DijkstraLong(struct graph *g, int src, int *d, int **prev);
 int SearchShortPath(struct graph *g, int src, int dst, int *path);
 int SearchLongPath(struct graph *g, int src, int dst, int *path);
 void AllPaths(int *array_cities);
-void Length_and_Paths(int *array_cities, struct graph *g);
+int Length(int *array_cities, struct graph *g, int i, int *path_long);
 
 void graph_clear(struct graph *g, int N);
 void graph_set_edge(struct graph *g, int i, int j, int w);
