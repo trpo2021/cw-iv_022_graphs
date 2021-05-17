@@ -37,43 +37,6 @@ void DijkstraShort(struct graph *g, int src, int *d, int **prev) {
   heap_free(h);
 }
 
-// void DijkstraLong(struct graph *g, int src, int *d, int **prev) {
-//   heap *h;
-//   heapnode node;
-//   h = heap_create(g->nvertices);
-//   //заполняем кучу вершинами с приоритетом
-//   for (int i = 1; i <= g->nvertices; i++)
-//   {
-//     if (i == src) {
-//       d[i] = 0;
-//     } else {
-//       d[i] = 0;
-//     }
-
-//     (*prev)[i] = -1;
-//     heap_insert(h, d[i], i);
-//   }
-
-//   for (int i = 1; i <= g->nvertices; i++) {
-//     node = heap_extract_max(h);
-
-//     g->visited[node.value - 1] = 1;
-//     // Цикл по смежным вершинам node
-//     for (int j = 1; j <= g->nvertices; j++)
-//     {
-//       if (graph_get_edge(g, node.value - 1, j) && !g->visited[j - 1]) {
-//         if (d[node.value] + graph_get_edge(g, node.value - 1, j) > d[j])
-//         {
-//           d[j] = d[node.value] + graph_get_edge(g, node.value - 1, j);
-//           heap_increase_key(h, j, d[j]);
-//           (*prev)[j] = node.value;
-//         }
-//       }
-//     }
-//   }
-//   heap_free(h);
-// }
-
 int SearchShortPath(struct graph *g, int src, int dst, int *path) {
   int *array = calloc(g->nvertices, sizeof(int));
   int **prev = calloc(g->nvertices, sizeof(int));
@@ -102,35 +65,6 @@ int SearchShortPath(struct graph *g, int src, int dst, int *path) {
   printf("%d\n", array[dst]);
   return pathlen;
 }
-
-// int SearchLongPath(struct graph *g, int src, int dst, int *path) {
-//   int *array = calloc(g->nvertices, sizeof(int));
-//   int **prev = calloc(g->nvertices, sizeof(int));
-//   *prev = calloc(g->nvertices, sizeof(int));
-
-//   DijkstraLong(g, src, array, prev);
-
-//   int i = dst;
-//   int pathlen = 0;
-//   int j = 0;
-
-//   while (i != src && i < g->nvertices) {
-//     pathlen = pathlen + 1;
-//     i = (*prev)[i];
-//   }
-
-//   i = dst;
-//   path[pathlen] = dst;
-
-//   while (i != src) {
-//     i = (*prev)[i];
-//     path[pathlen - j - 1] = i;
-//     j++;
-//   }
-
-//   printf("%d\n", array[dst]);
-//   return pathlen;
-// }
 
 void AllPaths(int *array_cities) {
 
@@ -321,21 +255,6 @@ heapnode heap_extract_min(heap *h) {
   return node;
 }
 
-// heapnode heap_extract_max(heap *h) {
-//   if (h->nnodes == 0) {
-//     return (heapnode){0, 0};
-//   }
-
-//   heapnode node = h->nodes[1];
-//   h->nodes[1] = h->nodes[h->nnodes];
-//   h->index[h->nodes[h->nnodes].value] = 1;
-//   h->nnodes--;
-
-//   heap_heapify_max(h, 1);
-
-//   return node;
-// }
-
 void heap_heapify_min(heap *h, int index) {
   while (1) {
     int left = 2 * index;
@@ -359,29 +278,6 @@ void heap_heapify_min(heap *h, int index) {
   }
 }
 
-// void heap_heapify_max(heap *h, int index) {
-//   while (1) {
-//     int left = 2 * index;
-//     int right = 2 * index + 1;
-//     int node = index;
-
-//     if (left <= h->nnodes && h->nodes[left].key > h->nodes[index].key) {
-//       node = left;
-//     }
-
-//     if (right <= h->nnodes && h->nodes[right].key > h->nodes[node].key) {
-//       node = right;
-//     }
-
-//     if (node == index) {
-//       break;
-//     }
-
-//     heap_swap(&h->nodes[index], &h->nodes[node], h);
-//     index = node;
-//   }
-// }
-
 int heap_decrease_key(heap *h, int index, int newkey) {
   index = h->index[index];
 
@@ -398,20 +294,3 @@ int heap_decrease_key(heap *h, int index, int newkey) {
 
   return index;
 }
-
-// int heap_increase_key(heap *h, int index, int newkey) {
-//   index = h->index[index];
-
-//   if (h->nodes[index].key >= newkey) {
-//     return -1;
-//   }
-
-//   h->nodes[index].key = newkey;
-
-//   for (; index > 1 && h->nodes[index].key > h->nodes[index / 2].key;
-//        index = index / 2) {
-//     heap_swap(&h->nodes[index], &h->nodes[index / 2], h);
-//   }
-
-//   return index;
-// }
