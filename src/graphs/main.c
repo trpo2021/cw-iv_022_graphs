@@ -25,21 +25,17 @@ int main(int argc, char *argv[]) {
     return -1;
   }
 
-  int max = -1;
-  int opt = 0;
-  int city_1;
-  int city_2;
-
-  struct graph *g = graph_create(N);
-
-  for (int i = 0; i < N; i++) {
-    for (int j = i; j < N; j++) {
-      graph_set_edge(g, i, j, getrand(10, 30));
-    }
+  struct graph *g = graph_create(max_city);
+  if (g == NULL) {
+    return -1;
   }
 
+  graph_initialization(g, N);
+
+  int max = -1;
+  int city_1, city_2;
   int path[N]; //массив для востановленного пути
-  int pathlen;
+  int pathlen, opt;
   int array_cities[5] = {0};
   int arr_dlina[5] = {0};
 

@@ -70,6 +70,14 @@ int arguments_check(char **argv) {
   return 0;
 }
 
+void graph_initialization(struct graph *g, int N) {
+  for (int i = 0; i < N; i++) {
+    for (int j = i; j < N; j++) {
+      graph_set_edge(g, i, j, getrand(10, 30));
+    }
+  }
+}
+
 int SearchShortPath(struct graph *g, int src, int dst, int *path) {
   int *array = calloc(g->nvertices, sizeof(int));
   int **prev = calloc(g->nvertices, sizeof(int));
