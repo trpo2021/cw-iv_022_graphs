@@ -37,6 +37,39 @@ void DijkstraShort(struct graph *g, int src, int *d, int **prev) {
   heap_free(h);
 }
 
+int arguments_check(char **argv) {
+  if (strcmp(argv[1], "-b") != 0) {
+    printf("Ошибка: введите стартовый город, с помощью ключа '-b'\n");
+    printf("Например '-b 3'\n");
+    return -1;
+  }
+
+  if (argv[2] == NULL) {
+    printf("Ошибка: вы не ввели значение стартового города\n");
+    return -1;
+  }
+
+  if ((argv[3] == NULL) || (strcmp(argv[3], "-e") != 0)) {
+    printf("Ошибка: введите конечный город (или значение стартового)\n");
+    printf("С помощью ключа '-e', например '-e 2'\n");
+    return -1;
+  }
+
+  if (argv[4] == NULL) {
+    printf("Ошибка: вы не ввели значение конечного города\n");
+    return -1;
+  }
+
+  if (argv[5] == NULL) {
+    printf("Ошибка: выберите, что вы хотите узнать:\n");
+    printf("'-n' - кол-во маршрутов между городами\n");
+    printf("'-s' - кратчайший путь между городами\n");
+    printf("'-l' - длиннейший путь между городами\n");
+    return -1;
+  }
+  return 0;
+}
+
 int SearchShortPath(struct graph *g, int src, int dst, int *path) {
   int *array = calloc(g->nvertices, sizeof(int));
   int **prev = calloc(g->nvertices, sizeof(int));
