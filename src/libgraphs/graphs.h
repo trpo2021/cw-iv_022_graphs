@@ -1,5 +1,6 @@
 #pragma once
 #include <limits.h>
+#include <locale.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -12,7 +13,7 @@ struct graph {
 };
 
 int getrand(int min, int max);
-
+int arguments_check(char **argv);
 void DijkstraShort(struct graph *g, int src, int *d, int **prev);
 void DijkstraLong(struct graph *g, int src, int *d, int **prev);
 int SearchShortPath(struct graph *g, int src, int dst, int *path);

@@ -3,51 +3,28 @@
 
 int main(int argc, char *argv[]) {
   if (argv[1] == NULL) {
-    printf("Ваш полный граф выглядит так:\n");
-    printf("[1] - [2]\n");
-    printf(" |  X  |\n");
-    printf("[4] - [3]\n");
-    printf("\nРебро [1 - 2] = 17\nРебро [2 - 3] = 13\nРебро [3 - 4] = 15\n");
-    printf("Ребро [4 - 1] = 25\nРебро [1 - 3] = 25\nРебро [2 - 4] = 16\n");
-    printf("\nВыберите две вершины с помощью ключей '-b X' и '-e X', где X - "
-           "номер вершины, b - стартовый город, e - конечный\n");
-    printf("После этого выберите, что вы хотели бы узнать:\n");
-    printf("'-n' - кол-во маршрутов между городами\n");
-    printf("'-s' - кратчайший путь между городами\n");
-    printf("'-l' - длиннейший путь между городами\n");
-    printf("Пример ввода ключей: './prog_name -b 3 -e 2 -nsl'\n");
+    FILE *file = fopen("src/graphs/instruction.txt", "rt");
+    if (file == NULL) {
+      printf("Ошибка: не удаётся открыть инструкцию\n");
+      return -1;
+    }
+
+    setlocale(LC_ALL, "Russian");
+    char *arr = malloc(sizeof(char) * 75);
+    while (fgets(arr, 75, file) != NULL)
+      printf("%s", arr);
+    printf("\n");
+
+    free(arr);
+    fclose(file);
     return -1;
   }
 
-  if (strcmp(argv[1], "-b") != 0) {
-    printf("Error: сперва введите стартовый город, с помощью ключа '-b', "
-           "например '-b 3'\n");
+  int s = arguments_check(argv);
+  if (s == -1) {
     return -1;
   }
 
-  if (argv[2] == NULL) {
-    printf("Error: вы не ввели стартовый город\n");
-    return -1;
-  }
-
-  if ((argv[3] == NULL) || (strcmp(argv[3], "-e") != 0)) {
-    printf("Error: введите конечный город (или значение стартового), с помощью "
-           "ключа '-e', например '-e 2'\n");
-    return -1;
-  }
-
-  if (argv[4] == NULL) {
-    printf("Error: вы не ввели конечный город\n");
-    return -1;
-  }
-
-  if (argv[5] == NULL) {
-    printf("Error: выберите, что вы хотите узнать:\n");
-    printf("'-n' - кол-во маршрутов между городами\n");
-    printf("'-s' - кратчайший путь между городами\n");
-    printf("'-l' - длиннейший путь между городами\n");
-    return -1;
-  }
   int max = -1;
   int opt = 0;
   int city_1;
