@@ -21,21 +21,21 @@ enum cities {
   fourth_city = 4
 };
 
-int getrand(int min, int max);
+int get_rand(int min, int max);
 int arguments_check(char **argv);
-void graph_initialization(struct graph *g, int N);
+void graph_initialization(struct graph *g, int max_city);
 void DijkstraShort(struct graph *g, int src, int *d, int **prev);
 void DijkstraLong(struct graph *g, int src, int *d, int **prev);
 int SearchShortPath(struct graph *g, int src, int dst, int *path);
 int SearchLongPath(struct graph *g, int src, int dst, int *path);
-void AllPaths(int *array_cities);
+void all_paths(int *array_cities);
 int Length(int *array_cities, struct graph *g, int i, int *path_long);
 
 void graph_clear(struct graph *g, int N);
 void graph_set_edge(struct graph *g, int i, int j, int w);
 int graph_get_edge(struct graph *g, int i, int j);
 struct graph *graph_create(int nvertices);
-void graph_free(struct graph *g, int N);
+void graph_free(struct graph *g, int max_city);
 
 typedef struct {
   int key;
