@@ -12,8 +12,18 @@ struct graph {
   int *visited;
 };
 
+enum cities {
+  max_city = 4,
+  min_city = 1,
+  first_city = 1,
+  second_city = 2,
+  third_city = 3,
+  fourth_city = 4
+};
+
 int getrand(int min, int max);
 int arguments_check(char **argv);
+void graph_initialization(struct graph *g, int N);
 void DijkstraShort(struct graph *g, int src, int *d, int **prev);
 void DijkstraLong(struct graph *g, int src, int *d, int **prev);
 int SearchShortPath(struct graph *g, int src, int dst, int *path);
