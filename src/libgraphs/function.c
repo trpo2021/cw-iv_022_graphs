@@ -57,10 +57,15 @@ void all_paths(int *array_cities) {
           (array_cities[2] - 1 != array_cities[1])) {
         array_cities[4] = array_cities[2] - 1;
       } else {
-        if (array_cities[2] + 1 <= 4) {
+        if ((array_cities[2] + 1 <= 4) &&
+            (array_cities[2] + 1 != array_cities[1])) {
           array_cities[4] = array_cities[2] + 1;
         } else {
-          array_cities[4] = array_cities[1] - 1;
+          if (array_cities[2] + 1 > 4) {
+            array_cities[4] = array_cities[1] - 1;
+          } else {
+            array_cities[4] = array_cities[2] + array_cities[3];
+          }
         }
       }
     } else {
@@ -113,8 +118,8 @@ int Length(int *array_cities, struct graph *g, int i, int *path_long) {
   }
   if (i == 5) {
     path_long[2] = array_cities[4];
-    path_long[4] = array_cities[3];
-    path_long[3] = array_cities[2];
+    path_long[4] = array_cities[2];
+    path_long[3] = array_cities[3];
     return g->m[array_cities[1] - 1][array_cities[3] - 1] +
            g->m[array_cities[3] - 1][array_cities[4] - 1] +
            g->m[array_cities[4] - 1][array_cities[2] - 1];
@@ -139,9 +144,7 @@ void graph_set_edge(struct graph *g, int i, int j, int w) {
   }
 }
 
-int graph_get_edge(struct graph *g, int i, int j) { 
-  return g->m[i][j];
-}
+int graph_get_edge(struct graph *g, int i, int j) { return g->m[i][j]; }
 
 struct graph *graph_create(int nvertices) {
   struct graph *g;
