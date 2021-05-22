@@ -83,11 +83,11 @@ int main(int argc, char *argv[]) {
 
       printf("\nСамый короткий путь между городами %d -- %d: %d", start_city,
              final_city, min);
-      printf("Сам путь:  %d ", start_city);
+      printf("\nСам путь:  %d ", start_city);
 
       if (min != 0) {
         Length(arr_cities, g, index, path_long);
-        for (int i = 2; i <= 4; i++) {
+        for (int i = 2; i <= index + 1; i++) {
           printf("-> %d ", path_long[i]);
         }
       }
@@ -96,8 +96,8 @@ int main(int argc, char *argv[]) {
 
     case 'n':
       printf("\n----------------------------------------------");
-      printf("\nВсе машруты между городами: %d - %d\n", arr_cities[1],
-             arr_cities[2]);
+      printf("\nВсе машруты между вышими городами: %d - %d\n", start_city,
+             final_city);
 
       if (arr_cities[1] != arr_cities[2]) {
         int length = 0;
