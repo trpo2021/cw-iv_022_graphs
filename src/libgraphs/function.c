@@ -45,8 +45,7 @@ void graph_initialization(struct graph *g, int max_city) {
   }
 }
 
-void all_paths(int *array_cities) {
-
+void cities_numbers(int *array_cities) {
   if (array_cities[1] != array_cities[2]) {
     if ((array_cities[1] + 1 != array_cities[2]) &&
         (array_cities[1] + 1 <= 4)) {
@@ -127,6 +126,46 @@ int Length(int *array_cities, struct graph *g, int i, int *path_long) {
   return 0;
 }
 
+void all_paths(int *arr_cities, struct graph *g, int *path_long) {
+  if (arr_cities[1] != arr_cities[2]) {
+    int length = 0;
+
+    printf("1 Путь. Вершины:  %d -> %d\n", arr_cities[1], arr_cities[2]);
+    length = Length(arr_cities, g, 1, path_long);
+    printf("Длина:  %d\n", length);
+
+    int temp = arr_cities[3];
+    int temp_2 = arr_cities[3];
+
+    for (int i = 2; i <= 3; i++) {
+      printf("%d Путь. Вершины:  ", i);
+      printf("%d -> %d -> %d\n", arr_cities[1], temp, arr_cities[2]);
+      length = Length(arr_cities, g, i, path_long);
+      printf("Длина:  %d\n", length);
+      temp = arr_cities[4];
+    }
+
+    for (int i = 4; i <= 5; i++) {
+      printf("%d Путь. Вершины:  ", i);
+      printf("%d -> %d -> %d -> %d\n", arr_cities[1], temp_2, temp,
+             arr_cities[2]);
+      length = Length(arr_cities, g, i, path_long);
+      printf("Длина:  %d\n", length);
+      temp_2 = temp;
+      temp = arr_cities[3];
+    }
+  } else {
+    printf("Путей:  0\n");
+  }
+}
+
+void free_array(int *path_long, int *arr_length, int *arr_cities, int *path) {
+  free(path);
+  free(arr_cities);
+  free(arr_length);
+  free(path_long);
+}
+
 void graph_clear(struct graph *g, int N) {
   for (int i = 1; i < N - 1; i++) {
     for (int j = 0; j < N; j++) {
@@ -146,9 +185,18 @@ void graph_set_edge(struct graph *g, int i, int j, int w) {
 
 int graph_get_edge(struct graph *g, int i, int j) { return g->m[i][j]; }
 
+int memory_check(int *array) {
+  if (array == NULL) {
+    printf("Ошибка выделения памяти под массив\n");
+    return -1;
+  }
+  return 0;
+}
+
 struct graph *graph_create(int nvertices) {
   struct graph *g;
   g = malloc(sizeof(*g));
+
   if (g == NULL) {
     printf("Ошибка выделения памяти под граф\n");
     return NULL;
@@ -156,6 +204,7 @@ struct graph *graph_create(int nvertices) {
 
   g->nvertices = nvertices;
   g->m = malloc(sizeof(int *) * nvertices);
+
   if (g->m == NULL) {
     printf("Ошибка выделения памяти в графе\n");
     free(g);
@@ -164,9 +213,17 @@ struct graph *graph_create(int nvertices) {
 
   for (int i = 0; i < nvertices; i++) {
     g->m[i] = malloc(sizeof(int) * nvertices);
+
+    if (g->m[i] == NULL) {
+      printf("Ошибка выделения памяти в графе\n");
+      free(g->m);
+      free(g);
+      return NULL;
+    }
   }
 
   g->visited = malloc(sizeof(int) * nvertices);
+
   if (g->visited == NULL) {
     printf("Ошибка выделения памяти под посещаемые вершины\n");
     for (int i = 0; i < max_city; i++) {
