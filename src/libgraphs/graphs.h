@@ -1,5 +1,6 @@
 #pragma once
 #include <limits.h>
+#include <locale.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -11,18 +12,33 @@ struct graph {
   int *visited;
 };
 
-int getrand(int min, int max);
+enum cities {
+  max_city = 4,
+  min_city = 1,
+  first_city = 1,
+  second_city = 2,
+  third_city = 3,
+  fourth_city = 4
+};
 
+int get_rand(int min, int max);
+int arguments_check(char **argv);
+void graph_initialization(struct graph *g, int max_city);
+
+//////
 void DijkstraShort(struct graph *g, int src, int *d, int **prev);
 int SearchShortPath(struct graph *g, int src, int dst, int *path);
-void AllPaths(int *array_cities);
+int SearchLongPath(struct graph *g, int src, int dst, int *path);
+//////
+
+void all_paths(int *array_cities);
 int Length(int *array_cities, struct graph *g, int i, int *path_long);
 
 void graph_clear(struct graph *g, int N);
 void graph_set_edge(struct graph *g, int i, int j, int w);
 int graph_get_edge(struct graph *g, int i, int j);
 struct graph *graph_create(int nvertices);
-void graph_free(struct graph *g, int N);
+void graph_free(struct graph *g, int max_city);
 
 typedef struct {
   int key;
@@ -36,6 +52,7 @@ typedef struct {
   heapnode *nodes;
 } heap;
 
+/////
 heap *heap_create(int maxsize);
 void heap_free(heap *h);
 void heap_swap(heapnode *a, heapnode *b, heap *h);
@@ -43,3 +60,4 @@ int heap_insert(heap *h, int key, int value);
 heapnode heap_extract_min(heap *h);
 void heap_heapify_min(heap *h, int index);
 int heap_decrease_key(heap *h, int index, int key);
+/////

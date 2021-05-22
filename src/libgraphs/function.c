@@ -1,72 +1,51 @@
 #include "graphs.h"
 
-int getrand(int min, int max) {
+int get_rand(int min, int max) {
   return (double)rand() / (RAND_MAX + 1.0) * (max - min) + min;
 }
 
-void DijkstraShort(struct graph *g, int src, int *d, int **prev) {
-  heap *h;
-  heapnode node;
-  h = heap_create(g->nvertices);
-  //заполняем кучу вершинами с приоритетом
-  for (int i = 1; i <= g->nvertices; i++) {
-    if (i == src) {
-      d[i] = 0;
-    } else {
-      d[i] = INT_MAX;
-    }
-
-    (*prev)[i] = -1;
-    heap_insert(h, d[i], i);
+int arguments_check(char **argv) {
+  if (strcmp(argv[1], "-b") != 0) {
+    printf("Ошибка: введите стартовый город, с помощью ключа '-b'\n");
+    printf("Например '-b 3'\n");
+    return -1;
   }
 
-  for (int i = 1; i <= g->nvertices; i++) {
-    node = heap_extract_min(h);
-    // Отмечаем node как посещенную
-    g->visited[node.value - 1] = 1;
-    for (int j = 1; j <= g->nvertices; j++) {
-      if (graph_get_edge(g, node.value - 1, j) && !g->visited[j - 1]) {
-        if (d[node.value] + graph_get_edge(g, node.value - 1, j) < d[j]) {
-          d[j] = d[node.value] + graph_get_edge(g, node.value - 1, j);
-          heap_decrease_key(h, j, d[j]);
-          (*prev)[j] = node.value;
-        }
-      }
-    }
+  if (argv[2] == NULL) {
+    printf("Ошибка: вы не ввели значение стартового города\n");
+    return -1;
   }
-  heap_free(h);
+
+  if ((argv[3] == NULL) || (strcmp(argv[3], "-e") != 0)) {
+    printf("Ошибка: введите конечный город (или значение стартового)\n");
+    printf("С помощью ключа '-e', например '-e 2'\n");
+    return -1;
+  }
+
+  if (argv[4] == NULL) {
+    printf("Ошибка: вы не ввели значение конечного города\n");
+    return -1;
+  }
+
+  if (argv[5] == NULL) {
+    printf("Ошибка: выберите, что вы хотите узнать:\n");
+    printf("'-n' - кол-во маршрутов между городами\n");
+    printf("'-s' - кратчайший путь между городами\n");
+    printf("'-l' - длиннейший путь между городами\n");
+    return -1;
+  }
+  return 0;
 }
 
-int SearchShortPath(struct graph *g, int src, int dst, int *path) {
-  int *array = calloc(g->nvertices, sizeof(int));
-  int **prev = calloc(g->nvertices, sizeof(int));
-  *prev = calloc(g->nvertices, sizeof(int));
-
-  DijkstraShort(g, src, array, prev);
-
-  int i = dst;
-  int pathlen = 0;
-  int j = 0;
-
-  while (i != src && i < g->nvertices) {
-    pathlen = pathlen + 1;
-    i = (*prev)[i];
+void graph_initialization(struct graph *g, int max_city) {
+  for (int i = 0; i < max_city; i++) {
+    for (int j = i; j < max_city; j++) {
+      graph_set_edge(g, i, j, get_rand(10, 30));
+    }
   }
-
-  i = dst;
-  path[pathlen] = dst;
-
-  while (i != src) {
-    i = (*prev)[i];
-    path[pathlen - j - 1] = i;
-    j++;
-  }
-
-  printf("%d\n", array[dst]);
-  return pathlen;
 }
 
-void AllPaths(int *array_cities) {
+void all_paths(int *array_cities) {
 
   if (array_cities[1] != array_cities[2]) {
     if ((array_cities[1] + 1 != array_cities[2]) &&
@@ -167,23 +146,42 @@ int graph_get_edge(struct graph *g, int i, int j) {
 struct graph *graph_create(int nvertices) {
   struct graph *g;
   g = malloc(sizeof(*g));
+  if (g == NULL) {
+    printf("Ошибка выделения памяти под граф\n");
+    return NULL;
+  }
+
   g->nvertices = nvertices;
   g->m = malloc(sizeof(int *) * nvertices);
+  if (g->m == NULL) {
+    printf("Ошибка выделения памяти в графе\n");
+    free(g);
+    return NULL;
+  }
 
   for (int i = 0; i < nvertices; i++) {
     g->m[i] = malloc(sizeof(int) * nvertices);
   }
 
   g->visited = malloc(sizeof(int) * nvertices);
+  if (g->visited == NULL) {
+    printf("Ошибка выделения памяти под посещаемые вершины\n");
+    for (int i = 0; i < max_city; i++) {
+      free(g->m[i]);
+    }
+    free(g->m);
+    free(g);
+    return NULL;
+  }
 
   graph_clear(g, nvertices);
   return g;
 }
 
-void graph_free(struct graph *g, int N) {
+void graph_free(struct graph *g, int max_city) {
   free(g->visited);
 
-  for (int i = 0; i < N; i++) {
+  for (int i = 0; i < max_city; i++) {
     free(g->m[i]);
   }
 
