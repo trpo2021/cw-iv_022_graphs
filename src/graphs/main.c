@@ -49,7 +49,6 @@ int main(int argc, char *argv[]) {
       }
 
       arr_cities[1] = start_city;
-
       break;
 
     case 'e':
