@@ -126,7 +126,11 @@ int Length(int *array_cities, struct graph *g, int i, int *path_long) {
   return 0;
 }
 
-void all_paths(int *arr_cities, struct graph *g, int *path_long) {
+void all_paths(int *arr_cities, struct graph *g, int *path_long, int start_city,
+               int final_city) {
+  printf("\n----------------------------------------------");
+  printf("\nВсе маршруты между городами: %d - %d\n", start_city, final_city);
+
   if (arr_cities[1] != arr_cities[2]) {
     int length = 0;
 
@@ -159,7 +163,67 @@ void all_paths(int *arr_cities, struct graph *g, int *path_long) {
   }
 }
 
-void free_array(int *path_long, int *arr_length, int *arr_cities, int *path) {
+void shortest_path(int *arr_cities, int *arr_length, int *path_long,
+                   struct graph *g, int index, int start_city, int final_city) {
+  printf("\n----------------------------------------------");
+  int min = 999;
+
+  if (arr_cities[1] != arr_cities[2]) {
+    for (int i = 1; i <= 5; i++) {
+      arr_length[i] = Length(arr_cities, g, i, path_long);
+      if (arr_length[i] < min) {
+        min = arr_length[i];
+        index = i;
+      }
+    }
+  } else {
+    min = 0;
+  }
+
+  printf("\nСамый короткий путь между городами %d -- %d: %d", start_city,
+         final_city, min);
+  printf("\nСам путь:  %d ", start_city);
+
+  if (min != 0) {
+    Length(arr_cities, g, index, path_long);
+    for (int i = 2; i <= index + 1; i++) {
+      printf("-> %d ", path_long[i]);
+    }
+  }
+  printf("\n");
+}
+
+void longest_path(int *arr_cities, int *arr_length, int *path_long,
+                  struct graph *g, int index, int start_city, int final_city) {
+  printf("\n----------------------------------------------");
+  int max = -1;
+
+  if (arr_cities[1] != arr_cities[2]) {
+    for (int i = 1; i <= 5; i++) {
+      arr_length[i] = Length(arr_cities, g, i, path_long);
+      if (arr_length[i] > max) {
+        max = arr_length[i];
+        index = i;
+      }
+    }
+  } else {
+    max = 0;
+  }
+
+  printf("\nСамый длинный путь между городами %d -- %d: %d\n", start_city,
+         final_city, max);
+  printf("Сам путь:  %d ", start_city);
+
+  if (max != 0) {
+    Length(arr_cities, g, index, path_long);
+    for (int i = 2; i <= 4; i++) {
+      printf("-> %d ", path_long[i]);
+    }
+  }
+  printf("\n");
+}
+
+void free_arrays(int *path_long, int *arr_length, int *arr_cities, int *path) {
   free(path);
   free(arr_cities);
   free(arr_length);
