@@ -33,7 +33,7 @@ int main(int argc, char *argv[]) {
 
   int start_city, final_city, opt, index;
   int *path = malloc(sizeof(int) * max_city); //массив для востановленного пути
-  int *array_cities = calloc(max_city + 1, sizeof(int));
+  int *arr_cities = calloc(max_city + 1, sizeof(int));
   int *arr_length = calloc(max_city + 1, sizeof(int));
   int *path_long = calloc(max_city + 1, sizeof(int));
 
@@ -48,7 +48,7 @@ int main(int argc, char *argv[]) {
         return -1;
       }
 
-      array_cities[1] = start_city;
+      arr_cities[1] = start_city;
 
       break;
 
@@ -61,17 +61,17 @@ int main(int argc, char *argv[]) {
         return -1;
       }
 
-      array_cities[2] = final_city;
-      all_paths(array_cities);
+      arr_cities[2] = final_city;
+      all_paths(arr_cities);
       break;
 
     case 's':
       printf("\n----------------------------------------------");
       int min = 999;
 
-      if (array_cities[1] != array_cities[2]) {
+      if (arr_cities[1] != arr_cities[2]) {
         for (int i = 1; i <= 5; i++) {
-          arr_length[i] = Length(array_cities, g, i, path_long);
+          arr_length[i] = Length(arr_cities, g, i, path_long);
           if (arr_length[i] < min) {
             min = arr_length[i];
             index = i;
@@ -86,7 +86,7 @@ int main(int argc, char *argv[]) {
       printf("Сам путь:  %d ", start_city);
 
       if (min != 0) {
-        Length(array_cities, g, index, path_long);
+        Length(arr_cities, g, index, path_long);
         for (int i = 2; i <= 4; i++) {
           printf("-> %d ", path_long[i]);
         }
@@ -95,34 +95,32 @@ int main(int argc, char *argv[]) {
       break;
 
     case 'n':
-
       printf("\n----------------------------------------------");
-      printf("\nВсе возможные машруты между данными городами: %d - %d\n",
-             array_cities[1], array_cities[2]);
+      printf("\nВсе машруты между городами: %d - %d\n", arr_cities[1],
+             arr_cities[2]);
 
-      if (array_cities[1] != array_cities[2]) {
+      if (arr_cities[1] != arr_cities[2]) {
         int length = 0;
-        printf("1 Путь. Вершины:  %d -> %d\n", array_cities[1],
-               array_cities[2]);
-        length = Length(array_cities, g, 1, path_long);
+        printf("1 Путь. Вершины:  %d -> %d\n", arr_cities[1], arr_cities[2]);
+        length = Length(arr_cities, g, 1, path_long);
         printf("Длина:  %d\n", length);
-        int temp = array_cities[3];
+        int temp = arr_cities[3];
         for (int i = 2; i <= 3; i++) {
           printf("%d Путь. Вершины:  ", i);
-          printf("%d -> %d -> %d\n", array_cities[1], temp, array_cities[2]);
-          length = Length(array_cities, g, i, path_long);
+          printf("%d -> %d -> %d\n", arr_cities[1], temp, arr_cities[2]);
+          length = Length(arr_cities, g, i, path_long);
           printf("Длина:  %d\n", length);
-          temp = array_cities[4];
+          temp = arr_cities[4];
         }
-        int temp_2 = array_cities[3];
+        int temp_2 = arr_cities[3];
         for (int i = 4; i <= 5; i++) {
           printf("%d Путь. Вершины:  ", i);
-          printf("%d -> %d -> %d -> %d\n", array_cities[1], temp_2, temp,
-                 array_cities[2]);
-          length = Length(array_cities, g, i, path_long);
+          printf("%d -> %d -> %d -> %d\n", arr_cities[1], temp_2, temp,
+                 arr_cities[2]);
+          length = Length(arr_cities, g, i, path_long);
           printf("Длина:  %d\n", length);
           temp_2 = temp;
-          temp = array_cities[3];
+          temp = arr_cities[3];
         }
       } else {
         printf("Путей:  0\n");
@@ -133,9 +131,9 @@ int main(int argc, char *argv[]) {
       printf("\n----------------------------------------------");
       int max = -1;
 
-      if (array_cities[1] != array_cities[2]) {
+      if (arr_cities[1] != arr_cities[2]) {
         for (int i = 1; i <= 5; i++) {
-          arr_length[i] = Length(array_cities, g, i, path_long);
+          arr_length[i] = Length(arr_cities, g, i, path_long);
           if (arr_length[i] > max) {
             max = arr_length[i];
             index = i;
@@ -150,7 +148,7 @@ int main(int argc, char *argv[]) {
       printf("Сам путь:  %d ", start_city);
 
       if (max != 0) {
-        Length(array_cities, g, index, path_long);
+        Length(arr_cities, g, index, path_long);
         for (int i = 2; i <= 4; i++) {
           printf("-> %d ", path_long[i]);
         }
@@ -165,7 +163,7 @@ int main(int argc, char *argv[]) {
   }
 
   free(path);
-  free(array_cities);
+  free(arr_cities);
   free(arr_length);
   free(path_long);
   graph_free(g, max_city);
