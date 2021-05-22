@@ -25,8 +25,13 @@ int get_rand(int min, int max);
 int arguments_check(char **argv);
 void graph_initialization(struct graph *g, int max_city);
 int memory_check(int *array);
-void all_paths(int *arr_cities, struct graph *g, int *path_long);
-void free_array(int *path_long, int *arr_length, int *arr_cities, int *path);
+void all_paths(int *arr_cities, struct graph *g, int *path_long, int start_city,
+               int final_city);
+void free_arrays(int *path_long, int *arr_length, int *arr_cities, int *path);
+void longest_path(int *arr_cities, int *arr_length, int *path_long,
+                  struct graph *g, int index, int start_city, int final_city);
+void shortest_path(int *arr_cities, int *arr_length, int *path_long,
+                   struct graph *g, int index, int start_city, int final_city);
 //////
 void DijkstraShort(struct graph *g, int src, int *d, int **prev);
 int SearchShortPath(struct graph *g, int src, int dst, int *path);
