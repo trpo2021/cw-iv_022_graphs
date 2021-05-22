@@ -78,35 +78,6 @@ void graph_initialization(struct graph *g, int max_city) {
   }
 }
 
-int SearchShortPath(struct graph *g, int src, int dst, int *path) {
-  int *array = calloc(g->nvertices, sizeof(int));
-  int **prev = calloc(g->nvertices, sizeof(int));
-  *prev = calloc(g->nvertices, sizeof(int));
-
-  DijkstraShort(g, src, array, prev);
-
-  int i = dst;
-  int pathlen = 0;
-  int j = 0;
-
-  while (i != src && i < g->nvertices) {
-    pathlen = pathlen + 1;
-    i = (*prev)[i];
-  }
-
-  i = dst;
-  path[pathlen] = dst;
-
-  while (i != src) {
-    i = (*prev)[i];
-    path[pathlen - j - 1] = i;
-    j++;
-  }
-
-  printf("%d\n", array[dst]);
-  return pathlen;
-}
-
 void all_paths(int *array_cities) {
 
   if (array_cities[1] != array_cities[2]) {
