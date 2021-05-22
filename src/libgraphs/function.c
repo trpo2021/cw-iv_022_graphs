@@ -4,8 +4,7 @@ int get_rand(int min, int max) {
   return (double)rand() / (RAND_MAX + 1.0) * (max - min) + min;
 }
 
-int arguments_check(char **argv) 
-{
+int arguments_check(char **argv) {
   if (strcmp(argv[1], "-b") != 0) {
     printf("Ошибка: введите стартовый город, с помощью ключа '-b'\n");
     printf("Например '-b 3'\n");
