@@ -4,40 +4,8 @@ int get_rand(int min, int max) {
   return (double)rand() / (RAND_MAX + 1.0) * (max - min) + min;
 }
 
-void DijkstraShort(struct graph *g, int src, int *d, int **prev) {
-  heap *h;
-  heapnode node;
-  h = heap_create(g->nvertices);
-  //заполняем кучу вершинами с приоритетом
-  for (int i = 1; i <= g->nvertices; i++) {
-    if (i == src) {
-      d[i] = 0;
-    } else {
-      d[i] = INT_MAX;
-    }
-
-    (*prev)[i] = -1;
-    heap_insert(h, d[i], i);
-  }
-
-  for (int i = 1; i <= g->nvertices; i++) {
-    node = heap_extract_min(h);
-    // Отмечаем node как посещенную
-    g->visited[node.value - 1] = 1;
-    for (int j = 1; j <= g->nvertices; j++) {
-      if (graph_get_edge(g, node.value - 1, j) && !g->visited[j - 1]) {
-        if (d[node.value] + graph_get_edge(g, node.value - 1, j) < d[j]) {
-          d[j] = d[node.value] + graph_get_edge(g, node.value - 1, j);
-          heap_decrease_key(h, j, d[j]);
-          (*prev)[j] = node.value;
-        }
-      }
-    }
-  }
-  heap_free(h);
-}
-
-int arguments_check(char **argv) {
+int arguments_check(char **argv) 
+{
   if (strcmp(argv[1], "-b") != 0) {
     printf("Ошибка: введите стартовый город, с помощью ключа '-b'\n");
     printf("Например '-b 3'\n");
