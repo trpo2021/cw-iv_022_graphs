@@ -188,7 +188,7 @@ int main(int argc, char *argv[]) {
       break;
 
     case '?':
-      printf("Error: unknown argument!\n");
+      printf("Ошибка: неизвестный аргумент!\n");
       break;
     }
   }
