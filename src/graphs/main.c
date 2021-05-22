@@ -31,11 +31,37 @@ int main(int argc, char *argv[]) {
 
   graph_initialization(g, max_city);
 
-  int start_city, final_city, opt, index;
+  int start_city, final_city, opt, index, check;
+
   int *path = malloc(sizeof(int) * max_city); //массив для востановленного пути
+
+  if ((check = memory_check(path)) == -1) {
+    return -1;
+  }
+
   int *arr_cities = calloc(max_city + 1, sizeof(int));
+
+  if ((check = memory_check(arr_cities)) == -1) {
+    free(path);
+    return -1;
+  }
+
   int *arr_length = calloc(max_city + 1, sizeof(int));
+
+  if ((check = memory_check(arr_length)) == -1) {
+    free(path);
+    free(arr_cities);
+    return -1;
+  }
+
   int *path_long = calloc(max_city + 1, sizeof(int));
+
+  if ((check = memory_check(path_long)) == -1) {
+    free(path);
+    free(arr_cities);
+    free(arr_length);
+    return -1;
+  }
 
   while ((opt = getopt(argc, argv, "nslb:e:")) != -1) {
     switch (opt) {
@@ -43,7 +69,7 @@ int main(int argc, char *argv[]) {
       start_city = atoi(optarg);
 
       if ((start_city < min_city) || (start_city > max_city)) {
-        printf("Error: введите корректное значение стартового города\n");
+        printf("Ошибка: введите корректное значение стартового города\n");
         graph_free(g, max_city);
         return -1;
       }
@@ -55,13 +81,19 @@ int main(int argc, char *argv[]) {
       final_city = atoi(optarg);
 
       if ((final_city < min_city) || (final_city > max_city)) {
-        printf("Error: введите корректное значение конечного города\n");
+        printf("Ошибка: введите корректное значение конечного города\n");
         graph_free(g, max_city);
         return -1;
       }
 
+      if (final_city == start_city) {
+        printf(
+            "Ошибка: приложение не обрабатывает маршруты для одного города\n");
+        return -1;
+      }
+
       arr_cities[2] = final_city;
-      all_paths(arr_cities);
+      cities_numbers(arr_cities);
       break;
 
     case 's':
@@ -95,35 +127,10 @@ int main(int argc, char *argv[]) {
 
     case 'n':
       printf("\n----------------------------------------------");
-      printf("\nВсе машруты между вышими городами: %d - %d\n", start_city,
+      printf("\nВсе маршруты между городами: %d - %d\n", start_city,
              final_city);
 
-      if (arr_cities[1] != arr_cities[2]) {
-        int length = 0;
-        printf("1 Путь. Вершины:  %d -> %d\n", arr_cities[1], arr_cities[2]);
-        length = Length(arr_cities, g, 1, path_long);
-        printf("Длина:  %d\n", length);
-        int temp = arr_cities[3];
-        for (int i = 2; i <= 3; i++) {
-          printf("%d Путь. Вершины:  ", i);
-          printf("%d -> %d -> %d\n", arr_cities[1], temp, arr_cities[2]);
-          length = Length(arr_cities, g, i, path_long);
-          printf("Длина:  %d\n", length);
-          temp = arr_cities[4];
-        }
-        int temp_2 = arr_cities[3];
-        for (int i = 4; i <= 5; i++) {
-          printf("%d Путь. Вершины:  ", i);
-          printf("%d -> %d -> %d -> %d\n", arr_cities[1], temp_2, temp,
-                 arr_cities[2]);
-          length = Length(arr_cities, g, i, path_long);
-          printf("Длина:  %d\n", length);
-          temp_2 = temp;
-          temp = arr_cities[3];
-        }
-      } else {
-        printf("Путей:  0\n");
-      }
+      all_paths(arr_cities, g, path_long);
       break;
 
     case 'l':
@@ -161,10 +168,7 @@ int main(int argc, char *argv[]) {
     }
   }
 
-  free(path);
-  free(arr_cities);
-  free(arr_length);
-  free(path_long);
+  free_array(path_long, arr_length, arr_cities, path);
   graph_free(g, max_city);
   return 0;
 }
