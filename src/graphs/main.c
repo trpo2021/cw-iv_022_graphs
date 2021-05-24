@@ -1,4 +1,4 @@
-#include <libgraphs/graphs.h>
+#include <libgraphs/lib_for_cities.h>
 
 int main(int argc, char *argv[]) {
   if (argv[1] == NULL) {
