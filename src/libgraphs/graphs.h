@@ -32,14 +32,10 @@ void longest_path(int *arr_cities, int *arr_length, int *path_long,
                   struct graph *g, int index, int start_city, int final_city);
 void shortest_path(int *arr_cities, int *arr_length, int *path_long,
                    struct graph *g, int index, int start_city, int final_city);
-//////
-void DijkstraShort(struct graph *g, int src, int *d, int **prev);
-int SearchShortPath(struct graph *g, int src, int dst, int *path);
-int SearchLongPath(struct graph *g, int src, int dst, int *path);
-//////
+
 
 void cities_numbers(int *array_cities);
-int Length(int *array_cities, struct graph *g, int i, int *path_long);
+int length(int *array_cities, struct graph *g, int i, int *path_long);
 
 void graph_clear(struct graph *g, int N);
 void graph_set_edge(struct graph *g, int i, int j, int w);
@@ -47,24 +43,3 @@ int graph_get_edge(struct graph *g, int i, int j);
 struct graph *graph_create(int nvertices);
 void graph_free(struct graph *g, int max_city);
 
-typedef struct {
-  int key;
-  int value;
-} heapnode;
-
-typedef struct {
-  int *index;
-  int maxsize;
-  int nnodes;
-  heapnode *nodes;
-} heap;
-
-/////
-heap *heap_create(int maxsize);
-void heap_free(heap *h);
-void heap_swap(heapnode *a, heapnode *b, heap *h);
-int heap_insert(heap *h, int key, int value);
-heapnode heap_extract_min(heap *h);
-void heap_heapify_min(heap *h, int index);
-int heap_decrease_key(heap *h, int index, int key);
-/////
