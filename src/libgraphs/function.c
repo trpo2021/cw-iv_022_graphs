@@ -96,7 +96,7 @@ void cities_numbers(int *array_cities) {
   }
 }
 
-int Length(int *array_cities, struct graph *g, int i, int *path_long) {
+int length(int *array_cities, struct graph *g, int i, int *path_long) {
   if (i == 1) {
     path_long[2] = array_cities[2];
     return g->m[array_cities[1] - 1][array_cities[2] - 1];
@@ -132,11 +132,11 @@ void all_paths(int *arr_cities, struct graph *g, int *path_long, int start_city,
   printf("\nВсе маршруты между городами: %d - %d\n", start_city, final_city);
 
   if (arr_cities[1] != arr_cities[2]) {
-    int length = 0;
+    int length_roads = 0;
 
     printf("1 Путь. Вершины:  %d -> %d\n", arr_cities[1], arr_cities[2]);
-    length = Length(arr_cities, g, 1, path_long);
-    printf("Длина:  %d\n", length);
+    length_roads = length(arr_cities, g, 1, path_long);
+    printf("Длина:  %d\n", length_roads);
 
     int temp = arr_cities[3];
     int temp_2 = arr_cities[3];
@@ -144,8 +144,8 @@ void all_paths(int *arr_cities, struct graph *g, int *path_long, int start_city,
     for (int i = 2; i <= 3; i++) {
       printf("%d Путь. Вершины:  ", i);
       printf("%d -> %d -> %d\n", arr_cities[1], temp, arr_cities[2]);
-      length = Length(arr_cities, g, i, path_long);
-      printf("Длина:  %d\n", length);
+      length_roads = length(arr_cities, g, i, path_long);
+      printf("Длина:  %d\n", length_roads);
       temp = arr_cities[4];
     }
 
@@ -153,8 +153,8 @@ void all_paths(int *arr_cities, struct graph *g, int *path_long, int start_city,
       printf("%d Путь. Вершины:  ", i);
       printf("%d -> %d -> %d -> %d\n", arr_cities[1], temp_2, temp,
              arr_cities[2]);
-      length = Length(arr_cities, g, i, path_long);
-      printf("Длина:  %d\n", length);
+      length_roads = length(arr_cities, g, i, path_long);
+      printf("Длина:  %d\n", length_roads);
       temp_2 = temp;
       temp = arr_cities[3];
     }
@@ -170,7 +170,7 @@ void shortest_path(int *arr_cities, int *arr_length, int *path_long,
 
   if (arr_cities[1] != arr_cities[2]) {
     for (int i = 1; i <= 5; i++) {
-      arr_length[i] = Length(arr_cities, g, i, path_long);
+      arr_length[i] = length(arr_cities, g, i, path_long);
       if (arr_length[i] < min) {
         min = arr_length[i];
         index = i;
@@ -185,7 +185,7 @@ void shortest_path(int *arr_cities, int *arr_length, int *path_long,
   printf("\nСам путь:  %d ", start_city);
 
   if (min != 0) {
-    Length(arr_cities, g, index, path_long);
+    length(arr_cities, g, index, path_long);
     for (int i = 2; i <= index + 1; i++) {
       printf("-> %d ", path_long[i]);
     }
@@ -200,7 +200,7 @@ void longest_path(int *arr_cities, int *arr_length, int *path_long,
 
   if (arr_cities[1] != arr_cities[2]) {
     for (int i = 1; i <= 5; i++) {
-      arr_length[i] = Length(arr_cities, g, i, path_long);
+      arr_length[i] = length(arr_cities, g, i, path_long);
       if (arr_length[i] > max) {
         max = arr_length[i];
         index = i;
@@ -215,7 +215,7 @@ void longest_path(int *arr_cities, int *arr_length, int *path_long,
   printf("Сам путь:  %d ", start_city);
 
   if (max != 0) {
-    Length(arr_cities, g, index, path_long);
+    length(arr_cities, g, index, path_long);
     for (int i = 2; i <= 4; i++) {
       printf("-> %d ", path_long[i]);
     }
@@ -311,110 +311,4 @@ void graph_free(struct graph *g, int max_city) {
 
   free(g->m);
   free(g);
-}
-
-heap *heap_create(int maxsize) {
-  heap *h;
-  h = malloc(sizeof(*h));
-
-  if (h != NULL) {
-    h->maxsize = maxsize;
-    h->nnodes = 0;
-    h->index = (int *)malloc(sizeof(int) * (maxsize + 1));
-    h->nodes = (heapnode *)malloc(sizeof(*h->nodes) * (maxsize + 1));
-
-    if (h->nodes == NULL) {
-      free(h);
-      return NULL;
-    }
-  }
-  return h;
-}
-
-void heap_free(heap *h) {
-  free(h->index);
-  free(h->nodes);
-  free(h);
-}
-
-void heap_swap(heapnode *a, heapnode *b, heap *h) {
-  heapnode temp = *a;
-  *a = *b;
-  *b = temp;
-
-  int tmp = h->index[a->value];
-  h->index[a->value] = h->index[b->value];
-  h->index[b->value] = tmp;
-}
-
-int heap_insert(heap *h, int key, int value) {
-  if (h->nnodes >= h->maxsize) {
-    return -1;
-  }
-
-  h->nnodes++;
-  h->nodes[h->nnodes].key = key;
-  h->nodes[h->nnodes].value = value;
-  h->index[value] = h->nnodes;
-
-  for (int i = h->nnodes; i > 1 && h->nodes[i].key < h->nodes[i / 2].key;
-       i = i / 2) {
-    heap_swap(&h->nodes[i], &h->nodes[i / 2], h);
-  }
-  return 0;
-}
-
-heapnode heap_extract_min(heap *h) {
-  if (h->nnodes == 0) {
-    return (heapnode){0, 0};
-  }
-
-  heapnode node = h->nodes[1];
-  h->nodes[1] = h->nodes[h->nnodes];
-  h->index[h->nodes[h->nnodes].value] = 1;
-  h->nnodes--;
-
-  heap_heapify_min(h, 1);
-
-  return node;
-}
-
-void heap_heapify_min(heap *h, int index) {
-  while (1) {
-    int left = 2 * index;
-    int right = 2 * index + 1;
-    int node = index;
-
-    if (left <= h->nnodes && h->nodes[left].key < h->nodes[index].key) {
-      node = left;
-    }
-
-    if (right <= h->nnodes && h->nodes[right].key < h->nodes[node].key) {
-      node = right;
-    }
-
-    if (node == index) {
-      break;
-    }
-
-    heap_swap(&h->nodes[index], &h->nodes[node], h);
-    index = node;
-  }
-}
-
-int heap_decrease_key(heap *h, int index, int newkey) {
-  index = h->index[index];
-
-  if (h->nodes[index].key < newkey) {
-    return -1;
-  }
-
-  h->nodes[index].key = newkey;
-
-  for (; index > 1 && h->nodes[index].key < h->nodes[index / 2].key;
-       index = index / 2) {
-    heap_swap(&h->nodes[index], &h->nodes[index / 2], h);
-  }
-
-  return index;
 }
