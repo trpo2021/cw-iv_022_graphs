@@ -247,7 +247,9 @@ void graph_set_edge(struct graph *g, int i, int j, int w) {
   }
 }
 
-int graph_get_edge(struct graph *g, int i, int j) { return g->m[i][j]; }
+int graph_get_edge(struct graph *g, int i, int j) { 
+  return g->m[i][j]; 
+}
 
 int memory_check(int *array) {
   if (array == NULL) {
