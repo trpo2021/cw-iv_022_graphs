@@ -5,6 +5,24 @@ int get_rand(int min, int max) {
 }
 
 int arguments_check(char **argv) {
+  if (argv[1] == NULL) {
+    FILE *file = fopen("src/graphs/instruction.txt", "rt");
+    if (file == NULL) {
+      printf("Ошибка: не удаётся открыть инструкцию\n");
+      return -1;
+    }
+
+    setlocale(LC_ALL, "Russian");
+    char *arr = malloc(sizeof(char) * 75);
+    while (fgets(arr, 75, file) != NULL)
+      printf("%s", arr);
+    printf("\n");
+
+    free(arr);
+    fclose(file);
+    return -1;
+  }
+  
   if (strcmp(argv[1], "-b") != 0) {
     printf("Ошибка: введите стартовый город, с помощью ключа '-b'\n");
     printf("Например '-b 3'\n");
