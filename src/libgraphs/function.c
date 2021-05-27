@@ -22,7 +22,7 @@ int arguments_check(char **argv) {
     fclose(file);
     return -1;
   }
-  
+
   if (strcmp(argv[1], "-b") != 0) {
     printf("Ошибка: введите стартовый город, с помощью ключа '-b'\n");
     printf("Например '-b 3'\n");
@@ -78,7 +78,8 @@ void cities_numbers(int *array_cities) {
         }
       }
     } else {
-      if ((array_cities[1] - first_city != array_cities[2]) && (array_cities[1] > first_city)) {
+      if ((array_cities[1] - first_city != array_cities[2]) &&
+          (array_cities[1] > first_city)) {
         array_cities[3] = array_cities[1] - first_city;
       } else {
         if (array_cities[1] == first_city) {
@@ -114,8 +115,10 @@ int length(int *array_cities, struct graph *g, int i, int *path_long) {
   if ((i == 2) || (i == 3)) {
     path_long[2] = array_cities[i + first_city];
     path_long[3] = array_cities[2];
-    return g->m[array_cities[1] - first_city][array_cities[i + first_city] - first_city] +
-           g->m[array_cities[i + first_city] - first_city][array_cities[2] - first_city];
+    return g->m[array_cities[1] - first_city]
+               [array_cities[i + first_city] - first_city] +
+           g->m[array_cities[i + first_city] - first_city]
+               [array_cities[2] - first_city];
   }
   if (i == fourth_city) {
     path_long[2] = array_cities[3];
