@@ -4,15 +4,16 @@ int get_rand(int min, int max) {
   return (double)rand() / (RAND_MAX + 1.0) * (max - min) + min;
 }
 
-int arguments_check(char **argv) {
-  if (argv[1] == NULL) {
+void arguments_error(int s) {
+  if (s == -1) {
     FILE *file = fopen("src/graphs/instruction.txt", "rt");
     if (file == NULL) {
       printf("Ошибка: не удаётся открыть инструкцию\n");
-      return -1;
+      return;
     }
 
     setlocale(LC_ALL, "Russian");
+
     char *arr = malloc(sizeof(char) * 75);
     while (fgets(arr, 75, file) != NULL)
       printf("%s", arr);
@@ -20,37 +21,52 @@ int arguments_check(char **argv) {
 
     free(arr);
     fclose(file);
-    return -1;
-  }
 
-  if (strcmp(argv[1], "-b") != 0) {
+  } else if (s == 1) {
     printf("Ошибка: введите стартовый город, с помощью ключа '-b'\n");
     printf("Например '-b 3'\n");
-    return -1;
-  }
 
-  if (argv[2] == NULL) {
+  } else if (s == 2) {
     printf("Ошибка: вы не ввели значение стартового города\n");
-    return -1;
-  }
 
-  if ((argv[3] == NULL) || (strcmp(argv[3], "-e") != 0)) {
+  } else if (s == 3) {
     printf("Ошибка: введите конечный город (или значение стартового)\n");
     printf("С помощью ключа '-e', например '-e 2'\n");
-    return -1;
-  }
 
-  if (argv[4] == NULL) {
+  } else if (s == 4) {
     printf("Ошибка: вы не ввели значение конечного города\n");
-    return -1;
-  }
 
-  if (argv[5] == NULL) {
+  } else if (s == 5) {
     printf("Ошибка: выберите, что вы хотите узнать:\n");
     printf("'-n' - кол-во маршрутов между городами\n");
     printf("'-s' - кратчайший путь между городами\n");
     printf("'-l' - длиннейший путь между городами\n");
+  }
+}
+
+int arguments_check(char **argv) {
+  if (argv[1] == NULL) {
     return -1;
+  }
+
+  if (strcmp(argv[1], "-b") != 0) {
+    return 1;
+  }
+
+  if (argv[2] == NULL) {
+    return 2;
+  }
+
+  if ((argv[3] == NULL) || (strcmp(argv[3], "-e") != 0)) {
+    return 3;
+  }
+
+  if (argv[4] == NULL) {
+    return 4;
+  }
+
+  if (argv[5] == NULL) {
+    return 5;
   }
   return 0;
 }
