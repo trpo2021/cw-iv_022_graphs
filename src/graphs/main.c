@@ -3,7 +3,8 @@
 int main(int argc, char **argv) {
 
   int s = arguments_check(argv);
-  if (s == -1) {
+  if (s != 0) {
+    arguments_error(s);
     return -1;
   }
 
