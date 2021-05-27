@@ -13,7 +13,7 @@ OBJ_DIR = obj
 SRC_DIR = src
 TEST_DIR = test
 
-
+APP_PATH_TEST = $(BIN_DIR)/$(APP_NAME_TEST)
 APP_PATH = $(BIN_DIR)/$(APP_NAME)
 LIB_PATH = $(OBJ_DIR)/$(SRC_DIR)/$(LIB_NAME)/$(LIB_NAME).a
 
@@ -48,6 +48,12 @@ $(OBJ_DIR)/$(SRC_DIR)/$(APP_NAME)/%.o: $(SRC_DIR)/$(APP_NAME)/%.c
 $(OBJ_DIR)/$(SRC_DIR)/$(LIB_NAME)/%.o: $(SRC_DIR)/$(LIB_NAME)/%.c
 	$(CC) -c $(CFLAGS) $(CPPFLAGS) $< -o $@ $(LDLIBS)
 
+.PHONY: clean
+clean:
+	$(RM) $(APP_PATH) $(LIB_PATH) $(APP_PATH_TEST)
+	find $(OBJ_DIR) -name '*.o' -exec $(RM) '{}' \;
+	find $(OBJ_DIR) -name '*.d' -exec $(RM) '{}' \;
+
 .PHONY: test
 test: $(APP_PATH_TEST)
 
@@ -58,9 +64,3 @@ $(APP_PATH_TEST): $(APP_OBJECTS_TEST) $(LIB_PATH)
 
 $(OBJ_DIR)/$(TEST_DIR)/%.o: $(TEST_DIR)/%.c
 	$(CC) -c $(CFLAGS) $(CPPFLAGS_TEST) $< -o $@ $(LDLIBS)
-
-.PHONY: clean
-clean:
-	$(RM) $(APP_PATH) $(LIB_PATH) $(APP_PATH_TEST)
-	find $(OBJ_DIR) -name '*.o' -exec $(RM) '{}' \;
-	find $(OBJ_DIR) -name '*.d' -exec $(RM) '{}' \;
