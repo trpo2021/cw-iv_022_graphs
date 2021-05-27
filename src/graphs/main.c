@@ -1,23 +1,6 @@
 #include <libgraphs/lib_for_cities.h>
 
-int main(int argc, char *argv[]) {
-  if (argv[1] == NULL) {
-    FILE *file = fopen("src/graphs/instruction.txt", "rt");
-    if (file == NULL) {
-      printf("Ошибка: не удаётся открыть инструкцию\n");
-      return -1;
-    }
-
-    setlocale(LC_ALL, "Russian");
-    char *arr = malloc(sizeof(char) * 75);
-    while (fgets(arr, 75, file) != NULL)
-      printf("%s", arr);
-    printf("\n");
-
-    free(arr);
-    fclose(file);
-    return -1;
-  }
+int main(int argc, char **argv) {
 
   int s = arguments_check(argv);
   if (s == -1) {
