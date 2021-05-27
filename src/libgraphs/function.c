@@ -5,7 +5,7 @@ int get_rand(int min, int max) {
 }
 
 void arguments_error(int s) {
-  if(s == -1) {
+  if (s == -1) {
     FILE *file = fopen("src/graphs/instruction.txt", "rt");
     if (file == NULL) {
       printf("Ошибка: не удаётся открыть инструкцию\n");
@@ -22,21 +22,21 @@ void arguments_error(int s) {
     free(arr);
     fclose(file);
 
-  } else if(s == 1) {
+  } else if (s == 1) {
     printf("Ошибка: введите стартовый город, с помощью ключа '-b'\n");
     printf("Например '-b 3'\n");
 
-  } else if(s == 2) {
+  } else if (s == 2) {
     printf("Ошибка: вы не ввели значение стартового города\n");
 
-  } else if(s == 3) {
+  } else if (s == 3) {
     printf("Ошибка: введите конечный город (или значение стартового)\n");
     printf("С помощью ключа '-e', например '-e 2'\n");
 
-  } else if(s == 4) {
+  } else if (s == 4) {
     printf("Ошибка: вы не ввели значение конечного города\n");
 
-  } else if(s == 5) {
+  } else if (s == 5) {
     printf("Ошибка: выберите, что вы хотите узнать:\n");
     printf("'-n' - кол-во маршрутов между городами\n");
     printf("'-s' - кратчайший путь между городами\n");
@@ -50,7 +50,7 @@ int arguments_check(char **argv) {
   }
 
   if (strcmp(argv[1], "-b") != 0) {
-    return 1; 
+    return 1;
   }
 
   if (argv[2] == NULL) {
