@@ -3,9 +3,40 @@
 void graph_initialization(struct graph *g, int max_city) {
   for (int i = 0; i < max_city; i++) {
     for (int j = i; j < max_city; j++) {
-      graph_set_edge(g, i, j, get_rand(10, 30));
+      graph_set_edge(g, i, j, get_length(i, j));
     }
   }
+}
+
+int get_length(int i, int j) {
+  if (i == j){
+    return 0;
+  }
+
+  if ((i == 0) && (j == 1)){
+    return 17;
+  }
+
+  if ((i == 0) && (j == 2)){
+    return 25;
+  }
+
+  if ((i == 0) && (j == 3)){
+    return 25;
+  }
+
+  if ((i == 1) && (j == 2)){
+    return 13;
+  }
+
+  if ((i == 1) && (j == 3)){
+    return 16;
+  }
+
+  if ((i == 2) && (j == 3)){
+    return 15;
+  }
+  return 0;
 }
 
 void graph_clear(struct graph *g, int N) {
@@ -56,24 +87,11 @@ struct graph *graph_create(int nvertices) {
     }
   }
 
-  g->visited = malloc(sizeof(int) * nvertices);
-
-  if (g->visited == NULL) {
-    printf("Ошибка выделения памяти под посещаемые вершины\n");
-    for (int i = 0; i < max_city; i++) {
-      free(g->m[i]);
-    }
-    free(g->m);
-    free(g);
-    return NULL;
-  }
-
   graph_clear(g, nvertices);
   return g;
 }
 
 void graph_free(struct graph *g, int max_city) {
-  free(g->visited);
 
   for (int i = 0; i < max_city; i++) {
     free(g->m[i]);
