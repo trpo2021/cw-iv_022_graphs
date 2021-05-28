@@ -18,7 +18,6 @@ enum cities {
 struct graph {
   int nvertices; // Число вершин
   int **m;       // Матрица n x n
-  int *visited;
 };
 
 void cities_numbers(int *array_cities);
