@@ -156,10 +156,11 @@ void all_paths(int *arr_cities, struct graph *g, int *path_long, int start_city,
 }
 
 void shortest_path(int *arr_cities, int *arr_length, int *path_long,
-                   struct graph *g, int index, int start_city, int final_city) {
+                   struct graph *g, int start_city, int final_city) {
   printf("\n----------------------------------------------");
-  int min = 999;
 
+  int index = 0;
+  int min = 999;
   if (arr_cities[1] != arr_cities[2]) {
     for (int i = first_city; i <= fourth_city + 1; i++) {
       arr_length[i] = length(arr_cities, g, i, path_long);
@@ -186,21 +187,21 @@ void shortest_path(int *arr_cities, int *arr_length, int *path_long,
 }
 
 void longest_path(int *arr_cities, int *arr_length, int *path_long,
-                  struct graph *g, int index, int start_city, int final_city) {
+                  struct graph *g, int start_city, int final_city) {
   printf("\n----------------------------------------------");
-  int max = -1;
 
-  if (arr_cities[1] != arr_cities[2]) {
-    for (int i = first_city; i <= fourth_city + 1; i++) {
-      arr_length[i] = length(arr_cities, g, i, path_long);
-      if (arr_length[i] > max) {
-        max = arr_length[i];
-        index = i;
+  int max = -1, index = 0;
+    if (arr_cities[1] != arr_cities[2]) {
+      for (int i = first_city; i <= fourth_city + 1; i++) {
+        arr_length[i] = length(arr_cities, g, i, path_long);
+        if (arr_length[i] > max) {
+          max = arr_length[i];
+          index = i;
+        }
       }
+    } else {
+      max = 0;
     }
-  } else {
-    max = 0;
-  }
 
   printf("\nСамый длинный путь между городами %d -- %d: %d\n", start_city,
          final_city, max);
