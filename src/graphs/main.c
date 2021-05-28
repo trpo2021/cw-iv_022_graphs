@@ -1,26 +1,10 @@
 #include <libgraphs/lib_for_cities.h>
 
-int main(int argc, char *argv[]) {
-  if (argv[1] == NULL) {
-    FILE *file = fopen("src/graphs/instruction.txt", "rt");
-    if (file == NULL) {
-      printf("Ошибка: не удаётся открыть инструкцию\n");
-      return -1;
-    }
-
-    setlocale(LC_ALL, "Russian");
-    char *arr = malloc(sizeof(char) * 75);
-    while (fgets(arr, 75, file) != NULL)
-      printf("%s", arr);
-    printf("\n");
-
-    free(arr);
-    fclose(file);
-    return -1;
-  }
+int main(int argc, char **argv) {
 
   int s = arguments_check(argv);
-  if (s == -1) {
+  if (s != 0) {
+    arguments_error(s);
     return -1;
   }
 
@@ -31,9 +15,9 @@ int main(int argc, char *argv[]) {
 
   graph_initialization(g, max_city);
 
-  int start_city, final_city, opt, check;
+  int start_city, final_city, opt, index = 0, check;
 
-  int *path = malloc(sizeof(int) * max_city); //массив для востановленного пути
+  int *path = calloc(max_city, sizeof(int)); //массив для востановленного пути
 
   if ((check = memory_check(path)) == -1) {
     return -1;
