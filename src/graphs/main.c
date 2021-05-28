@@ -17,7 +17,7 @@ int main(int argc, char **argv) {
 
   int start_city, final_city, opt, index = 0, check;
 
-  int *path = calloc(sizeof(int) * max_city); //массив для востановленного пути
+  int *path = calloc(max_city, sizeof(int)); //массив для востановленного пути
 
   if ((check = memory_check(path)) == -1) {
     return -1;
