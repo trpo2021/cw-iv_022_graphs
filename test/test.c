@@ -129,10 +129,10 @@ CTEST(get_edge, edge_1) {
   int i = 1;
   int j = 1;
   int max_city = 4;
-  
+
   struct graph *g = graph_create(max_city);
   graph_initialization(g, max_city);
-  
+
   int real = graph_get_edge(g, i, j);
   int exp = 0;
   ASSERT_EQUAL(exp, real);
@@ -142,10 +142,10 @@ CTEST(get_edge, edge_2) {
   int i = 2;
   int j = 2;
   int max_city = 4;
-  
+
   struct graph *g = graph_create(max_city);
   graph_initialization(g, max_city);
-  
+
   int real = graph_get_edge(g, i, j);
   int exp = 0;
   ASSERT_EQUAL(exp, real);
@@ -155,10 +155,10 @@ CTEST(get_edge, edge_3) {
   int i = 3;
   int j = 3;
   int max_city = 4;
-  
+
   struct graph *g = graph_create(max_city);
   graph_initialization(g, max_city);
-  
+
   int real = graph_get_edge(g, i, j);
   int exp = 0;
   ASSERT_EQUAL(exp, real);
@@ -168,11 +168,11 @@ CTEST(get_edge, edge_4) {
   int i = 4;
   int j = 4;
   int max_city = 4;
-  
+
   struct graph *g = graph_create(max_city);
   graph_initialization(g, max_city);
-  
-  int real = graph_get_edge(g, i-1, j);
+
+  int real = graph_get_edge(g, i - 1, j);
   int exp = 0;
   ASSERT_EQUAL(exp, real);
 }
@@ -181,11 +181,11 @@ CTEST(get_edge, edge_between_12) {
   int i = 1;
   int j = 2;
   int max_city = 4;
-  
+
   struct graph *g = graph_create(max_city);
   graph_initialization(g, max_city);
-  
-  int real = graph_get_edge(g, i-1, j-1);
+
+  int real = graph_get_edge(g, i - 1, j - 1);
   int exp = 17;
   ASSERT_EQUAL(exp, real);
 }
@@ -194,11 +194,11 @@ CTEST(get_edge, edge_between_13) {
   int i = 1;
   int j = 3;
   int max_city = 4;
-  
+
   struct graph *g = graph_create(max_city);
   graph_initialization(g, max_city);
-  
-  int real = graph_get_edge(g, i-1, j-1);
+
+  int real = graph_get_edge(g, i - 1, j - 1);
   int exp = 25;
   ASSERT_EQUAL(exp, real);
 }
@@ -207,11 +207,11 @@ CTEST(get_edge, edge_between_14) {
   int i = 1;
   int j = 4;
   int max_city = 4;
-  
+
   struct graph *g = graph_create(max_city);
   graph_initialization(g, max_city);
-  
-  int real = graph_get_edge(g, i-1, j-1);
+
+  int real = graph_get_edge(g, i - 1, j - 1);
   int exp = 25;
   ASSERT_EQUAL(exp, real);
 }
@@ -220,11 +220,11 @@ CTEST(get_edge, edge_between_23) {
   int i = 2;
   int j = 3;
   int max_city = 4;
-  
+
   struct graph *g = graph_create(max_city);
   graph_initialization(g, max_city);
-  
-  int real = graph_get_edge(g, i-1, j-1);
+
+  int real = graph_get_edge(g, i - 1, j - 1);
   int exp = 13;
   ASSERT_EQUAL(exp, real);
 }
@@ -233,11 +233,11 @@ CTEST(get_edge, edge_between_24) {
   int i = 2;
   int j = 4;
   int max_city = 4;
-  
+
   struct graph *g = graph_create(max_city);
   graph_initialization(g, max_city);
-  
-  int real = graph_get_edge(g, i-1, j-1);
+
+  int real = graph_get_edge(g, i - 1, j - 1);
   int exp = 16;
   ASSERT_EQUAL(exp, real);
 }
@@ -246,17 +246,16 @@ CTEST(get_edge, edge_between_34) {
   int i = 3;
   int j = 4;
   int max_city = 4;
-  
+
   struct graph *g = graph_create(max_city);
   graph_initialization(g, max_city);
-  
-  int real = graph_get_edge(g, i-1, j-1);
+
+  int real = graph_get_edge(g, i - 1, j - 1);
   int exp = 15;
   ASSERT_EQUAL(exp, real);
 }
 
-
-CTEST(length_of_road, numa_numa_1){
+CTEST(length_of_road, numa_numa_1) {
   struct graph *g = graph_create(max_city);
   graph_initialization(g, max_city);
 
@@ -274,7 +273,7 @@ CTEST(length_of_road, numa_numa_1){
   ASSERT_EQUAL(exp, real);
 }
 
-CTEST(length_of_road, numa_numa_2){
+CTEST(length_of_road, numa_numa_2) {
   struct graph *g = graph_create(max_city);
   graph_initialization(g, max_city);
 
@@ -292,7 +291,7 @@ CTEST(length_of_road, numa_numa_2){
   ASSERT_EQUAL(exp, real);
 }
 
-CTEST(length_of_road, numa_numa_3){
+CTEST(length_of_road, numa_numa_3) {
   struct graph *g = graph_create(max_city);
   graph_initialization(g, max_city);
 
@@ -310,7 +309,7 @@ CTEST(length_of_road, numa_numa_3){
   ASSERT_EQUAL(exp, real);
 }
 
-CTEST(length_of_road, numa_numa_4){
+CTEST(length_of_road, numa_numa_4) {
   struct graph *g = graph_create(max_city);
   graph_initialization(g, max_city);
 
@@ -328,7 +327,7 @@ CTEST(length_of_road, numa_numa_4){
   ASSERT_EQUAL(exp, real);
 }
 
-CTEST(length_of_road, numa_numa_5){
+CTEST(length_of_road, numa_numa_5) {
   struct graph *g = graph_create(max_city);
   graph_initialization(g, max_city);
 
@@ -346,7 +345,7 @@ CTEST(length_of_road, numa_numa_5){
   ASSERT_EQUAL(exp, real);
 }
 
-CTEST(length_of_road, numa_numa_6){
+CTEST(length_of_road, numa_numa_6) {
   struct graph *g = graph_create(max_city);
   graph_initialization(g, max_city);
 
@@ -364,7 +363,7 @@ CTEST(length_of_road, numa_numa_6){
   ASSERT_EQUAL(exp, real);
 }
 
-CTEST(length_of_road, numa_numa_7){
+CTEST(length_of_road, numa_numa_7) {
   struct graph *g = graph_create(max_city);
   graph_initialization(g, max_city);
 
@@ -382,7 +381,7 @@ CTEST(length_of_road, numa_numa_7){
   ASSERT_EQUAL(exp, real);
 }
 
-CTEST(length_of_road, numa_numa_8){
+CTEST(length_of_road, numa_numa_8) {
   struct graph *g = graph_create(max_city);
   graph_initialization(g, max_city);
 
@@ -400,7 +399,7 @@ CTEST(length_of_road, numa_numa_8){
   ASSERT_EQUAL(exp, real);
 }
 
-CTEST(length_of_road, numa_numa_9){
+CTEST(length_of_road, numa_numa_9) {
   struct graph *g = graph_create(max_city);
   graph_initialization(g, max_city);
 
@@ -418,7 +417,7 @@ CTEST(length_of_road, numa_numa_9){
   ASSERT_EQUAL(exp, real);
 }
 
-CTEST(length_of_road, numa_numa_10){
+CTEST(length_of_road, numa_numa_10) {
   struct graph *g = graph_create(max_city);
   graph_initialization(g, max_city);
 
@@ -436,7 +435,7 @@ CTEST(length_of_road, numa_numa_10){
   ASSERT_EQUAL(exp, real);
 }
 
-CTEST(length_of_road, numa_numa_11){
+CTEST(length_of_road, numa_numa_11) {
   struct graph *g = graph_create(max_city);
   graph_initialization(g, max_city);
 
@@ -454,7 +453,7 @@ CTEST(length_of_road, numa_numa_11){
   ASSERT_EQUAL(exp, real);
 }
 
-CTEST(length_of_road, numa_numa_12){
+CTEST(length_of_road, numa_numa_12) {
   struct graph *g = graph_create(max_city);
   graph_initialization(g, max_city);
 
@@ -472,7 +471,7 @@ CTEST(length_of_road, numa_numa_12){
   ASSERT_EQUAL(exp, real);
 }
 
-CTEST(length_of_road, numa_numa_13){
+CTEST(length_of_road, numa_numa_13) {
   struct graph *g = graph_create(max_city);
   graph_initialization(g, max_city);
 
@@ -490,7 +489,7 @@ CTEST(length_of_road, numa_numa_13){
   ASSERT_EQUAL(exp, real);
 }
 
-CTEST(length_of_road, numa_numa_14){
+CTEST(length_of_road, numa_numa_14) {
   struct graph *g = graph_create(max_city);
   graph_initialization(g, max_city);
 
@@ -508,7 +507,7 @@ CTEST(length_of_road, numa_numa_14){
   ASSERT_EQUAL(exp, real);
 }
 
-CTEST(length_of_road, numa_numa_15){
+CTEST(length_of_road, numa_numa_15) {
   struct graph *g = graph_create(max_city);
   graph_initialization(g, max_city);
 
@@ -526,7 +525,7 @@ CTEST(length_of_road, numa_numa_15){
   ASSERT_EQUAL(exp, real);
 }
 
-CTEST(length_of_road, numa_numa_16){
+CTEST(length_of_road, numa_numa_16) {
   struct graph *g = graph_create(max_city);
   graph_initialization(g, max_city);
 
@@ -544,7 +543,7 @@ CTEST(length_of_road, numa_numa_16){
   ASSERT_EQUAL(exp, real);
 }
 
-CTEST(length_of_road, numa_numa_17){
+CTEST(length_of_road, numa_numa_17) {
   struct graph *g = graph_create(max_city);
   graph_initialization(g, max_city);
 
@@ -562,7 +561,7 @@ CTEST(length_of_road, numa_numa_17){
   ASSERT_EQUAL(exp, real);
 }
 
-CTEST(length_of_road, numa_numa_18){
+CTEST(length_of_road, numa_numa_18) {
   struct graph *g = graph_create(max_city);
   graph_initialization(g, max_city);
 
@@ -580,7 +579,7 @@ CTEST(length_of_road, numa_numa_18){
   ASSERT_EQUAL(exp, real);
 }
 
-CTEST(length_of_road, numa_numa_19){
+CTEST(length_of_road, numa_numa_19) {
   struct graph *g = graph_create(max_city);
   graph_initialization(g, max_city);
 
@@ -598,7 +597,7 @@ CTEST(length_of_road, numa_numa_19){
   ASSERT_EQUAL(exp, real);
 }
 
-CTEST(length_of_road, numa_numa_20){
+CTEST(length_of_road, numa_numa_20) {
   struct graph *g = graph_create(max_city);
   graph_initialization(g, max_city);
 
@@ -616,7 +615,7 @@ CTEST(length_of_road, numa_numa_20){
   ASSERT_EQUAL(exp, real);
 }
 
-CTEST(length_of_road, numa_numa_21){
+CTEST(length_of_road, numa_numa_21) {
   struct graph *g = graph_create(max_city);
   graph_initialization(g, max_city);
 
@@ -634,7 +633,7 @@ CTEST(length_of_road, numa_numa_21){
   ASSERT_EQUAL(exp, real);
 }
 
-CTEST(length_of_road, numa_numa_22){
+CTEST(length_of_road, numa_numa_22) {
   struct graph *g = graph_create(max_city);
   graph_initialization(g, max_city);
 
@@ -652,7 +651,7 @@ CTEST(length_of_road, numa_numa_22){
   ASSERT_EQUAL(exp, real);
 }
 
-CTEST(length_of_road, numa_numa_23){
+CTEST(length_of_road, numa_numa_23) {
   struct graph *g = graph_create(max_city);
   graph_initialization(g, max_city);
 
@@ -670,7 +669,7 @@ CTEST(length_of_road, numa_numa_23){
   ASSERT_EQUAL(exp, real);
 }
 
-CTEST(length_of_road, numa_numa_24){
+CTEST(length_of_road, numa_numa_24) {
   struct graph *g = graph_create(max_city);
   graph_initialization(g, max_city);
 
@@ -688,7 +687,7 @@ CTEST(length_of_road, numa_numa_24){
   ASSERT_EQUAL(exp, real);
 }
 
-CTEST(length_of_road, numa_numa_25){
+CTEST(length_of_road, numa_numa_25) {
   struct graph *g = graph_create(max_city);
   graph_initialization(g, max_city);
 
@@ -706,7 +705,7 @@ CTEST(length_of_road, numa_numa_25){
   ASSERT_EQUAL(exp, real);
 }
 
-CTEST(length_of_road, numa_numa_26){
+CTEST(length_of_road, numa_numa_26) {
   struct graph *g = graph_create(max_city);
   graph_initialization(g, max_city);
 
@@ -724,7 +723,7 @@ CTEST(length_of_road, numa_numa_26){
   ASSERT_EQUAL(exp, real);
 }
 
-CTEST(length_of_road, numa_numa_27){
+CTEST(length_of_road, numa_numa_27) {
   struct graph *g = graph_create(max_city);
   graph_initialization(g, max_city);
 
@@ -742,7 +741,7 @@ CTEST(length_of_road, numa_numa_27){
   ASSERT_EQUAL(exp, real);
 }
 
-CTEST(length_of_road, numa_numa_28){
+CTEST(length_of_road, numa_numa_28) {
   struct graph *g = graph_create(max_city);
   graph_initialization(g, max_city);
 
@@ -760,7 +759,7 @@ CTEST(length_of_road, numa_numa_28){
   ASSERT_EQUAL(exp, real);
 }
 
-CTEST(length_of_road, numa_numa_29){
+CTEST(length_of_road, numa_numa_29) {
   struct graph *g = graph_create(max_city);
   graph_initialization(g, max_city);
 
@@ -778,7 +777,7 @@ CTEST(length_of_road, numa_numa_29){
   ASSERT_EQUAL(exp, real);
 }
 
-CTEST(length_of_road, numa_numa_30){
+CTEST(length_of_road, numa_numa_30) {
   struct graph *g = graph_create(max_city);
   graph_initialization(g, max_city);
 
@@ -796,7 +795,7 @@ CTEST(length_of_road, numa_numa_30){
   ASSERT_EQUAL(exp, real);
 }
 
-CTEST(length_of_road, numa_numa_31){
+CTEST(length_of_road, numa_numa_31) {
   struct graph *g = graph_create(max_city);
   graph_initialization(g, max_city);
 
@@ -814,7 +813,7 @@ CTEST(length_of_road, numa_numa_31){
   ASSERT_EQUAL(exp, real);
 }
 
-CTEST(length_of_road, numa_numa_32){
+CTEST(length_of_road, numa_numa_32) {
   struct graph *g = graph_create(max_city);
   graph_initialization(g, max_city);
 
@@ -832,7 +831,7 @@ CTEST(length_of_road, numa_numa_32){
   ASSERT_EQUAL(exp, real);
 }
 
-CTEST(length_of_road, numa_numa_33){
+CTEST(length_of_road, numa_numa_33) {
   struct graph *g = graph_create(max_city);
   graph_initialization(g, max_city);
 
@@ -850,7 +849,7 @@ CTEST(length_of_road, numa_numa_33){
   ASSERT_EQUAL(exp, real);
 }
 
-CTEST(length_of_road, numa_numa_34){
+CTEST(length_of_road, numa_numa_34) {
   struct graph *g = graph_create(max_city);
   graph_initialization(g, max_city);
 
@@ -868,7 +867,7 @@ CTEST(length_of_road, numa_numa_34){
   ASSERT_EQUAL(exp, real);
 }
 
-CTEST(length_of_road, numa_numa_35){
+CTEST(length_of_road, numa_numa_35) {
   struct graph *g = graph_create(max_city);
   graph_initialization(g, max_city);
 
@@ -886,7 +885,7 @@ CTEST(length_of_road, numa_numa_35){
   ASSERT_EQUAL(exp, real);
 }
 
-CTEST(length_of_road, numa_numa_36){
+CTEST(length_of_road, numa_numa_36) {
   struct graph *g = graph_create(max_city);
   graph_initialization(g, max_city);
 
@@ -904,7 +903,7 @@ CTEST(length_of_road, numa_numa_36){
   ASSERT_EQUAL(exp, real);
 }
 
-CTEST(length_of_road, numa_numa_37){
+CTEST(length_of_road, numa_numa_37) {
   struct graph *g = graph_create(max_city);
   graph_initialization(g, max_city);
 
@@ -922,7 +921,7 @@ CTEST(length_of_road, numa_numa_37){
   ASSERT_EQUAL(exp, real);
 }
 
-CTEST(length_of_road, numa_numa_38){
+CTEST(length_of_road, numa_numa_38) {
   struct graph *g = graph_create(max_city);
   graph_initialization(g, max_city);
 
@@ -940,7 +939,7 @@ CTEST(length_of_road, numa_numa_38){
   ASSERT_EQUAL(exp, real);
 }
 
-CTEST(length_of_road, numa_numa_39){
+CTEST(length_of_road, numa_numa_39) {
   struct graph *g = graph_create(max_city);
   graph_initialization(g, max_city);
 
@@ -958,7 +957,7 @@ CTEST(length_of_road, numa_numa_39){
   ASSERT_EQUAL(exp, real);
 }
 
-CTEST(length_of_road, numa_numa_40){
+CTEST(length_of_road, numa_numa_40) {
   struct graph *g = graph_create(max_city);
   graph_initialization(g, max_city);
 
@@ -976,7 +975,7 @@ CTEST(length_of_road, numa_numa_40){
   ASSERT_EQUAL(exp, real);
 }
 
-CTEST(length_of_road, numa_numa_41){
+CTEST(length_of_road, numa_numa_41) {
   struct graph *g = graph_create(max_city);
   graph_initialization(g, max_city);
 
@@ -994,7 +993,7 @@ CTEST(length_of_road, numa_numa_41){
   ASSERT_EQUAL(exp, real);
 }
 
-CTEST(length_of_road, numa_numa_42){
+CTEST(length_of_road, numa_numa_42) {
   struct graph *g = graph_create(max_city);
   graph_initialization(g, max_city);
 
@@ -1012,7 +1011,7 @@ CTEST(length_of_road, numa_numa_42){
   ASSERT_EQUAL(exp, real);
 }
 
-CTEST(length_of_road, numa_numa_43){
+CTEST(length_of_road, numa_numa_43) {
   struct graph *g = graph_create(max_city);
   graph_initialization(g, max_city);
 
@@ -1030,7 +1029,7 @@ CTEST(length_of_road, numa_numa_43){
   ASSERT_EQUAL(exp, real);
 }
 
-CTEST(length_of_road, numa_numa_44){
+CTEST(length_of_road, numa_numa_44) {
   struct graph *g = graph_create(max_city);
   graph_initialization(g, max_city);
 
@@ -1048,7 +1047,7 @@ CTEST(length_of_road, numa_numa_44){
   ASSERT_EQUAL(exp, real);
 }
 
-CTEST(length_of_road, numa_numa_45){
+CTEST(length_of_road, numa_numa_45) {
   struct graph *g = graph_create(max_city);
   graph_initialization(g, max_city);
 
@@ -1066,7 +1065,7 @@ CTEST(length_of_road, numa_numa_45){
   ASSERT_EQUAL(exp, real);
 }
 
-CTEST(length_of_road, numa_numa_46){
+CTEST(length_of_road, numa_numa_46) {
   struct graph *g = graph_create(max_city);
   graph_initialization(g, max_city);
 
@@ -1084,7 +1083,7 @@ CTEST(length_of_road, numa_numa_46){
   ASSERT_EQUAL(exp, real);
 }
 
-CTEST(length_of_road, numa_numa_47){
+CTEST(length_of_road, numa_numa_47) {
   struct graph *g = graph_create(max_city);
   graph_initialization(g, max_city);
 
@@ -1102,7 +1101,7 @@ CTEST(length_of_road, numa_numa_47){
   ASSERT_EQUAL(exp, real);
 }
 
-CTEST(length_of_road, numa_numa_48){
+CTEST(length_of_road, numa_numa_48) {
   struct graph *g = graph_create(max_city);
   graph_initialization(g, max_city);
 
@@ -1120,7 +1119,7 @@ CTEST(length_of_road, numa_numa_48){
   ASSERT_EQUAL(exp, real);
 }
 
-CTEST(length_of_road, numa_numa_49){
+CTEST(length_of_road, numa_numa_49) {
   struct graph *g = graph_create(max_city);
   graph_initialization(g, max_city);
 
@@ -1138,7 +1137,7 @@ CTEST(length_of_road, numa_numa_49){
   ASSERT_EQUAL(exp, real);
 }
 
-CTEST(length_of_road, numa_numa_50){
+CTEST(length_of_road, numa_numa_50) {
   struct graph *g = graph_create(max_city);
   graph_initialization(g, max_city);
 
@@ -1156,7 +1155,7 @@ CTEST(length_of_road, numa_numa_50){
   ASSERT_EQUAL(exp, real);
 }
 
-CTEST(length_of_road, numa_numa_51){
+CTEST(length_of_road, numa_numa_51) {
   struct graph *g = graph_create(max_city);
   graph_initialization(g, max_city);
 
@@ -1174,7 +1173,7 @@ CTEST(length_of_road, numa_numa_51){
   ASSERT_EQUAL(exp, real);
 }
 
-CTEST(length_of_road, numa_numa_52){
+CTEST(length_of_road, numa_numa_52) {
   struct graph *g = graph_create(max_city);
   graph_initialization(g, max_city);
 
@@ -1192,7 +1191,7 @@ CTEST(length_of_road, numa_numa_52){
   ASSERT_EQUAL(exp, real);
 }
 
-CTEST(length_of_road, numa_numa_53){
+CTEST(length_of_road, numa_numa_53) {
   struct graph *g = graph_create(max_city);
   graph_initialization(g, max_city);
 
@@ -1210,7 +1209,7 @@ CTEST(length_of_road, numa_numa_53){
   ASSERT_EQUAL(exp, real);
 }
 
-CTEST(length_of_road, numa_numa_54){
+CTEST(length_of_road, numa_numa_54) {
   struct graph *g = graph_create(max_city);
   graph_initialization(g, max_city);
 
@@ -1228,7 +1227,7 @@ CTEST(length_of_road, numa_numa_54){
   ASSERT_EQUAL(exp, real);
 }
 
-CTEST(length_of_road, numa_numa_55){
+CTEST(length_of_road, numa_numa_55) {
   struct graph *g = graph_create(max_city);
   graph_initialization(g, max_city);
 
@@ -1246,7 +1245,7 @@ CTEST(length_of_road, numa_numa_55){
   ASSERT_EQUAL(exp, real);
 }
 
-CTEST(length_of_road, numa_numa_56){
+CTEST(length_of_road, numa_numa_56) {
   struct graph *g = graph_create(max_city);
   graph_initialization(g, max_city);
 
@@ -1264,7 +1263,7 @@ CTEST(length_of_road, numa_numa_56){
   ASSERT_EQUAL(exp, real);
 }
 
-CTEST(length_of_road, numa_numa_57){
+CTEST(length_of_road, numa_numa_57) {
   struct graph *g = graph_create(max_city);
   graph_initialization(g, max_city);
 
@@ -1282,7 +1281,7 @@ CTEST(length_of_road, numa_numa_57){
   ASSERT_EQUAL(exp, real);
 }
 
-CTEST(length_of_road, numa_numa_58){
+CTEST(length_of_road, numa_numa_58) {
   struct graph *g = graph_create(max_city);
   graph_initialization(g, max_city);
 
@@ -1300,7 +1299,7 @@ CTEST(length_of_road, numa_numa_58){
   ASSERT_EQUAL(exp, real);
 }
 
-CTEST(length_of_road, numa_numa_59){
+CTEST(length_of_road, numa_numa_59) {
   struct graph *g = graph_create(max_city);
   graph_initialization(g, max_city);
 
@@ -1318,7 +1317,7 @@ CTEST(length_of_road, numa_numa_59){
   ASSERT_EQUAL(exp, real);
 }
 
-CTEST(length_of_road, numa_numa_60){
+CTEST(length_of_road, numa_numa_60) {
   struct graph *g = graph_create(max_city);
   graph_initialization(g, max_city);
 
@@ -1336,7 +1335,7 @@ CTEST(length_of_road, numa_numa_60){
   ASSERT_EQUAL(exp, real);
 }
 
-CTEST(length_of_road, numa_numa_61){
+CTEST(length_of_road, numa_numa_61) {
   struct graph *g = graph_create(max_city);
   graph_initialization(g, max_city);
 
@@ -1354,7 +1353,7 @@ CTEST(length_of_road, numa_numa_61){
   ASSERT_EQUAL(exp, real);
 }
 
-CTEST(length_of_road, numa_numa_62){
+CTEST(length_of_road, numa_numa_62) {
   struct graph *g = graph_create(max_city);
   graph_initialization(g, max_city);
 
@@ -1372,7 +1371,7 @@ CTEST(length_of_road, numa_numa_62){
   ASSERT_EQUAL(exp, real);
 }
 
-CTEST(length_of_road, numa_numa_63){
+CTEST(length_of_road, numa_numa_63) {
   struct graph *g = graph_create(max_city);
   graph_initialization(g, max_city);
 
@@ -1390,7 +1389,7 @@ CTEST(length_of_road, numa_numa_63){
   ASSERT_EQUAL(exp, real);
 }
 
-CTEST(length_of_road, numa_numa_64){
+CTEST(length_of_road, numa_numa_64) {
   struct graph *g = graph_create(max_city);
   graph_initialization(g, max_city);
 
@@ -1408,7 +1407,7 @@ CTEST(length_of_road, numa_numa_64){
   ASSERT_EQUAL(exp, real);
 }
 
-CTEST(length_of_road, numa_numa_65){
+CTEST(length_of_road, numa_numa_65) {
   struct graph *g = graph_create(max_city);
   graph_initialization(g, max_city);
 
@@ -1426,7 +1425,7 @@ CTEST(length_of_road, numa_numa_65){
   ASSERT_EQUAL(exp, real);
 }
 
-CTEST(length_of_road, numa_numa_66){
+CTEST(length_of_road, numa_numa_66) {
   struct graph *g = graph_create(max_city);
   graph_initialization(g, max_city);
 
@@ -1444,7 +1443,7 @@ CTEST(length_of_road, numa_numa_66){
   ASSERT_EQUAL(exp, real);
 }
 
-CTEST(length_of_road, numa_numa_67){
+CTEST(length_of_road, numa_numa_67) {
   struct graph *g = graph_create(max_city);
   graph_initialization(g, max_city);
 
@@ -1462,7 +1461,7 @@ CTEST(length_of_road, numa_numa_67){
   ASSERT_EQUAL(exp, real);
 }
 
-CTEST(length_of_road, numa_numa_68){
+CTEST(length_of_road, numa_numa_68) {
   struct graph *g = graph_create(max_city);
   graph_initialization(g, max_city);
 
@@ -1480,7 +1479,7 @@ CTEST(length_of_road, numa_numa_68){
   ASSERT_EQUAL(exp, real);
 }
 
-CTEST(length_of_road, numa_numa_69){
+CTEST(length_of_road, numa_numa_69) {
   struct graph *g = graph_create(max_city);
   graph_initialization(g, max_city);
 
@@ -1498,7 +1497,7 @@ CTEST(length_of_road, numa_numa_69){
   ASSERT_EQUAL(exp, real);
 }
 
-CTEST(length_of_road, numa_numa_70){
+CTEST(length_of_road, numa_numa_70) {
   struct graph *g = graph_create(max_city);
   graph_initialization(g, max_city);
 
@@ -1516,7 +1515,7 @@ CTEST(length_of_road, numa_numa_70){
   ASSERT_EQUAL(exp, real);
 }
 
-CTEST(length_of_road, numa_numa_71){
+CTEST(length_of_road, numa_numa_71) {
   struct graph *g = graph_create(max_city);
   graph_initialization(g, max_city);
 
@@ -1534,7 +1533,7 @@ CTEST(length_of_road, numa_numa_71){
   ASSERT_EQUAL(exp, real);
 }
 
-CTEST(length_of_road, numa_numa_72){
+CTEST(length_of_road, numa_numa_72) {
   struct graph *g = graph_create(max_city);
   graph_initialization(g, max_city);
 
@@ -1552,7 +1551,7 @@ CTEST(length_of_road, numa_numa_72){
   ASSERT_EQUAL(exp, real);
 }
 
-CTEST(length_of_road, numa_numa_73){
+CTEST(length_of_road, numa_numa_73) {
   struct graph *g = graph_create(max_city);
   graph_initialization(g, max_city);
 
@@ -1570,7 +1569,7 @@ CTEST(length_of_road, numa_numa_73){
   ASSERT_EQUAL(exp, real);
 }
 
-CTEST(length_of_road, numa_numa_74){
+CTEST(length_of_road, numa_numa_74) {
   struct graph *g = graph_create(max_city);
   graph_initialization(g, max_city);
 
@@ -1588,7 +1587,7 @@ CTEST(length_of_road, numa_numa_74){
   ASSERT_EQUAL(exp, real);
 }
 
-CTEST(length_of_road, numa_numa_75){
+CTEST(length_of_road, numa_numa_75) {
   struct graph *g = graph_create(max_city);
   graph_initialization(g, max_city);
 
@@ -1606,7 +1605,7 @@ CTEST(length_of_road, numa_numa_75){
   ASSERT_EQUAL(exp, real);
 }
 
-CTEST(length_of_road, numa_numa_76){
+CTEST(length_of_road, numa_numa_76) {
   struct graph *g = graph_create(max_city);
   graph_initialization(g, max_city);
 
@@ -1624,7 +1623,7 @@ CTEST(length_of_road, numa_numa_76){
   ASSERT_EQUAL(exp, real);
 }
 
-CTEST(length_of_road, numa_numa_77){
+CTEST(length_of_road, numa_numa_77) {
   struct graph *g = graph_create(max_city);
   graph_initialization(g, max_city);
 
@@ -1642,7 +1641,7 @@ CTEST(length_of_road, numa_numa_77){
   ASSERT_EQUAL(exp, real);
 }
 
-CTEST(length_of_road, numa_numa_78){
+CTEST(length_of_road, numa_numa_78) {
   struct graph *g = graph_create(max_city);
   graph_initialization(g, max_city);
 
@@ -1660,7 +1659,7 @@ CTEST(length_of_road, numa_numa_78){
   ASSERT_EQUAL(exp, real);
 }
 
-CTEST(length_of_road, numa_numa_79){
+CTEST(length_of_road, numa_numa_79) {
   struct graph *g = graph_create(max_city);
   graph_initialization(g, max_city);
 
@@ -1678,7 +1677,7 @@ CTEST(length_of_road, numa_numa_79){
   ASSERT_EQUAL(exp, real);
 }
 
-CTEST(length_of_road, numa_numa_80){
+CTEST(length_of_road, numa_numa_80) {
   struct graph *g = graph_create(max_city);
   graph_initialization(g, max_city);
 
@@ -1696,7 +1695,7 @@ CTEST(length_of_road, numa_numa_80){
   ASSERT_EQUAL(exp, real);
 }
 
-CTEST(length_of_road, numa_numa_81){
+CTEST(length_of_road, numa_numa_81) {
   struct graph *g = graph_create(max_city);
   graph_initialization(g, max_city);
 
@@ -1714,7 +1713,7 @@ CTEST(length_of_road, numa_numa_81){
   ASSERT_EQUAL(exp, real);
 }
 
-CTEST(length_of_road, numa_numa_82){
+CTEST(length_of_road, numa_numa_82) {
   struct graph *g = graph_create(max_city);
   graph_initialization(g, max_city);
 
@@ -1732,7 +1731,7 @@ CTEST(length_of_road, numa_numa_82){
   ASSERT_EQUAL(exp, real);
 }
 
-CTEST(length_of_road, numa_numa_83){
+CTEST(length_of_road, numa_numa_83) {
   struct graph *g = graph_create(max_city);
   graph_initialization(g, max_city);
 
@@ -1750,7 +1749,7 @@ CTEST(length_of_road, numa_numa_83){
   ASSERT_EQUAL(exp, real);
 }
 
-CTEST(length_of_road, numa_numa_84){
+CTEST(length_of_road, numa_numa_84) {
   struct graph *g = graph_create(max_city);
   graph_initialization(g, max_city);
 
@@ -1768,7 +1767,7 @@ CTEST(length_of_road, numa_numa_84){
   ASSERT_EQUAL(exp, real);
 }
 
-CTEST(length_of_road, numa_numa_85){
+CTEST(length_of_road, numa_numa_85) {
   struct graph *g = graph_create(max_city);
   graph_initialization(g, max_city);
 
@@ -1786,7 +1785,7 @@ CTEST(length_of_road, numa_numa_85){
   ASSERT_EQUAL(exp, real);
 }
 
-CTEST(length_of_road, numa_numa_86){
+CTEST(length_of_road, numa_numa_86) {
   struct graph *g = graph_create(max_city);
   graph_initialization(g, max_city);
 
@@ -1804,7 +1803,7 @@ CTEST(length_of_road, numa_numa_86){
   ASSERT_EQUAL(exp, real);
 }
 
-CTEST(length_of_road, numa_numa_87){
+CTEST(length_of_road, numa_numa_87) {
   struct graph *g = graph_create(max_city);
   graph_initialization(g, max_city);
 
@@ -1822,7 +1821,7 @@ CTEST(length_of_road, numa_numa_87){
   ASSERT_EQUAL(exp, real);
 }
 
-CTEST(length_of_road, numa_numa_88){
+CTEST(length_of_road, numa_numa_88) {
   struct graph *g = graph_create(max_city);
   graph_initialization(g, max_city);
 
@@ -1840,7 +1839,7 @@ CTEST(length_of_road, numa_numa_88){
   ASSERT_EQUAL(exp, real);
 }
 
-CTEST(length_of_road, numa_numa_89){
+CTEST(length_of_road, numa_numa_89) {
   struct graph *g = graph_create(max_city);
   graph_initialization(g, max_city);
 
@@ -1858,7 +1857,7 @@ CTEST(length_of_road, numa_numa_89){
   ASSERT_EQUAL(exp, real);
 }
 
-CTEST(length_of_road, numa_numa_90){
+CTEST(length_of_road, numa_numa_90) {
   struct graph *g = graph_create(max_city);
   graph_initialization(g, max_city);
 
@@ -1876,7 +1875,7 @@ CTEST(length_of_road, numa_numa_90){
   ASSERT_EQUAL(exp, real);
 }
 
-CTEST(length_of_road, numa_numa_91){
+CTEST(length_of_road, numa_numa_91) {
   struct graph *g = graph_create(max_city);
   graph_initialization(g, max_city);
 
@@ -1894,7 +1893,7 @@ CTEST(length_of_road, numa_numa_91){
   ASSERT_EQUAL(exp, real);
 }
 
-CTEST(length_of_road, numa_numa_92){
+CTEST(length_of_road, numa_numa_92) {
   struct graph *g = graph_create(max_city);
   graph_initialization(g, max_city);
 
@@ -1912,7 +1911,7 @@ CTEST(length_of_road, numa_numa_92){
   ASSERT_EQUAL(exp, real);
 }
 
-CTEST(length_of_road, numa_numa_93){
+CTEST(length_of_road, numa_numa_93) {
   struct graph *g = graph_create(max_city);
   graph_initialization(g, max_city);
 
@@ -1930,7 +1929,7 @@ CTEST(length_of_road, numa_numa_93){
   ASSERT_EQUAL(exp, real);
 }
 
-CTEST(length_of_road, numa_numa_94){
+CTEST(length_of_road, numa_numa_94) {
   struct graph *g = graph_create(max_city);
   graph_initialization(g, max_city);
 
@@ -1948,7 +1947,7 @@ CTEST(length_of_road, numa_numa_94){
   ASSERT_EQUAL(exp, real);
 }
 
-CTEST(length_of_road, numa_numa_95){
+CTEST(length_of_road, numa_numa_95) {
   struct graph *g = graph_create(max_city);
   graph_initialization(g, max_city);
 
@@ -1966,7 +1965,7 @@ CTEST(length_of_road, numa_numa_95){
   ASSERT_EQUAL(exp, real);
 }
 
-CTEST(length_of_road, numa_numa_96){
+CTEST(length_of_road, numa_numa_96) {
   struct graph *g = graph_create(max_city);
   graph_initialization(g, max_city);
 
@@ -1984,7 +1983,7 @@ CTEST(length_of_road, numa_numa_96){
   ASSERT_EQUAL(exp, real);
 }
 
-CTEST(length_of_road, numa_numa_97){
+CTEST(length_of_road, numa_numa_97) {
   struct graph *g = graph_create(max_city);
   graph_initialization(g, max_city);
 
@@ -2002,7 +2001,7 @@ CTEST(length_of_road, numa_numa_97){
   ASSERT_EQUAL(exp, real);
 }
 
-CTEST(length_of_road, numa_numa_98){
+CTEST(length_of_road, numa_numa_98) {
   struct graph *g = graph_create(max_city);
   graph_initialization(g, max_city);
 
@@ -2020,7 +2019,7 @@ CTEST(length_of_road, numa_numa_98){
   ASSERT_EQUAL(exp, real);
 }
 
-CTEST(length_of_road, numa_numa_99){
+CTEST(length_of_road, numa_numa_99) {
   struct graph *g = graph_create(max_city);
   graph_initialization(g, max_city);
 
@@ -2038,7 +2037,7 @@ CTEST(length_of_road, numa_numa_99){
   ASSERT_EQUAL(exp, real);
 }
 
-CTEST(length_of_road, numa_numa_100){
+CTEST(length_of_road, numa_numa_100) {
   struct graph *g = graph_create(max_city);
   graph_initialization(g, max_city);
 
@@ -2056,7 +2055,7 @@ CTEST(length_of_road, numa_numa_100){
   ASSERT_EQUAL(exp, real);
 }
 
-CTEST(length_of_road, numa_numa_101){
+CTEST(length_of_road, numa_numa_101) {
   struct graph *g = graph_create(max_city);
   graph_initialization(g, max_city);
 
@@ -2074,7 +2073,7 @@ CTEST(length_of_road, numa_numa_101){
   ASSERT_EQUAL(exp, real);
 }
 
-CTEST(length_of_road, numa_numa_102){
+CTEST(length_of_road, numa_numa_102) {
   struct graph *g = graph_create(max_city);
   graph_initialization(g, max_city);
 
@@ -2092,7 +2091,7 @@ CTEST(length_of_road, numa_numa_102){
   ASSERT_EQUAL(exp, real);
 }
 
-CTEST(length_of_road, numa_numa_103){
+CTEST(length_of_road, numa_numa_103) {
   struct graph *g = graph_create(max_city);
   graph_initialization(g, max_city);
 
@@ -2110,7 +2109,7 @@ CTEST(length_of_road, numa_numa_103){
   ASSERT_EQUAL(exp, real);
 }
 
-CTEST(length_of_road, numa_numa_104){
+CTEST(length_of_road, numa_numa_104) {
   struct graph *g = graph_create(max_city);
   graph_initialization(g, max_city);
 
@@ -2128,7 +2127,7 @@ CTEST(length_of_road, numa_numa_104){
   ASSERT_EQUAL(exp, real);
 }
 
-CTEST(length_of_road, numa_numa_105){
+CTEST(length_of_road, numa_numa_105) {
   struct graph *g = graph_create(max_city);
   graph_initialization(g, max_city);
 
@@ -2146,7 +2145,7 @@ CTEST(length_of_road, numa_numa_105){
   ASSERT_EQUAL(exp, real);
 }
 
-CTEST(length_of_road, numa_numa_106){
+CTEST(length_of_road, numa_numa_106) {
   struct graph *g = graph_create(max_city);
   graph_initialization(g, max_city);
 
@@ -2164,7 +2163,7 @@ CTEST(length_of_road, numa_numa_106){
   ASSERT_EQUAL(exp, real);
 }
 
-CTEST(length_of_road, numa_numa_107){
+CTEST(length_of_road, numa_numa_107) {
   struct graph *g = graph_create(max_city);
   graph_initialization(g, max_city);
 
@@ -2182,7 +2181,7 @@ CTEST(length_of_road, numa_numa_107){
   ASSERT_EQUAL(exp, real);
 }
 
-CTEST(length_of_road, numa_numa_108){
+CTEST(length_of_road, numa_numa_108) {
   struct graph *g = graph_create(max_city);
   graph_initialization(g, max_city);
 
@@ -2200,7 +2199,7 @@ CTEST(length_of_road, numa_numa_108){
   ASSERT_EQUAL(exp, real);
 }
 
-CTEST(length_of_road, numa_numa_109){
+CTEST(length_of_road, numa_numa_109) {
   struct graph *g = graph_create(max_city);
   graph_initialization(g, max_city);
 
@@ -2218,7 +2217,7 @@ CTEST(length_of_road, numa_numa_109){
   ASSERT_EQUAL(exp, real);
 }
 
-CTEST(length_of_road, numa_numa_110){
+CTEST(length_of_road, numa_numa_110) {
   struct graph *g = graph_create(max_city);
   graph_initialization(g, max_city);
 
@@ -2236,7 +2235,7 @@ CTEST(length_of_road, numa_numa_110){
   ASSERT_EQUAL(exp, real);
 }
 
-CTEST(length_of_road, numa_numa_111){
+CTEST(length_of_road, numa_numa_111) {
   struct graph *g = graph_create(max_city);
   graph_initialization(g, max_city);
 
@@ -2254,7 +2253,7 @@ CTEST(length_of_road, numa_numa_111){
   ASSERT_EQUAL(exp, real);
 }
 
-CTEST(length_of_road, numa_numa_112){
+CTEST(length_of_road, numa_numa_112) {
   struct graph *g = graph_create(max_city);
   graph_initialization(g, max_city);
 
@@ -2272,7 +2271,7 @@ CTEST(length_of_road, numa_numa_112){
   ASSERT_EQUAL(exp, real);
 }
 
-CTEST(length_of_road, numa_numa_113){
+CTEST(length_of_road, numa_numa_113) {
   struct graph *g = graph_create(max_city);
   graph_initialization(g, max_city);
 
@@ -2290,7 +2289,7 @@ CTEST(length_of_road, numa_numa_113){
   ASSERT_EQUAL(exp, real);
 }
 
-CTEST(length_of_road, numa_numa_114){
+CTEST(length_of_road, numa_numa_114) {
   struct graph *g = graph_create(max_city);
   graph_initialization(g, max_city);
 
@@ -2308,7 +2307,7 @@ CTEST(length_of_road, numa_numa_114){
   ASSERT_EQUAL(exp, real);
 }
 
-CTEST(length_of_road, numa_numa_115){
+CTEST(length_of_road, numa_numa_115) {
   struct graph *g = graph_create(max_city);
   graph_initialization(g, max_city);
 
@@ -2326,7 +2325,7 @@ CTEST(length_of_road, numa_numa_115){
   ASSERT_EQUAL(exp, real);
 }
 
-CTEST(length_of_road, numa_numa_116){
+CTEST(length_of_road, numa_numa_116) {
   struct graph *g = graph_create(max_city);
   graph_initialization(g, max_city);
 
@@ -2344,7 +2343,7 @@ CTEST(length_of_road, numa_numa_116){
   ASSERT_EQUAL(exp, real);
 }
 
-CTEST(length_of_road, numa_numa_117){
+CTEST(length_of_road, numa_numa_117) {
   struct graph *g = graph_create(max_city);
   graph_initialization(g, max_city);
 
@@ -2362,7 +2361,7 @@ CTEST(length_of_road, numa_numa_117){
   ASSERT_EQUAL(exp, real);
 }
 
-CTEST(length_of_road, numa_numa_118){
+CTEST(length_of_road, numa_numa_118) {
   struct graph *g = graph_create(max_city);
   graph_initialization(g, max_city);
 
@@ -2380,7 +2379,7 @@ CTEST(length_of_road, numa_numa_118){
   ASSERT_EQUAL(exp, real);
 }
 
-CTEST(length_of_road, numa_numa_119){
+CTEST(length_of_road, numa_numa_119) {
   struct graph *g = graph_create(max_city);
   graph_initialization(g, max_city);
 
@@ -2398,7 +2397,7 @@ CTEST(length_of_road, numa_numa_119){
   ASSERT_EQUAL(exp, real);
 }
 
-CTEST(length_of_road, numa_numa_120){
+CTEST(length_of_road, numa_numa_120) {
   struct graph *g = graph_create(max_city);
   graph_initialization(g, max_city);
 
@@ -2416,7 +2415,7 @@ CTEST(length_of_road, numa_numa_120){
   ASSERT_EQUAL(exp, real);
 }
 
-CTEST(length_of_road, numa_numa_121){
+CTEST(length_of_road, numa_numa_121) {
   struct graph *g = graph_create(max_city);
   graph_initialization(g, max_city);
 
