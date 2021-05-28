@@ -22,6 +22,8 @@ CTEST(argument_check, incorrect_arg_1) {
 
   int exp = 1;
 
+  free(argv[1]);
+  free(argv);
   ASSERT_EQUAL(exp, real);
 }
 
@@ -35,6 +37,8 @@ CTEST(argument_check, null_arg_2) {
 
   int exp = 2;
 
+  free(argv[1]);
+  free(argv);
   ASSERT_EQUAL(exp, real);
 }
 
@@ -50,6 +54,9 @@ CTEST(argument_check, null_arg_3) {
 
   int exp = 3;
 
+  free(argv[2]);
+  free(argv[1]);
+  free(argv);
   ASSERT_EQUAL(exp, real);
 }
 
@@ -66,6 +73,10 @@ CTEST(argument_check, incorrect_arg_3) {
 
   int exp = 3;
 
+  free(argv[1]);
+  free(argv[2]);
+  free(argv[3]);
+  free(argv);
   ASSERT_EQUAL(exp, real);
 }
 
@@ -83,6 +94,10 @@ CTEST(argument_check, null_arg_4) {
 
   int exp = 4;
 
+  free(argv[1]);
+  free(argv[2]);
+  free(argv[3]);
+  free(argv);
   ASSERT_EQUAL(exp, real);
 }
 
@@ -102,5 +117,10 @@ CTEST(argument_check, null_arg_5) {
 
   int exp = 5;
 
+  free(argv[1]);
+  free(argv[2]);
+  free(argv[3]);
+  free(argv[4]);
+  free(argv);
   ASSERT_EQUAL(exp, real);
 }
