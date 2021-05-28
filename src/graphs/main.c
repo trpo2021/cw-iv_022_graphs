@@ -81,7 +81,7 @@ int main(int argc, char **argv) {
       break;
 
     case 's':
-      shortest_path(arr_cities, arr_length, path_long, g, index, start_city,
+      shortest_path(arr_cities, arr_length, path_long, g, start_city,
                     final_city);
       break;
 
@@ -90,7 +90,7 @@ int main(int argc, char **argv) {
       break;
 
     case 'l':
-      longest_path(arr_cities, arr_length, path_long, g, index, start_city,
+      longest_path(arr_cities, arr_length, path_long, g, start_city,
                    final_city);
       break;
 
