@@ -56,18 +56,6 @@ struct graph *graph_create(int nvertices) {
     }
   }
 
-  g->visited = malloc(sizeof(int) * nvertices);
-
-  if (g->visited == NULL) {
-    printf("Ошибка выделения памяти под посещаемые вершины\n");
-    for (int i = 0; i < max_city; i++) {
-      free(g->m[i]);
-    }
-    free(g->m);
-    free(g);
-    return NULL;
-  }
-
   graph_clear(g, nvertices);
   return g;
 }
