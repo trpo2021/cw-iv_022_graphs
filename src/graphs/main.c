@@ -15,6 +15,7 @@ int main(int argc, char **argv) {
 
   graph_initialization(g, max_city);
 
+
   int start_city, final_city, opt, index = 0, check;
 
   int *path = calloc(max_city, sizeof(int)); //массив для востановленного пути
