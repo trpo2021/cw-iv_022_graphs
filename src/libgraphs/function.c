@@ -71,86 +71,90 @@ int arguments_check(char **argv) {
   return 0;
 }
 
-void cities_numbers(int *array_cities) {
-  if (array_cities[1] != array_cities[2]) {
-    if ((array_cities[1] + first_city != array_cities[2]) &&
-        (array_cities[1] + first_city <= fourth_city)) {
-      array_cities[3] = array_cities[1] + first_city;
+void cities_numbers(int *list_of_cities) {
+  if (list_of_cities[1] != list_of_cities[2]) {
+    if ((list_of_cities[1] + first_city != list_of_cities[2]) &&
+        (list_of_cities[1] + first_city <= fourth_city)) {
+      list_of_cities[3] = list_of_cities[1] + first_city;
 
-      if ((array_cities[2] - first_city >= first_city) &&
-          (array_cities[2] - first_city != array_cities[3]) &&
-          (array_cities[2] - first_city != array_cities[1])) {
-        array_cities[4] = array_cities[2] - first_city;
+      if ((list_of_cities[2] - first_city >= first_city) &&
+          (list_of_cities[2] - first_city != list_of_cities[3]) &&
+          (list_of_cities[2] - first_city != list_of_cities[1])) {
+        list_of_cities[4] = list_of_cities[2] - first_city;
       } else {
-        if ((array_cities[2] + first_city <= fourth_city) &&
-            (array_cities[2] + first_city != array_cities[1])) {
-          array_cities[4] = array_cities[2] + first_city;
+        if ((list_of_cities[2] + first_city <= fourth_city) &&
+            (list_of_cities[2] + first_city != list_of_cities[1])) {
+          list_of_cities[4] = list_of_cities[2] + first_city;
         } else {
-          if (array_cities[2] + first_city > fourth_city) {
-            array_cities[4] = array_cities[1] - first_city;
+          if (list_of_cities[2] + first_city > fourth_city) {
+            list_of_cities[4] = list_of_cities[1] - first_city;
           } else {
-            array_cities[4] = array_cities[2] + array_cities[3];
+            list_of_cities[4] = list_of_cities[2] + list_of_cities[3];
           }
         }
       }
     } else {
-      if ((array_cities[1] - first_city != array_cities[2]) &&
-          (array_cities[1] > first_city)) {
-        array_cities[3] = array_cities[1] - first_city;
+      if ((list_of_cities[1] - first_city != list_of_cities[2]) &&
+          (list_of_cities[1] > first_city)) {
+        list_of_cities[3] = list_of_cities[1] - first_city;
       } else {
-        if (array_cities[1] == first_city) {
-          array_cities[3] = array_cities[1] + third_city;
+        if (list_of_cities[1] == first_city) {
+          list_of_cities[3] = list_of_cities[1] + third_city;
         } else {
-          array_cities[3] = array_cities[1] - third_city;
+          list_of_cities[3] = list_of_cities[1] - third_city;
         }
       }
-      if ((array_cities[2] - first_city >= first_city) &&
-          (array_cities[2] - first_city != array_cities[3]) &&
-          (array_cities[2] - first_city != array_cities[1])) {
-        array_cities[4] = array_cities[2] - first_city;
+      if ((list_of_cities[2] - first_city >= first_city) &&
+          (list_of_cities[2] - first_city != list_of_cities[3]) &&
+          (list_of_cities[2] - first_city != list_of_cities[1])) {
+        list_of_cities[4] = list_of_cities[2] - first_city;
       } else {
-        if (array_cities[2] + first_city <= fourth_city) {
-          array_cities[4] = array_cities[2] + first_city;
+        if (list_of_cities[2] + first_city <= fourth_city) {
+          list_of_cities[4] = list_of_cities[2] + first_city;
         } else {
-          array_cities[4] = array_cities[3] - first_city;
+          list_of_cities[4] = list_of_cities[3] - first_city;
         }
       }
     }
   } else {
     for (int i = 0; i < max_city + 1; i++) {
-      array_cities[i] = 0;
+      list_of_cities[i] = 0;
     }
   }
 }
 
-int length(int *array_cities, struct graph *g, int i, int *path_long) {
+int length(int *list_of_cities, struct graph *g, int i, int *path_long) {
   if (i == first_city) {
-    path_long[2] = array_cities[2];
-    return g->m[array_cities[1] - first_city][array_cities[2] - first_city];
+    path_long[2] = list_of_cities[2];
+    return g->m[list_of_cities[1] - first_city][list_of_cities[2] - first_city];
   }
   if ((i == 2) || (i == 3)) {
-    path_long[2] = array_cities[i + first_city];
-    path_long[3] = array_cities[2];
-    return g->m[array_cities[1] - first_city]
-               [array_cities[i + first_city] - first_city] +
-           g->m[array_cities[i + first_city] - first_city]
-               [array_cities[2] - first_city];
+    path_long[2] = list_of_cities[i + first_city];
+    path_long[3] = list_of_cities[2];
+    return g->m[list_of_cities[1] - first_city]
+               [list_of_cities[i + first_city] - first_city] +
+           g->m[list_of_cities[i + first_city] - first_city]
+               [list_of_cities[2] - first_city];
   }
   if (i == fourth_city) {
-    path_long[2] = array_cities[3];
-    path_long[3] = array_cities[4];
-    path_long[4] = array_cities[2];
-    return g->m[array_cities[1] - first_city][array_cities[4] - first_city] +
-           g->m[array_cities[4] - first_city][array_cities[3] - first_city] +
-           g->m[array_cities[3] - first_city][array_cities[2] - first_city];
+    path_long[2] = list_of_cities[3];
+    path_long[3] = list_of_cities[4];
+    path_long[4] = list_of_cities[2];
+    return g->m[list_of_cities[1] - first_city]
+               [list_of_cities[4] - first_city] +
+           g->m[list_of_cities[4] - first_city]
+               [list_of_cities[3] - first_city] +
+           g->m[list_of_cities[3] - first_city][list_of_cities[2] - first_city];
   }
   if (i == fourth_city + 1) {
-    path_long[2] = array_cities[4];
-    path_long[4] = array_cities[2];
-    path_long[3] = array_cities[3];
-    return g->m[array_cities[1] - first_city][array_cities[3] - first_city] +
-           g->m[array_cities[3] - first_city][array_cities[4] - first_city] +
-           g->m[array_cities[4] - first_city][array_cities[2] - first_city];
+    path_long[2] = list_of_cities[4];
+    path_long[4] = list_of_cities[2];
+    path_long[3] = list_of_cities[3];
+    return g->m[list_of_cities[1] - first_city]
+               [list_of_cities[3] - first_city] +
+           g->m[list_of_cities[3] - first_city]
+               [list_of_cities[4] - first_city] +
+           g->m[list_of_cities[4] - first_city][list_of_cities[2] - first_city];
   }
   return 0;
 }
@@ -193,10 +197,11 @@ void all_paths(int *arr_cities, struct graph *g, int *path_long, int start_city,
 }
 
 void shortest_path(int *arr_cities, int *arr_length, int *path_long,
-                   struct graph *g, int index, int start_city, int final_city) {
+                   struct graph *g, int start_city, int final_city) {
   printf("\n----------------------------------------------");
-  int min = 999;
 
+  int index = 0;
+  int min = 999;
   if (arr_cities[1] != arr_cities[2]) {
     for (int i = first_city; i <= fourth_city + 1; i++) {
       arr_length[i] = length(arr_cities, g, i, path_long);
@@ -223,10 +228,10 @@ void shortest_path(int *arr_cities, int *arr_length, int *path_long,
 }
 
 void longest_path(int *arr_cities, int *arr_length, int *path_long,
-                  struct graph *g, int index, int start_city, int final_city) {
+                  struct graph *g, int start_city, int final_city) {
   printf("\n----------------------------------------------");
-  int max = -1;
 
+  int max = -1, index = 0;
   if (arr_cities[1] != arr_cities[2]) {
     for (int i = first_city; i <= fourth_city + 1; i++) {
       arr_length[i] = length(arr_cities, g, i, path_long);
