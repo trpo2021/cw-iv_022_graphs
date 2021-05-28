@@ -2,7 +2,7 @@
 #include "libgraphs/lib_for_cities.h"
 
 CTEST(argument_check, null_arg_1) {
-  char **argv = malloc(2 * sizeof(char *));
+  char **argv = calloc(2, sizeof(char *));
   argv[1] = NULL;
 
   int real = arguments_check(argv);
@@ -14,8 +14,8 @@ CTEST(argument_check, null_arg_1) {
 }
 
 CTEST(argument_check, incorrect_arg_1) {
-  char **argv = malloc(2 * sizeof(char *));
-  argv[1] = malloc(3 * sizeof(char));
+  char **argv = calloc(2, sizeof(char *));
+  argv[1] = calloc(3, sizeof(char));
   strcat(argv[1], "-l");
 
   int real = arguments_check(argv);
@@ -28,8 +28,8 @@ CTEST(argument_check, incorrect_arg_1) {
 }
 
 CTEST(argument_check, null_arg_2) {
-  char **argv = malloc(3 * sizeof(char *));
-  argv[1] = malloc(3 * sizeof(char));
+  char **argv = calloc(3, sizeof(char *));
+  argv[1] = calloc(3, sizeof(char));
   strcat(argv[1], "-b");
   argv[2] = NULL;
 
@@ -43,10 +43,10 @@ CTEST(argument_check, null_arg_2) {
 }
 
 CTEST(argument_check, null_arg_3) {
-  char **argv = malloc(4 * sizeof(char *));
-  argv[1] = malloc(3 * sizeof(char));
+  char **argv = calloc(4, sizeof(char *));
+  argv[1] = calloc(3, sizeof(char));
   strcat(argv[1], "-b");
-  argv[2] = malloc(2 * sizeof(char));
+  argv[2] = calloc(2, sizeof(char));
   strcat(argv[2], "3");
   argv[3] = NULL;
 
@@ -61,12 +61,12 @@ CTEST(argument_check, null_arg_3) {
 }
 
 CTEST(argument_check, incorrect_arg_3) {
-  char **argv = malloc(4 * sizeof(char *));
-  argv[1] = malloc(3 * sizeof(char));
+  char **argv = calloc(4, sizeof(char *));
+  argv[1] = calloc(3, sizeof(char));
   strcat(argv[1], "-b");
-  argv[2] = malloc(2 * sizeof(char));
+  argv[2] = calloc(2, sizeof(char));
   strcat(argv[2], "3");
-  argv[3] = malloc(3 * sizeof(char));
+  argv[3] = calloc(3, sizeof(char));
   strcat(argv[2], "e");
 
   int real = arguments_check(argv);
@@ -81,12 +81,12 @@ CTEST(argument_check, incorrect_arg_3) {
 }
 
 CTEST(argument_check, null_arg_4) {
-  char **argv = malloc(5 * sizeof(char *));
-  argv[1] = malloc(3 * sizeof(char));
+  char **argv = calloc(5, sizeof(char *));
+  argv[1] = calloc(3, sizeof(char));
   strcat(argv[1], "-b");
-  argv[2] = malloc(2 * sizeof(char));
+  argv[2] = calloc(2, sizeof(char));
   strcat(argv[2], "3");
-  argv[3] = malloc(3 * sizeof(char));
+  argv[3] = calloc(3, sizeof(char));
   strcat(argv[3], "-e");
   argv[4] = NULL;
 
@@ -102,14 +102,14 @@ CTEST(argument_check, null_arg_4) {
 }
 
 CTEST(argument_check, null_arg_5) {
-  char **argv = malloc(6 * sizeof(char *));
-  argv[1] = malloc(3 * sizeof(char));
+  char **argv = calloc(6, sizeof(char *));
+  argv[1] = calloc(3, sizeof(char));
   strcat(argv[1], "-b");
-  argv[2] = malloc(2 * sizeof(char));
+  argv[2] = calloc(2, sizeof(char));
   strcat(argv[2], "3");
-  argv[3] = malloc(3 * sizeof(char));
+  argv[3] = calloc(3, sizeof(char));
   strcat(argv[3], "-e");
-  argv[4] = malloc(3 * sizeof(char));
+  argv[4] = calloc(3, sizeof(char));
   strcat(argv[2], "2");
   argv[5] = NULL;
 
