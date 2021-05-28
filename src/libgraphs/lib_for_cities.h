@@ -40,3 +40,4 @@ void graph_set_edge(struct graph *g, int i, int j, int w);
 int graph_get_edge(struct graph *g, int i, int j);
 struct graph *graph_create(int nvertices);
 void graph_free(struct graph *g, int max_city);
+int get_length(int i, int j);
