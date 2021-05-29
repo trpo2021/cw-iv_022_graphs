@@ -17,23 +17,15 @@ int main(int argc, char **argv) {
 
   int start_city, final_city, check;
 
-  int *path = calloc(max_city, sizeof(int)); //массив для востановленного пути
-
-  if ((check = memory_check(path)) == -1) {
-    return -1;
-  }
-
   int *list_of_cities = calloc(max_city + 1, sizeof(int));
 
   if ((check = memory_check(list_of_cities)) == -1) {
-    free(path);
     return -1;
   }
 
   int *arr_length = calloc(max_city + 1, sizeof(int));
 
   if ((check = memory_check(arr_length)) == -1) {
-    free(path);
     free(list_of_cities);
     return -1;
   }
@@ -41,7 +33,6 @@ int main(int argc, char **argv) {
   int *path_long = calloc(max_city + 1, sizeof(int));
 
   if ((check = memory_check(path_long)) == -1) {
-    free(path);
     free(list_of_cities);
     free(arr_length);
     return -1;
@@ -54,7 +45,7 @@ int main(int argc, char **argv) {
 
       if ((start_city < min_city) || (start_city > max_city)) {
         printf("Ошибка: введите корректное значение стартового города\n");
-        free_arrays(path_long, arr_length, list_of_cities, path);
+        free_arrays(path_long, arr_length, list_of_cities);
         graph_free(g, max_city);
         return -1;
       }
@@ -67,7 +58,7 @@ int main(int argc, char **argv) {
 
       if ((final_city < min_city) || (final_city > max_city)) {
         printf("Ошибка: введите корректное значение конечного города\n");
-        free_arrays(path_long, arr_length, list_of_cities, path);
+        free_arrays(path_long, arr_length, list_of_cities);
         graph_free(g, max_city);
         return -1;
       }
@@ -75,7 +66,7 @@ int main(int argc, char **argv) {
       if (final_city == start_city) {
         printf(
             "Ошибка: приложение не обрабатывает маршруты для одного города\n");
-        free_arrays(path_long, arr_length, list_of_cities, path);
+        free_arrays(path_long, arr_length, list_of_cities);
         graph_free(g, max_city);
         return -1;
       }
@@ -104,7 +95,7 @@ int main(int argc, char **argv) {
     }
   }
 
-  free_arrays(path_long, arr_length, list_of_cities, path);
+  free_arrays(path_long, arr_length, list_of_cities);
   graph_free(g, max_city);
   return 0;
 }
