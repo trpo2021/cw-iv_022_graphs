@@ -9,31 +9,31 @@ void graph_initialization(struct graph *g, int max_city) {
 }
 
 int get_length(int i, int j) {
-  if (i == j){
+  if (i == j) {
     return 0;
   }
 
-  if ((i == 0) && (j == 1)){
+  if ((i == 0) && (j == 1)) {
     return 17;
   }
 
-  if ((i == 0) && (j == 2)){
+  if ((i == 0) && (j == 2)) {
     return 25;
   }
 
-  if ((i == 0) && (j == 3)){
+  if ((i == 0) && (j == 3)) {
     return 25;
   }
 
-  if ((i == 1) && (j == 2)){
+  if ((i == 1) && (j == 2)) {
     return 13;
   }
 
-  if ((i == 1) && (j == 3)){
+  if ((i == 1) && (j == 3)) {
     return 16;
   }
 
-  if ((i == 2) && (j == 3)){
+  if ((i == 2) && (j == 3)) {
     return 15;
   }
   return 0;

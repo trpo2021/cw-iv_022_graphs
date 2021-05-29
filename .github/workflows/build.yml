@@ -16,7 +16,7 @@ jobs:
         run: make test
 
       - name: Run test
-        run: bin/test
+        run: bin/graphs_test
 
       - name: Build application
         run: make

@@ -15,8 +15,7 @@ int main(int argc, char **argv) {
 
   graph_initialization(g, max_city);
 
-
-  int start_city, final_city, opt, index = 0, check;
+  int start_city, final_city, opt, check;
 
   int *path = calloc(max_city, sizeof(int)); //массив для востановленного пути
 
@@ -24,9 +23,9 @@ int main(int argc, char **argv) {
     return -1;
   }
 
-  int *arr_cities = calloc(max_city + 1, sizeof(int));
+  int *list_of_cities = calloc(max_city + 1, sizeof(int));
 
-  if ((check = memory_check(arr_cities)) == -1) {
+  if ((check = memory_check(list_of_cities)) == -1) {
     free(path);
     return -1;
   }
@@ -35,7 +34,7 @@ int main(int argc, char **argv) {
 
   if ((check = memory_check(arr_length)) == -1) {
     free(path);
-    free(arr_cities);
+    free(list_of_cities);
     return -1;
   }
 
@@ -43,7 +42,7 @@ int main(int argc, char **argv) {
 
   if ((check = memory_check(path_long)) == -1) {
     free(path);
-    free(arr_cities);
+    free(list_of_cities);
     free(arr_length);
     return -1;
   }
@@ -59,7 +58,7 @@ int main(int argc, char **argv) {
         return -1;
       }
 
-      arr_cities[1] = start_city;
+      list_of_cities[1] = start_city;
       break;
 
     case 'e':
@@ -77,21 +76,21 @@ int main(int argc, char **argv) {
         return -1;
       }
 
-      arr_cities[2] = final_city;
-      cities_numbers(arr_cities);
+      list_of_cities[2] = final_city;
+      cities_numbers(list_of_cities);
       break;
 
     case 's':
-      shortest_path(arr_cities, arr_length, path_long, g, index, start_city,
+      shortest_path(list_of_cities, arr_length, path_long, g, start_city,
                     final_city);
       break;
 
     case 'n':
-      all_paths(arr_cities, g, path_long, start_city, final_city);
+      all_paths(list_of_cities, g, path_long, start_city, final_city);
       break;
 
     case 'l':
-      longest_path(arr_cities, arr_length, path_long, g, index, start_city,
+      longest_path(list_of_cities, arr_length, path_long, g, start_city,
                    final_city);
       break;
 
@@ -101,7 +100,7 @@ int main(int argc, char **argv) {
     }
   }
 
-  free_arrays(path_long, arr_length, arr_cities, path);
+  free_arrays(path_long, arr_length, list_of_cities, path);
   graph_free(g, max_city);
   return 0;
 }
