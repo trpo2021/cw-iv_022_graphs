@@ -258,9 +258,7 @@ void longest_path(int *list_of_cities, int *arr_length, int *path_long,
   printf("\n");
 }
 
-void free_arrays(int *path_long, int *arr_length, int *list_of_cities,
-                 int *path) {
-  free(path);
+void free_arrays(int *path_long, int *arr_length, int *list_of_cities) {
   free(list_of_cities);
   free(arr_length);
   free(path_long);
