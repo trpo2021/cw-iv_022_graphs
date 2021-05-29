@@ -1,4 +1,4 @@
-#include "lib_for_cities.h"
+#include "library.h"
 
 void graph_initialization(struct graph *g, int max_city) {
   for (int i = 0; i < max_city; i++) {
