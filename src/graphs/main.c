@@ -15,7 +15,7 @@ int main(int argc, char **argv) {
 
   graph_initialization(g, max_city);
 
-  int start_city, final_city, opt, check;
+  int start_city, final_city, check;
 
   int *path = calloc(max_city, sizeof(int)); //массив для востановленного пути
 
@@ -47,8 +47,8 @@ int main(int argc, char **argv) {
     return -1;
   }
 
-  while ((opt = getopt(argc, argv, "nslb:e:")) != -1) {
-    switch (opt) {
+  while ((check = getopt(argc, argv, "nslb:e:")) != -1) {
+    switch (check) {
     case 'b':
       start_city = atoi(optarg);
 
