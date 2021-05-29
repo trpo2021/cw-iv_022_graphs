@@ -1,4 +1,4 @@
-#include "lib_for_cities.h"
+#include "library.h"
 
 int get_rand(int min, int max) {
   return (double)rand() / (RAND_MAX + 1.0) * (max - min) + min;
