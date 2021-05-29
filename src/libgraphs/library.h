@@ -28,8 +28,7 @@ void arguments_error(int s);
 int memory_check(int *array);
 void all_paths(int *list_of_cities, struct graph *g, int *path_long,
                int start_city, int final_city);
-void free_arrays(int *path_long, int *arr_length, int *list_of_cities,
-                 int *path);
+void free_arrays(int *path_long, int *arr_length, int *list_of_cities);
 void longest_path(int *list_of_cities, int *arr_length, int *path_long,
                   struct graph *g, int start_city, int final_city);
 void shortest_path(int *list_of_cities, int *arr_length, int *path_long,
