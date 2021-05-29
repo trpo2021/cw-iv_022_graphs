@@ -11,6 +11,9 @@ jobs:
 
       - name: Check codestyle
         run: git ls-files *.{c,h} | xargs clang-format -i && git diff --exit-code
+      
+      - name: Build application
+        run: make
 
       - name: Build test 
         run: make test
@@ -18,5 +21,4 @@ jobs:
       - name: Run test
         run: bin/graphs_test
 
-      - name: Build application
-        run: make
+      
