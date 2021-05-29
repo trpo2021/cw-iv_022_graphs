@@ -159,15 +159,16 @@ int length(int *list_of_cities, struct graph *g, int i, int *path_long) {
   return 0;
 }
 
-void all_paths(int *list_of_cities, struct graph *g, int *path_long, int start_city,
-               int final_city) {
+void all_paths(int *list_of_cities, struct graph *g, int *path_long,
+               int start_city, int final_city) {
   printf("\n----------------------------------------------");
   printf("\nВсе маршруты между городами: %d - %d\n", start_city, final_city);
 
   if (list_of_cities[1] != list_of_cities[2]) {
     int length_roads = 0;
 
-    printf("1 Путь. Вершины:  %d -> %d\n", list_of_cities[1], list_of_cities[2]);
+    printf("1 Путь. Вершины:  %d -> %d\n", list_of_cities[1],
+           list_of_cities[2]);
     length_roads = length(list_of_cities, g, 1, path_long);
     printf("Длина:  %d\n", length_roads);
 
@@ -257,7 +258,8 @@ void longest_path(int *list_of_cities, int *arr_length, int *path_long,
   printf("\n");
 }
 
-void free_arrays(int *path_long, int *arr_length, int *list_of_cities, int *path) {
+void free_arrays(int *path_long, int *arr_length, int *list_of_cities,
+                 int *path) {
   free(path);
   free(list_of_cities);
   free(arr_length);
