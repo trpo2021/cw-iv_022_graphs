@@ -1,5 +1,5 @@
 #include "ctest.h"
-#include "libgraphs/lib_for_cities.h"
+#include "libgraphs/library.h"
 
 CTEST(argument_check, null_arg_1) {
   char **argv = calloc(2, sizeof(char *));
