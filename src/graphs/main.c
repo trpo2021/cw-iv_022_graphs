@@ -54,6 +54,7 @@ int main(int argc, char **argv) {
 
       if ((start_city < min_city) || (start_city > max_city)) {
         printf("Ошибка: введите корректное значение стартового города\n");
+        free_arrays(path_long, arr_length, list_of_cities, path);
         graph_free(g, max_city);
         return -1;
       }
@@ -66,6 +67,7 @@ int main(int argc, char **argv) {
 
       if ((final_city < min_city) || (final_city > max_city)) {
         printf("Ошибка: введите корректное значение конечного города\n");
+        free_arrays(path_long, arr_length, list_of_cities, path);
         graph_free(g, max_city);
         return -1;
       }
@@ -73,6 +75,8 @@ int main(int argc, char **argv) {
       if (final_city == start_city) {
         printf(
             "Ошибка: приложение не обрабатывает маршруты для одного города\n");
+        free_arrays(path_long, arr_length, list_of_cities, path);
+        graph_free(g, max_city);
         return -1;
       }
 
