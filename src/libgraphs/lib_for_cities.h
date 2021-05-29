@@ -20,18 +20,19 @@ struct graph {
   int **m;       // Матрица n x n
 };
 
-void cities_numbers(int *array_cities);
-int length(int *array_cities, struct graph *g, int i, int *path_long);
+void cities_numbers(int *list_of_cities);
+int length(int *list_of_cities, struct graph *g, int i, int *path_long);
 int get_rand(int min, int max);
 int arguments_check(char **argv);
 void arguments_error(int s);
 int memory_check(int *array);
-void all_paths(int *arr_cities, struct graph *g, int *path_long, int start_city,
-               int final_city);
-void free_arrays(int *path_long, int *arr_length, int *arr_cities, int *path);
-void longest_path(int *arr_cities, int *arr_length, int *path_long,
+void all_paths(int *list_of_cities, struct graph *g, int *path_long,
+               int start_city, int final_city);
+void free_arrays(int *path_long, int *arr_length, int *list_of_cities,
+                 int *path);
+void longest_path(int *list_of_cities, int *arr_length, int *path_long,
                   struct graph *g, int start_city, int final_city);
-void shortest_path(int *arr_cities, int *arr_length, int *path_long,
+void shortest_path(int *list_of_cities, int *arr_length, int *path_long,
                    struct graph *g, int start_city, int final_city);
 
 void graph_initialization(struct graph *g, int max_city);
