@@ -255,7 +255,7 @@ CTEST(get_edge, edge_between_34) {
   ASSERT_EQUAL(exp, real);
 }
 
-CTEST(length_of_road, numa_numa_1) {
+CTEST(length_of_road, set_of_combinations_1) {
   struct graph *g = graph_create(max_city);
   graph_initialization(g, max_city);
 
@@ -270,10 +270,12 @@ CTEST(length_of_road, numa_numa_1) {
   arr_cities[4] = 4;
   int real = length(arr_cities, g, i, path_long);
   int exp = 17;
+  free(arr_cities);
+  free(path_long);
   ASSERT_EQUAL(exp, real);
 }
 
-CTEST(length_of_road, numa_numa_2) {
+CTEST(length_of_road, set_of_combinations_2) {
   struct graph *g = graph_create(max_city);
   graph_initialization(g, max_city);
 
@@ -288,10 +290,12 @@ CTEST(length_of_road, numa_numa_2) {
   arr_cities[4] = 4;
   int real = length(arr_cities, g, i, path_long);
   int exp = 38;
+  free(arr_cities);
+  free(path_long);
   ASSERT_EQUAL(exp, real);
 }
 
-CTEST(length_of_road, numa_numa_3) {
+CTEST(length_of_road, set_of_combinations_3) {
   struct graph *g = graph_create(max_city);
   graph_initialization(g, max_city);
 
@@ -306,10 +310,12 @@ CTEST(length_of_road, numa_numa_3) {
   arr_cities[4] = 4;
   int real = length(arr_cities, g, i, path_long);
   int exp = 41;
+  free(arr_cities);
+  free(path_long);
   ASSERT_EQUAL(exp, real);
 }
 
-CTEST(length_of_road, numa_numa_4) {
+CTEST(length_of_road, set_of_combinations_4) {
   struct graph *g = graph_create(max_city);
   graph_initialization(g, max_city);
 
@@ -324,10 +330,12 @@ CTEST(length_of_road, numa_numa_4) {
   arr_cities[4] = 4;
   int real = length(arr_cities, g, i, path_long);
   int exp = 53;
+  free(arr_cities);
+  free(path_long);
   ASSERT_EQUAL(exp, real);
 }
 
-CTEST(length_of_road, numa_numa_5) {
+CTEST(length_of_road, set_of_combinations_5) {
   struct graph *g = graph_create(max_city);
   graph_initialization(g, max_city);
 
@@ -342,10 +350,12 @@ CTEST(length_of_road, numa_numa_5) {
   arr_cities[4] = 4;
   int real = length(arr_cities, g, i, path_long);
   int exp = 56;
+  free(arr_cities);
+  free(path_long);
   ASSERT_EQUAL(exp, real);
 }
 
-CTEST(length_of_road, numa_numa_6) {
+CTEST(length_of_road, set_of_combinations_6) {
   struct graph *g = graph_create(max_city);
   graph_initialization(g, max_city);
 
@@ -360,10 +370,12 @@ CTEST(length_of_road, numa_numa_6) {
   arr_cities[4] = 4;
   int real = length(arr_cities, g, i, path_long);
   int exp = 0;
+  free(arr_cities);
+  free(path_long);
   ASSERT_EQUAL(exp, real);
 }
 
-CTEST(length_of_road, numa_numa_7) {
+CTEST(length_of_road, set_of_combinations_7) {
   struct graph *g = graph_create(max_city);
   graph_initialization(g, max_city);
 
@@ -378,10 +390,12 @@ CTEST(length_of_road, numa_numa_7) {
   arr_cities[4] = 3;
   int real = length(arr_cities, g, i, path_long);
   int exp = 17;
+  free(arr_cities);
+  free(path_long);
   ASSERT_EQUAL(exp, real);
 }
 
-CTEST(length_of_road, numa_numa_8) {
+CTEST(length_of_road, set_of_combinations_8) {
   struct graph *g = graph_create(max_city);
   graph_initialization(g, max_city);
 
@@ -396,10 +410,12 @@ CTEST(length_of_road, numa_numa_8) {
   arr_cities[4] = 3;
   int real = length(arr_cities, g, i, path_long);
   int exp = 41;
+  free(arr_cities);
+  free(path_long);
   ASSERT_EQUAL(exp, real);
 }
 
-CTEST(length_of_road, numa_numa_9) {
+CTEST(length_of_road, set_of_combinations_9) {
   struct graph *g = graph_create(max_city);
   graph_initialization(g, max_city);
 
@@ -414,10 +430,12 @@ CTEST(length_of_road, numa_numa_9) {
   arr_cities[4] = 3;
   int real = length(arr_cities, g, i, path_long);
   int exp = 38;
+  free(arr_cities);
+  free(path_long);
   ASSERT_EQUAL(exp, real);
 }
 
-CTEST(length_of_road, numa_numa_10) {
+CTEST(length_of_road, set_of_combinations_10) {
   struct graph *g = graph_create(max_city);
   graph_initialization(g, max_city);
 
@@ -432,10 +450,12 @@ CTEST(length_of_road, numa_numa_10) {
   arr_cities[4] = 3;
   int real = length(arr_cities, g, i, path_long);
   int exp = 56;
+  free(arr_cities);
+  free(path_long);
   ASSERT_EQUAL(exp, real);
 }
 
-CTEST(length_of_road, numa_numa_11) {
+CTEST(length_of_road, set_of_combinations_11) {
   struct graph *g = graph_create(max_city);
   graph_initialization(g, max_city);
 
@@ -450,10 +470,12 @@ CTEST(length_of_road, numa_numa_11) {
   arr_cities[4] = 3;
   int real = length(arr_cities, g, i, path_long);
   int exp = 53;
+  free(arr_cities);
+  free(path_long);
   ASSERT_EQUAL(exp, real);
 }
 
-CTEST(length_of_road, numa_numa_12) {
+CTEST(length_of_road, set_of_combinations_12) {
   struct graph *g = graph_create(max_city);
   graph_initialization(g, max_city);
 
@@ -468,10 +490,12 @@ CTEST(length_of_road, numa_numa_12) {
   arr_cities[4] = 2;
   int real = length(arr_cities, g, i, path_long);
   int exp = 25;
+  free(arr_cities);
+  free(path_long);
   ASSERT_EQUAL(exp, real);
 }
 
-CTEST(length_of_road, numa_numa_13) {
+CTEST(length_of_road, set_of_combinations_13) {
   struct graph *g = graph_create(max_city);
   graph_initialization(g, max_city);
 
@@ -486,10 +510,12 @@ CTEST(length_of_road, numa_numa_13) {
   arr_cities[4] = 2;
   int real = length(arr_cities, g, i, path_long);
   int exp = 40;
+  free(arr_cities);
+  free(path_long);
   ASSERT_EQUAL(exp, real);
 }
 
-CTEST(length_of_road, numa_numa_14) {
+CTEST(length_of_road, set_of_combinations_14) {
   struct graph *g = graph_create(max_city);
   graph_initialization(g, max_city);
 
@@ -504,10 +530,12 @@ CTEST(length_of_road, numa_numa_14) {
   arr_cities[4] = 2;
   int real = length(arr_cities, g, i, path_long);
   int exp = 30;
+  free(arr_cities);
+  free(path_long);
   ASSERT_EQUAL(exp, real);
 }
 
-CTEST(length_of_road, numa_numa_15) {
+CTEST(length_of_road, set_of_combinations_15) {
   struct graph *g = graph_create(max_city);
   graph_initialization(g, max_city);
 
@@ -522,10 +550,12 @@ CTEST(length_of_road, numa_numa_15) {
   arr_cities[4] = 2;
   int real = length(arr_cities, g, i, path_long);
   int exp = 48;
+  free(arr_cities);
+  free(path_long);
   ASSERT_EQUAL(exp, real);
 }
 
-CTEST(length_of_road, numa_numa_16) {
+CTEST(length_of_road, set_of_combinations_16) {
   struct graph *g = graph_create(max_city);
   graph_initialization(g, max_city);
 
@@ -540,10 +570,12 @@ CTEST(length_of_road, numa_numa_16) {
   arr_cities[4] = 2;
   int real = length(arr_cities, g, i, path_long);
   int exp = 54;
+  free(arr_cities);
+  free(path_long);
   ASSERT_EQUAL(exp, real);
 }
 
-CTEST(length_of_road, numa_numa_17) {
+CTEST(length_of_road, set_of_combinations_17) {
   struct graph *g = graph_create(max_city);
   graph_initialization(g, max_city);
 
@@ -558,10 +590,12 @@ CTEST(length_of_road, numa_numa_17) {
   arr_cities[4] = 4;
   int real = length(arr_cities, g, i, path_long);
   int exp = 25;
+  free(arr_cities);
+  free(path_long);
   ASSERT_EQUAL(exp, real);
 }
 
-CTEST(length_of_road, numa_numa_18) {
+CTEST(length_of_road, set_of_combinations_18) {
   struct graph *g = graph_create(max_city);
   graph_initialization(g, max_city);
 
@@ -576,10 +610,12 @@ CTEST(length_of_road, numa_numa_18) {
   arr_cities[4] = 4;
   int real = length(arr_cities, g, i, path_long);
   int exp = 30;
+  free(arr_cities);
+  free(path_long);
   ASSERT_EQUAL(exp, real);
 }
 
-CTEST(length_of_road, numa_numa_19) {
+CTEST(length_of_road, set_of_combinations_19) {
   struct graph *g = graph_create(max_city);
   graph_initialization(g, max_city);
 
@@ -594,10 +630,12 @@ CTEST(length_of_road, numa_numa_19) {
   arr_cities[4] = 4;
   int real = length(arr_cities, g, i, path_long);
   int exp = 40;
+  free(arr_cities);
+  free(path_long);
   ASSERT_EQUAL(exp, real);
 }
 
-CTEST(length_of_road, numa_numa_20) {
+CTEST(length_of_road, set_of_combinations_20) {
   struct graph *g = graph_create(max_city);
   graph_initialization(g, max_city);
 
@@ -612,10 +650,12 @@ CTEST(length_of_road, numa_numa_20) {
   arr_cities[4] = 4;
   int real = length(arr_cities, g, i, path_long);
   int exp = 54;
+  free(arr_cities);
+  free(path_long);
   ASSERT_EQUAL(exp, real);
 }
 
-CTEST(length_of_road, numa_numa_21) {
+CTEST(length_of_road, set_of_combinations_21) {
   struct graph *g = graph_create(max_city);
   graph_initialization(g, max_city);
 
@@ -630,10 +670,12 @@ CTEST(length_of_road, numa_numa_21) {
   arr_cities[4] = 4;
   int real = length(arr_cities, g, i, path_long);
   int exp = 48;
+  free(arr_cities);
+  free(path_long);
   ASSERT_EQUAL(exp, real);
 }
 
-CTEST(length_of_road, numa_numa_22) {
+CTEST(length_of_road, set_of_combinations_22) {
   struct graph *g = graph_create(max_city);
   graph_initialization(g, max_city);
 
@@ -648,10 +690,12 @@ CTEST(length_of_road, numa_numa_22) {
   arr_cities[4] = 3;
   int real = length(arr_cities, g, i, path_long);
   int exp = 25;
+  free(arr_cities);
+  free(path_long);
   ASSERT_EQUAL(exp, real);
 }
 
-CTEST(length_of_road, numa_numa_23) {
+CTEST(length_of_road, set_of_combinations_23) {
   struct graph *g = graph_create(max_city);
   graph_initialization(g, max_city);
 
@@ -666,10 +710,12 @@ CTEST(length_of_road, numa_numa_23) {
   arr_cities[4] = 3;
   int real = length(arr_cities, g, i, path_long);
   int exp = 33;
+  free(arr_cities);
+  free(path_long);
   ASSERT_EQUAL(exp, real);
 }
 
-CTEST(length_of_road, numa_numa_24) {
+CTEST(length_of_road, set_of_combinations_24) {
   struct graph *g = graph_create(max_city);
   graph_initialization(g, max_city);
 
@@ -684,10 +730,12 @@ CTEST(length_of_road, numa_numa_24) {
   arr_cities[4] = 3;
   int real = length(arr_cities, g, i, path_long);
   int exp = 40;
+  free(arr_cities);
+  free(path_long);
   ASSERT_EQUAL(exp, real);
 }
 
-CTEST(length_of_road, numa_numa_25) {
+CTEST(length_of_road, set_of_combinations_25) {
   struct graph *g = graph_create(max_city);
   graph_initialization(g, max_city);
 
@@ -702,10 +750,12 @@ CTEST(length_of_road, numa_numa_25) {
   arr_cities[4] = 3;
   int real = length(arr_cities, g, i, path_long);
   int exp = 54;
+  free(arr_cities);
+  free(path_long);
   ASSERT_EQUAL(exp, real);
 }
 
-CTEST(length_of_road, numa_numa_26) {
+CTEST(length_of_road, set_of_combinations_26) {
   struct graph *g = graph_create(max_city);
   graph_initialization(g, max_city);
 
@@ -720,10 +770,12 @@ CTEST(length_of_road, numa_numa_26) {
   arr_cities[4] = 3;
   int real = length(arr_cities, g, i, path_long);
   int exp = 45;
+  free(arr_cities);
+  free(path_long);
   ASSERT_EQUAL(exp, real);
 }
 
-CTEST(length_of_road, numa_numa_27) {
+CTEST(length_of_road, set_of_combinations_27) {
   struct graph *g = graph_create(max_city);
   graph_initialization(g, max_city);
 
@@ -738,10 +790,12 @@ CTEST(length_of_road, numa_numa_27) {
   arr_cities[4] = 2;
   int real = length(arr_cities, g, i, path_long);
   int exp = 25;
+  free(arr_cities);
+  free(path_long);
   ASSERT_EQUAL(exp, real);
 }
 
-CTEST(length_of_road, numa_numa_28) {
+CTEST(length_of_road, set_of_combinations_28) {
   struct graph *g = graph_create(max_city);
   graph_initialization(g, max_city);
 
@@ -756,10 +810,12 @@ CTEST(length_of_road, numa_numa_28) {
   arr_cities[4] = 2;
   int real = length(arr_cities, g, i, path_long);
   int exp = 40;
+  free(arr_cities);
+  free(path_long);
   ASSERT_EQUAL(exp, real);
 }
 
-CTEST(length_of_road, numa_numa_29) {
+CTEST(length_of_road, set_of_combinations_29) {
   struct graph *g = graph_create(max_city);
   graph_initialization(g, max_city);
 
@@ -774,10 +830,12 @@ CTEST(length_of_road, numa_numa_29) {
   arr_cities[4] = 2;
   int real = length(arr_cities, g, i, path_long);
   int exp = 33;
+  free(arr_cities);
+  free(path_long);
   ASSERT_EQUAL(exp, real);
 }
 
-CTEST(length_of_road, numa_numa_30) {
+CTEST(length_of_road, set_of_combinations_30) {
   struct graph *g = graph_create(max_city);
   graph_initialization(g, max_city);
 
@@ -792,10 +850,12 @@ CTEST(length_of_road, numa_numa_30) {
   arr_cities[4] = 2;
   int real = length(arr_cities, g, i, path_long);
   int exp = 45;
+  free(arr_cities);
+  free(path_long);
   ASSERT_EQUAL(exp, real);
 }
 
-CTEST(length_of_road, numa_numa_31) {
+CTEST(length_of_road, set_of_combinations_31) {
   struct graph *g = graph_create(max_city);
   graph_initialization(g, max_city);
 
@@ -810,10 +870,12 @@ CTEST(length_of_road, numa_numa_31) {
   arr_cities[4] = 2;
   int real = length(arr_cities, g, i, path_long);
   int exp = 54;
+  free(arr_cities);
+  free(path_long);
   ASSERT_EQUAL(exp, real);
 }
 
-CTEST(length_of_road, numa_numa_32) {
+CTEST(length_of_road, set_of_combinations_32) {
   struct graph *g = graph_create(max_city);
   graph_initialization(g, max_city);
 
@@ -828,10 +890,12 @@ CTEST(length_of_road, numa_numa_32) {
   arr_cities[4] = 4;
   int real = length(arr_cities, g, i, path_long);
   int exp = 17;
+  free(arr_cities);
+  free(path_long);
   ASSERT_EQUAL(exp, real);
 }
 
-CTEST(length_of_road, numa_numa_33) {
+CTEST(length_of_road, set_of_combinations_33) {
   struct graph *g = graph_create(max_city);
   graph_initialization(g, max_city);
 
@@ -846,10 +910,12 @@ CTEST(length_of_road, numa_numa_33) {
   arr_cities[4] = 4;
   int real = length(arr_cities, g, i, path_long);
   int exp = 38;
+  free(arr_cities);
+  free(path_long);
   ASSERT_EQUAL(exp, real);
 }
 
-CTEST(length_of_road, numa_numa_34) {
+CTEST(length_of_road, set_of_combinations_34) {
   struct graph *g = graph_create(max_city);
   graph_initialization(g, max_city);
 
@@ -864,10 +930,12 @@ CTEST(length_of_road, numa_numa_34) {
   arr_cities[4] = 4;
   int real = length(arr_cities, g, i, path_long);
   int exp = 41;
+  free(arr_cities);
+  free(path_long);
   ASSERT_EQUAL(exp, real);
 }
 
-CTEST(length_of_road, numa_numa_35) {
+CTEST(length_of_road, set_of_combinations_35) {
   struct graph *g = graph_create(max_city);
   graph_initialization(g, max_city);
 
@@ -882,10 +950,12 @@ CTEST(length_of_road, numa_numa_35) {
   arr_cities[4] = 4;
   int real = length(arr_cities, g, i, path_long);
   int exp = 56;
+  free(arr_cities);
+  free(path_long);
   ASSERT_EQUAL(exp, real);
 }
 
-CTEST(length_of_road, numa_numa_36) {
+CTEST(length_of_road, set_of_combinations_36) {
   struct graph *g = graph_create(max_city);
   graph_initialization(g, max_city);
 
@@ -900,10 +970,12 @@ CTEST(length_of_road, numa_numa_36) {
   arr_cities[4] = 4;
   int real = length(arr_cities, g, i, path_long);
   int exp = 53;
+  free(arr_cities);
+  free(path_long);
   ASSERT_EQUAL(exp, real);
 }
 
-CTEST(length_of_road, numa_numa_37) {
+CTEST(length_of_road, set_of_combinations_37) {
   struct graph *g = graph_create(max_city);
   graph_initialization(g, max_city);
 
@@ -918,10 +990,12 @@ CTEST(length_of_road, numa_numa_37) {
   arr_cities[4] = 3;
   int real = length(arr_cities, g, i, path_long);
   int exp = 17;
+  free(arr_cities);
+  free(path_long);
   ASSERT_EQUAL(exp, real);
 }
 
-CTEST(length_of_road, numa_numa_38) {
+CTEST(length_of_road, set_of_combinations_38) {
   struct graph *g = graph_create(max_city);
   graph_initialization(g, max_city);
 
@@ -936,10 +1010,12 @@ CTEST(length_of_road, numa_numa_38) {
   arr_cities[4] = 3;
   int real = length(arr_cities, g, i, path_long);
   int exp = 41;
+  free(arr_cities);
+  free(path_long);
   ASSERT_EQUAL(exp, real);
 }
 
-CTEST(length_of_road, numa_numa_39) {
+CTEST(length_of_road, set_of_combinations_39) {
   struct graph *g = graph_create(max_city);
   graph_initialization(g, max_city);
 
@@ -954,10 +1030,12 @@ CTEST(length_of_road, numa_numa_39) {
   arr_cities[4] = 3;
   int real = length(arr_cities, g, i, path_long);
   int exp = 38;
+  free(arr_cities);
+  free(path_long);
   ASSERT_EQUAL(exp, real);
 }
 
-CTEST(length_of_road, numa_numa_40) {
+CTEST(length_of_road, set_of_combinations_40) {
   struct graph *g = graph_create(max_city);
   graph_initialization(g, max_city);
 
@@ -972,10 +1050,12 @@ CTEST(length_of_road, numa_numa_40) {
   arr_cities[4] = 3;
   int real = length(arr_cities, g, i, path_long);
   int exp = 53;
+  free(arr_cities);
+  free(path_long);
   ASSERT_EQUAL(exp, real);
 }
 
-CTEST(length_of_road, numa_numa_41) {
+CTEST(length_of_road, set_of_combinations_41) {
   struct graph *g = graph_create(max_city);
   graph_initialization(g, max_city);
 
@@ -990,10 +1070,12 @@ CTEST(length_of_road, numa_numa_41) {
   arr_cities[4] = 3;
   int real = length(arr_cities, g, i, path_long);
   int exp = 56;
+  free(arr_cities);
+  free(path_long);
   ASSERT_EQUAL(exp, real);
 }
 
-CTEST(length_of_road, numa_numa_42) {
+CTEST(length_of_road, set_of_combinations_42) {
   struct graph *g = graph_create(max_city);
   graph_initialization(g, max_city);
 
@@ -1008,10 +1090,12 @@ CTEST(length_of_road, numa_numa_42) {
   arr_cities[4] = 4;
   int real = length(arr_cities, g, i, path_long);
   int exp = 13;
+  free(arr_cities);
+  free(path_long);
   ASSERT_EQUAL(exp, real);
 }
 
-CTEST(length_of_road, numa_numa_43) {
+CTEST(length_of_road, set_of_combinations_43) {
   struct graph *g = graph_create(max_city);
   graph_initialization(g, max_city);
 
@@ -1026,10 +1110,12 @@ CTEST(length_of_road, numa_numa_43) {
   arr_cities[4] = 4;
   int real = length(arr_cities, g, i, path_long);
   int exp = 42;
+  free(arr_cities);
+  free(path_long);
   ASSERT_EQUAL(exp, real);
 }
 
-CTEST(length_of_road, numa_numa_44) {
+CTEST(length_of_road, set_of_combinations_44) {
   struct graph *g = graph_create(max_city);
   graph_initialization(g, max_city);
 
@@ -1044,10 +1130,12 @@ CTEST(length_of_road, numa_numa_44) {
   arr_cities[4] = 4;
   int real = length(arr_cities, g, i, path_long);
   int exp = 31;
+  free(arr_cities);
+  free(path_long);
   ASSERT_EQUAL(exp, real);
 }
 
-CTEST(length_of_road, numa_numa_45) {
+CTEST(length_of_road, set_of_combinations_45) {
   struct graph *g = graph_create(max_city);
   graph_initialization(g, max_city);
 
@@ -1062,10 +1150,12 @@ CTEST(length_of_road, numa_numa_45) {
   arr_cities[4] = 4;
   int real = length(arr_cities, g, i, path_long);
   int exp = 66;
+  free(arr_cities);
+  free(path_long);
   ASSERT_EQUAL(exp, real);
 }
 
-CTEST(length_of_road, numa_numa_46) {
+CTEST(length_of_road, set_of_combinations_46) {
   struct graph *g = graph_create(max_city);
   graph_initialization(g, max_city);
 
@@ -1080,10 +1170,12 @@ CTEST(length_of_road, numa_numa_46) {
   arr_cities[4] = 4;
   int real = length(arr_cities, g, i, path_long);
   int exp = 57;
+  free(arr_cities);
+  free(path_long);
   ASSERT_EQUAL(exp, real);
 }
 
-CTEST(length_of_road, numa_numa_47) {
+CTEST(length_of_road, set_of_combinations_47) {
   struct graph *g = graph_create(max_city);
   graph_initialization(g, max_city);
 
@@ -1098,10 +1190,12 @@ CTEST(length_of_road, numa_numa_47) {
   arr_cities[4] = 1;
   int real = length(arr_cities, g, i, path_long);
   int exp = 13;
+  free(arr_cities);
+  free(path_long);
   ASSERT_EQUAL(exp, real);
 }
 
-CTEST(length_of_road, numa_numa_48) {
+CTEST(length_of_road, set_of_combinations_48) {
   struct graph *g = graph_create(max_city);
   graph_initialization(g, max_city);
 
@@ -1116,10 +1210,12 @@ CTEST(length_of_road, numa_numa_48) {
   arr_cities[4] = 1;
   int real = length(arr_cities, g, i, path_long);
   int exp = 31;
+  free(arr_cities);
+  free(path_long);
   ASSERT_EQUAL(exp, real);
 }
 
-CTEST(length_of_road, numa_numa_49) {
+CTEST(length_of_road, set_of_combinations_49) {
   struct graph *g = graph_create(max_city);
   graph_initialization(g, max_city);
 
@@ -1134,10 +1230,12 @@ CTEST(length_of_road, numa_numa_49) {
   arr_cities[4] = 1;
   int real = length(arr_cities, g, i, path_long);
   int exp = 42;
+  free(arr_cities);
+  free(path_long);
   ASSERT_EQUAL(exp, real);
 }
 
-CTEST(length_of_road, numa_numa_50) {
+CTEST(length_of_road, set_of_combinations_50) {
   struct graph *g = graph_create(max_city);
   graph_initialization(g, max_city);
 
@@ -1152,10 +1250,12 @@ CTEST(length_of_road, numa_numa_50) {
   arr_cities[4] = 1;
   int real = length(arr_cities, g, i, path_long);
   int exp = 57;
+  free(arr_cities);
+  free(path_long);
   ASSERT_EQUAL(exp, real);
 }
 
-CTEST(length_of_road, numa_numa_51) {
+CTEST(length_of_road, set_of_combinations_51) {
   struct graph *g = graph_create(max_city);
   graph_initialization(g, max_city);
 
@@ -1170,10 +1270,12 @@ CTEST(length_of_road, numa_numa_51) {
   arr_cities[4] = 1;
   int real = length(arr_cities, g, i, path_long);
   int exp = 66;
+  free(arr_cities);
+  free(path_long);
   ASSERT_EQUAL(exp, real);
 }
 
-CTEST(length_of_road, numa_numa_52) {
+CTEST(length_of_road, set_of_combinations_52) {
   struct graph *g = graph_create(max_city);
   graph_initialization(g, max_city);
 
@@ -1188,10 +1290,12 @@ CTEST(length_of_road, numa_numa_52) {
   arr_cities[4] = 3;
   int real = length(arr_cities, g, i, path_long);
   int exp = 16;
+  free(arr_cities);
+  free(path_long);
   ASSERT_EQUAL(exp, real);
 }
 
-CTEST(length_of_road, numa_numa_53) {
+CTEST(length_of_road, set_of_combinations_53) {
   struct graph *g = graph_create(max_city);
   graph_initialization(g, max_city);
 
@@ -1206,10 +1310,12 @@ CTEST(length_of_road, numa_numa_53) {
   arr_cities[4] = 3;
   int real = length(arr_cities, g, i, path_long);
   int exp = 42;
+  free(arr_cities);
+  free(path_long);
   ASSERT_EQUAL(exp, real);
 }
 
-CTEST(length_of_road, numa_numa_54) {
+CTEST(length_of_road, set_of_combinations_54) {
   struct graph *g = graph_create(max_city);
   graph_initialization(g, max_city);
 
@@ -1224,10 +1330,12 @@ CTEST(length_of_road, numa_numa_54) {
   arr_cities[4] = 3;
   int real = length(arr_cities, g, i, path_long);
   int exp = 28;
+  free(arr_cities);
+  free(path_long);
   ASSERT_EQUAL(exp, real);
 }
 
-CTEST(length_of_road, numa_numa_55) {
+CTEST(length_of_road, set_of_combinations_55) {
   struct graph *g = graph_create(max_city);
   graph_initialization(g, max_city);
 
@@ -1242,10 +1350,12 @@ CTEST(length_of_road, numa_numa_55) {
   arr_cities[4] = 3;
   int real = length(arr_cities, g, i, path_long);
   int exp = 63;
+  free(arr_cities);
+  free(path_long);
   ASSERT_EQUAL(exp, real);
 }
 
-CTEST(length_of_road, numa_numa_56) {
+CTEST(length_of_road, set_of_combinations_56) {
   struct graph *g = graph_create(max_city);
   graph_initialization(g, max_city);
 
@@ -1260,10 +1370,12 @@ CTEST(length_of_road, numa_numa_56) {
   arr_cities[4] = 3;
   int real = length(arr_cities, g, i, path_long);
   int exp = 57;
+  free(arr_cities);
+  free(path_long);
   ASSERT_EQUAL(exp, real);
 }
 
-CTEST(length_of_road, numa_numa_57) {
+CTEST(length_of_road, set_of_combinations_57) {
   struct graph *g = graph_create(max_city);
   graph_initialization(g, max_city);
 
@@ -1278,10 +1390,12 @@ CTEST(length_of_road, numa_numa_57) {
   arr_cities[4] = 1;
   int real = length(arr_cities, g, i, path_long);
   int exp = 16;
+  free(arr_cities);
+  free(path_long);
   ASSERT_EQUAL(exp, real);
 }
 
-CTEST(length_of_road, numa_numa_58) {
+CTEST(length_of_road, set_of_combinations_58) {
   struct graph *g = graph_create(max_city);
   graph_initialization(g, max_city);
 
@@ -1296,10 +1410,12 @@ CTEST(length_of_road, numa_numa_58) {
   arr_cities[4] = 1;
   int real = length(arr_cities, g, i, path_long);
   int exp = 28;
+  free(arr_cities);
+  free(path_long);
   ASSERT_EQUAL(exp, real);
 }
 
-CTEST(length_of_road, numa_numa_59) {
+CTEST(length_of_road, set_of_combinations_59) {
   struct graph *g = graph_create(max_city);
   graph_initialization(g, max_city);
 
@@ -1314,10 +1430,12 @@ CTEST(length_of_road, numa_numa_59) {
   arr_cities[4] = 1;
   int real = length(arr_cities, g, i, path_long);
   int exp = 42;
+  free(arr_cities);
+  free(path_long);
   ASSERT_EQUAL(exp, real);
 }
 
-CTEST(length_of_road, numa_numa_60) {
+CTEST(length_of_road, set_of_combinations_60) {
   struct graph *g = graph_create(max_city);
   graph_initialization(g, max_city);
 
@@ -1332,10 +1450,12 @@ CTEST(length_of_road, numa_numa_60) {
   arr_cities[4] = 1;
   int real = length(arr_cities, g, i, path_long);
   int exp = 57;
+  free(arr_cities);
+  free(path_long);
   ASSERT_EQUAL(exp, real);
 }
 
-CTEST(length_of_road, numa_numa_61) {
+CTEST(length_of_road, set_of_combinations_61) {
   struct graph *g = graph_create(max_city);
   graph_initialization(g, max_city);
 
@@ -1350,10 +1470,12 @@ CTEST(length_of_road, numa_numa_61) {
   arr_cities[4] = 1;
   int real = length(arr_cities, g, i, path_long);
   int exp = 63;
+  free(arr_cities);
+  free(path_long);
   ASSERT_EQUAL(exp, real);
 }
 
-CTEST(length_of_road, numa_numa_62) {
+CTEST(length_of_road, set_of_combinations_62) {
   struct graph *g = graph_create(max_city);
   graph_initialization(g, max_city);
 
@@ -1368,10 +1490,12 @@ CTEST(length_of_road, numa_numa_62) {
   arr_cities[4] = 4;
   int real = length(arr_cities, g, i, path_long);
   int exp = 25;
+  free(arr_cities);
+  free(path_long);
   ASSERT_EQUAL(exp, real);
 }
 
-CTEST(length_of_road, numa_numa_63) {
+CTEST(length_of_road, set_of_combinations_63) {
   struct graph *g = graph_create(max_city);
   graph_initialization(g, max_city);
 
@@ -1386,10 +1510,12 @@ CTEST(length_of_road, numa_numa_63) {
   arr_cities[4] = 4;
   int real = length(arr_cities, g, i, path_long);
   int exp = 30;
+  free(arr_cities);
+  free(path_long);
   ASSERT_EQUAL(exp, real);
 }
 
-CTEST(length_of_road, numa_numa_64) {
+CTEST(length_of_road, set_of_combinations_64) {
   struct graph *g = graph_create(max_city);
   graph_initialization(g, max_city);
 
@@ -1404,10 +1530,12 @@ CTEST(length_of_road, numa_numa_64) {
   arr_cities[4] = 4;
   int real = length(arr_cities, g, i, path_long);
   int exp = 40;
+  free(arr_cities);
+  free(path_long);
   ASSERT_EQUAL(exp, real);
 }
 
-CTEST(length_of_road, numa_numa_65) {
+CTEST(length_of_road, set_of_combinations_65) {
   struct graph *g = graph_create(max_city);
   graph_initialization(g, max_city);
 
@@ -1422,10 +1550,12 @@ CTEST(length_of_road, numa_numa_65) {
   arr_cities[4] = 4;
   int real = length(arr_cities, g, i, path_long);
   int exp = 48;
+  free(arr_cities);
+  free(path_long);
   ASSERT_EQUAL(exp, real);
 }
 
-CTEST(length_of_road, numa_numa_66) {
+CTEST(length_of_road, set_of_combinations_66) {
   struct graph *g = graph_create(max_city);
   graph_initialization(g, max_city);
 
@@ -1440,10 +1570,12 @@ CTEST(length_of_road, numa_numa_66) {
   arr_cities[4] = 4;
   int real = length(arr_cities, g, i, path_long);
   int exp = 54;
+  free(arr_cities);
+  free(path_long);
   ASSERT_EQUAL(exp, real);
 }
 
-CTEST(length_of_road, numa_numa_67) {
+CTEST(length_of_road, set_of_combinations_67) {
   struct graph *g = graph_create(max_city);
   graph_initialization(g, max_city);
 
@@ -1458,10 +1590,12 @@ CTEST(length_of_road, numa_numa_67) {
   arr_cities[4] = 2;
   int real = length(arr_cities, g, i, path_long);
   int exp = 25;
+  free(arr_cities);
+  free(path_long);
   ASSERT_EQUAL(exp, real);
 }
 
-CTEST(length_of_road, numa_numa_68) {
+CTEST(length_of_road, set_of_combinations_68) {
   struct graph *g = graph_create(max_city);
   graph_initialization(g, max_city);
 
@@ -1476,10 +1610,12 @@ CTEST(length_of_road, numa_numa_68) {
   arr_cities[4] = 2;
   int real = length(arr_cities, g, i, path_long);
   int exp = 40;
+  free(arr_cities);
+  free(path_long);
   ASSERT_EQUAL(exp, real);
 }
 
-CTEST(length_of_road, numa_numa_69) {
+CTEST(length_of_road, set_of_combinations_69) {
   struct graph *g = graph_create(max_city);
   graph_initialization(g, max_city);
 
@@ -1494,10 +1630,12 @@ CTEST(length_of_road, numa_numa_69) {
   arr_cities[4] = 2;
   int real = length(arr_cities, g, i, path_long);
   int exp = 30;
+  free(arr_cities);
+  free(path_long);
   ASSERT_EQUAL(exp, real);
 }
 
-CTEST(length_of_road, numa_numa_70) {
+CTEST(length_of_road, set_of_combinations_70) {
   struct graph *g = graph_create(max_city);
   graph_initialization(g, max_city);
 
@@ -1512,10 +1650,12 @@ CTEST(length_of_road, numa_numa_70) {
   arr_cities[4] = 2;
   int real = length(arr_cities, g, i, path_long);
   int exp = 54;
+  free(arr_cities);
+  free(path_long);
   ASSERT_EQUAL(exp, real);
 }
 
-CTEST(length_of_road, numa_numa_71) {
+CTEST(length_of_road, set_of_combinations_71) {
   struct graph *g = graph_create(max_city);
   graph_initialization(g, max_city);
 
@@ -1530,10 +1670,12 @@ CTEST(length_of_road, numa_numa_71) {
   arr_cities[4] = 2;
   int real = length(arr_cities, g, i, path_long);
   int exp = 48;
+  free(arr_cities);
+  free(path_long);
   ASSERT_EQUAL(exp, real);
 }
 
-CTEST(length_of_road, numa_numa_72) {
+CTEST(length_of_road, set_of_combinations_72) {
   struct graph *g = graph_create(max_city);
   graph_initialization(g, max_city);
 
@@ -1548,10 +1690,12 @@ CTEST(length_of_road, numa_numa_72) {
   arr_cities[4] = 4;
   int real = length(arr_cities, g, i, path_long);
   int exp = 13;
+  free(arr_cities);
+  free(path_long);
   ASSERT_EQUAL(exp, real);
 }
 
-CTEST(length_of_road, numa_numa_73) {
+CTEST(length_of_road, set_of_combinations_73) {
   struct graph *g = graph_create(max_city);
   graph_initialization(g, max_city);
 
@@ -1566,10 +1710,12 @@ CTEST(length_of_road, numa_numa_73) {
   arr_cities[4] = 4;
   int real = length(arr_cities, g, i, path_long);
   int exp = 42;
+  free(arr_cities);
+  free(path_long);
   ASSERT_EQUAL(exp, real);
 }
 
-CTEST(length_of_road, numa_numa_74) {
+CTEST(length_of_road, set_of_combinations_74) {
   struct graph *g = graph_create(max_city);
   graph_initialization(g, max_city);
 
@@ -1584,10 +1730,12 @@ CTEST(length_of_road, numa_numa_74) {
   arr_cities[4] = 4;
   int real = length(arr_cities, g, i, path_long);
   int exp = 31;
+  free(arr_cities);
+  free(path_long);
   ASSERT_EQUAL(exp, real);
 }
 
-CTEST(length_of_road, numa_numa_75) {
+CTEST(length_of_road, set_of_combinations_75) {
   struct graph *g = graph_create(max_city);
   graph_initialization(g, max_city);
 
@@ -1602,10 +1750,12 @@ CTEST(length_of_road, numa_numa_75) {
   arr_cities[4] = 4;
   int real = length(arr_cities, g, i, path_long);
   int exp = 57;
+  free(arr_cities);
+  free(path_long);
   ASSERT_EQUAL(exp, real);
 }
 
-CTEST(length_of_road, numa_numa_76) {
+CTEST(length_of_road, set_of_combinations_76) {
   struct graph *g = graph_create(max_city);
   graph_initialization(g, max_city);
 
@@ -1620,10 +1770,12 @@ CTEST(length_of_road, numa_numa_76) {
   arr_cities[4] = 4;
   int real = length(arr_cities, g, i, path_long);
   int exp = 66;
+  free(arr_cities);
+  free(path_long);
   ASSERT_EQUAL(exp, real);
 }
 
-CTEST(length_of_road, numa_numa_77) {
+CTEST(length_of_road, set_of_combinations_77) {
   struct graph *g = graph_create(max_city);
   graph_initialization(g, max_city);
 
@@ -1638,10 +1790,12 @@ CTEST(length_of_road, numa_numa_77) {
   arr_cities[4] = 1;
   int real = length(arr_cities, g, i, path_long);
   int exp = 13;
+  free(arr_cities);
+  free(path_long);
   ASSERT_EQUAL(exp, real);
 }
 
-CTEST(length_of_road, numa_numa_78) {
+CTEST(length_of_road, set_of_combinations_78) {
   struct graph *g = graph_create(max_city);
   graph_initialization(g, max_city);
 
@@ -1656,10 +1810,12 @@ CTEST(length_of_road, numa_numa_78) {
   arr_cities[4] = 1;
   int real = length(arr_cities, g, i, path_long);
   int exp = 31;
+  free(arr_cities);
+  free(path_long);
   ASSERT_EQUAL(exp, real);
 }
 
-CTEST(length_of_road, numa_numa_79) {
+CTEST(length_of_road, set_of_combinations_79) {
   struct graph *g = graph_create(max_city);
   graph_initialization(g, max_city);
 
@@ -1674,10 +1830,12 @@ CTEST(length_of_road, numa_numa_79) {
   arr_cities[4] = 1;
   int real = length(arr_cities, g, i, path_long);
   int exp = 42;
+  free(arr_cities);
+  free(path_long);
   ASSERT_EQUAL(exp, real);
 }
 
-CTEST(length_of_road, numa_numa_80) {
+CTEST(length_of_road, set_of_combinations_80) {
   struct graph *g = graph_create(max_city);
   graph_initialization(g, max_city);
 
@@ -1692,10 +1850,12 @@ CTEST(length_of_road, numa_numa_80) {
   arr_cities[4] = 1;
   int real = length(arr_cities, g, i, path_long);
   int exp = 66;
+  free(arr_cities);
+  free(path_long);
   ASSERT_EQUAL(exp, real);
 }
 
-CTEST(length_of_road, numa_numa_81) {
+CTEST(length_of_road, set_of_combinations_81) {
   struct graph *g = graph_create(max_city);
   graph_initialization(g, max_city);
 
@@ -1710,10 +1870,12 @@ CTEST(length_of_road, numa_numa_81) {
   arr_cities[4] = 1;
   int real = length(arr_cities, g, i, path_long);
   int exp = 57;
+  free(arr_cities);
+  free(path_long);
   ASSERT_EQUAL(exp, real);
 }
 
-CTEST(length_of_road, numa_numa_82) {
+CTEST(length_of_road, set_of_combinations_82) {
   struct graph *g = graph_create(max_city);
   graph_initialization(g, max_city);
 
@@ -1728,10 +1890,12 @@ CTEST(length_of_road, numa_numa_82) {
   arr_cities[4] = 2;
   int real = length(arr_cities, g, i, path_long);
   int exp = 15;
+  free(arr_cities);
+  free(path_long);
   ASSERT_EQUAL(exp, real);
 }
 
-CTEST(length_of_road, numa_numa_83) {
+CTEST(length_of_road, set_of_combinations_83) {
   struct graph *g = graph_create(max_city);
   graph_initialization(g, max_city);
 
@@ -1746,10 +1910,12 @@ CTEST(length_of_road, numa_numa_83) {
   arr_cities[4] = 2;
   int real = length(arr_cities, g, i, path_long);
   int exp = 50;
+  free(arr_cities);
+  free(path_long);
   ASSERT_EQUAL(exp, real);
 }
 
-CTEST(length_of_road, numa_numa_84) {
+CTEST(length_of_road, set_of_combinations_84) {
   struct graph *g = graph_create(max_city);
   graph_initialization(g, max_city);
 
@@ -1764,10 +1930,12 @@ CTEST(length_of_road, numa_numa_84) {
   arr_cities[4] = 2;
   int real = length(arr_cities, g, i, path_long);
   int exp = 29;
+  free(arr_cities);
+  free(path_long);
   ASSERT_EQUAL(exp, real);
 }
 
-CTEST(length_of_road, numa_numa_85) {
+CTEST(length_of_road, set_of_combinations_85) {
   struct graph *g = graph_create(max_city);
   graph_initialization(g, max_city);
 
@@ -1782,10 +1950,12 @@ CTEST(length_of_road, numa_numa_85) {
   arr_cities[4] = 2;
   int real = length(arr_cities, g, i, path_long);
   int exp = 55;
+  free(arr_cities);
+  free(path_long);
   ASSERT_EQUAL(exp, real);
 }
 
-CTEST(length_of_road, numa_numa_86) {
+CTEST(length_of_road, set_of_combinations_86) {
   struct graph *g = graph_create(max_city);
   graph_initialization(g, max_city);
 
@@ -1800,10 +1970,12 @@ CTEST(length_of_road, numa_numa_86) {
   arr_cities[4] = 2;
   int real = length(arr_cities, g, i, path_long);
   int exp = 58;
+  free(arr_cities);
+  free(path_long);
   ASSERT_EQUAL(exp, real);
 }
 
-CTEST(length_of_road, numa_numa_87) {
+CTEST(length_of_road, set_of_combinations_87) {
   struct graph *g = graph_create(max_city);
   graph_initialization(g, max_city);
 
@@ -1818,10 +1990,12 @@ CTEST(length_of_road, numa_numa_87) {
   arr_cities[4] = 1;
   int real = length(arr_cities, g, i, path_long);
   int exp = 15;
+  free(arr_cities);
+  free(path_long);
   ASSERT_EQUAL(exp, real);
 }
 
-CTEST(length_of_road, numa_numa_88) {
+CTEST(length_of_road, set_of_combinations_88) {
   struct graph *g = graph_create(max_city);
   graph_initialization(g, max_city);
 
@@ -1836,10 +2010,12 @@ CTEST(length_of_road, numa_numa_88) {
   arr_cities[4] = 1;
   int real = length(arr_cities, g, i, path_long);
   int exp = 29;
+  free(arr_cities);
+  free(path_long);
   ASSERT_EQUAL(exp, real);
 }
 
-CTEST(length_of_road, numa_numa_89) {
+CTEST(length_of_road, set_of_combinations_89) {
   struct graph *g = graph_create(max_city);
   graph_initialization(g, max_city);
 
@@ -1854,10 +2030,12 @@ CTEST(length_of_road, numa_numa_89) {
   arr_cities[4] = 1;
   int real = length(arr_cities, g, i, path_long);
   int exp = 50;
+  free(arr_cities);
+  free(path_long);
   ASSERT_EQUAL(exp, real);
 }
 
-CTEST(length_of_road, numa_numa_90) {
+CTEST(length_of_road, set_of_combinations_90) {
   struct graph *g = graph_create(max_city);
   graph_initialization(g, max_city);
 
@@ -1872,10 +2050,12 @@ CTEST(length_of_road, numa_numa_90) {
   arr_cities[4] = 1;
   int real = length(arr_cities, g, i, path_long);
   int exp = 58;
+  free(arr_cities);
+  free(path_long);
   ASSERT_EQUAL(exp, real);
 }
 
-CTEST(length_of_road, numa_numa_91) {
+CTEST(length_of_road, set_of_combinations_91) {
   struct graph *g = graph_create(max_city);
   graph_initialization(g, max_city);
 
@@ -1890,10 +2070,12 @@ CTEST(length_of_road, numa_numa_91) {
   arr_cities[4] = 1;
   int real = length(arr_cities, g, i, path_long);
   int exp = 55;
+  free(arr_cities);
+  free(path_long);
   ASSERT_EQUAL(exp, real);
 }
 
-CTEST(length_of_road, numa_numa_92) {
+CTEST(length_of_road, set_of_combinations_92) {
   struct graph *g = graph_create(max_city);
   graph_initialization(g, max_city);
 
@@ -1908,10 +2090,12 @@ CTEST(length_of_road, numa_numa_92) {
   arr_cities[4] = 3;
   int real = length(arr_cities, g, i, path_long);
   int exp = 25;
+  free(arr_cities);
+  free(path_long);
   ASSERT_EQUAL(exp, real);
 }
 
-CTEST(length_of_road, numa_numa_93) {
+CTEST(length_of_road, set_of_combinations_93) {
   struct graph *g = graph_create(max_city);
   graph_initialization(g, max_city);
 
@@ -1926,10 +2110,12 @@ CTEST(length_of_road, numa_numa_93) {
   arr_cities[4] = 3;
   int real = length(arr_cities, g, i, path_long);
   int exp = 33;
+  free(arr_cities);
+  free(path_long);
   ASSERT_EQUAL(exp, real);
 }
 
-CTEST(length_of_road, numa_numa_94) {
+CTEST(length_of_road, set_of_combinations_94) {
   struct graph *g = graph_create(max_city);
   graph_initialization(g, max_city);
 
@@ -1944,10 +2130,12 @@ CTEST(length_of_road, numa_numa_94) {
   arr_cities[4] = 3;
   int real = length(arr_cities, g, i, path_long);
   int exp = 40;
+  free(arr_cities);
+  free(path_long);
   ASSERT_EQUAL(exp, real);
 }
 
-CTEST(length_of_road, numa_numa_95) {
+CTEST(length_of_road, set_of_combinations_95) {
   struct graph *g = graph_create(max_city);
   graph_initialization(g, max_city);
 
@@ -1962,10 +2150,12 @@ CTEST(length_of_road, numa_numa_95) {
   arr_cities[4] = 3;
   int real = length(arr_cities, g, i, path_long);
   int exp = 45;
+  free(arr_cities);
+  free(path_long);
   ASSERT_EQUAL(exp, real);
 }
 
-CTEST(length_of_road, numa_numa_96) {
+CTEST(length_of_road, set_of_combinations_96) {
   struct graph *g = graph_create(max_city);
   graph_initialization(g, max_city);
 
@@ -1980,10 +2170,12 @@ CTEST(length_of_road, numa_numa_96) {
   arr_cities[4] = 3;
   int real = length(arr_cities, g, i, path_long);
   int exp = 54;
+  free(arr_cities);
+  free(path_long);
   ASSERT_EQUAL(exp, real);
 }
 
-CTEST(length_of_road, numa_numa_97) {
+CTEST(length_of_road, set_of_combinations_97) {
   struct graph *g = graph_create(max_city);
   graph_initialization(g, max_city);
 
@@ -1998,10 +2190,12 @@ CTEST(length_of_road, numa_numa_97) {
   arr_cities[4] = 2;
   int real = length(arr_cities, g, i, path_long);
   int exp = 25;
+  free(arr_cities);
+  free(path_long);
   ASSERT_EQUAL(exp, real);
 }
 
-CTEST(length_of_road, numa_numa_98) {
+CTEST(length_of_road, set_of_combinations_98) {
   struct graph *g = graph_create(max_city);
   graph_initialization(g, max_city);
 
@@ -2016,10 +2210,12 @@ CTEST(length_of_road, numa_numa_98) {
   arr_cities[4] = 2;
   int real = length(arr_cities, g, i, path_long);
   int exp = 40;
+  free(arr_cities);
+  free(path_long);
   ASSERT_EQUAL(exp, real);
 }
 
-CTEST(length_of_road, numa_numa_99) {
+CTEST(length_of_road, set_of_combinations_99) {
   struct graph *g = graph_create(max_city);
   graph_initialization(g, max_city);
 
@@ -2034,10 +2230,12 @@ CTEST(length_of_road, numa_numa_99) {
   arr_cities[4] = 2;
   int real = length(arr_cities, g, i, path_long);
   int exp = 33;
+  free(arr_cities);
+  free(path_long);
   ASSERT_EQUAL(exp, real);
 }
 
-CTEST(length_of_road, numa_numa_100) {
+CTEST(length_of_road, set_of_combinations_100) {
   struct graph *g = graph_create(max_city);
   graph_initialization(g, max_city);
 
@@ -2052,10 +2250,12 @@ CTEST(length_of_road, numa_numa_100) {
   arr_cities[4] = 2;
   int real = length(arr_cities, g, i, path_long);
   int exp = 54;
+  free(arr_cities);
+  free(path_long);
   ASSERT_EQUAL(exp, real);
 }
 
-CTEST(length_of_road, numa_numa_101) {
+CTEST(length_of_road, set_of_combinations_101) {
   struct graph *g = graph_create(max_city);
   graph_initialization(g, max_city);
 
@@ -2070,10 +2270,12 @@ CTEST(length_of_road, numa_numa_101) {
   arr_cities[4] = 2;
   int real = length(arr_cities, g, i, path_long);
   int exp = 45;
+  free(arr_cities);
+  free(path_long);
   ASSERT_EQUAL(exp, real);
 }
 
-CTEST(length_of_road, numa_numa_102) {
+CTEST(length_of_road, set_of_combinations_102) {
   struct graph *g = graph_create(max_city);
   graph_initialization(g, max_city);
 
@@ -2088,10 +2290,12 @@ CTEST(length_of_road, numa_numa_102) {
   arr_cities[4] = 3;
   int real = length(arr_cities, g, i, path_long);
   int exp = 16;
+  free(arr_cities);
+  free(path_long);
   ASSERT_EQUAL(exp, real);
 }
 
-CTEST(length_of_road, numa_numa_103) {
+CTEST(length_of_road, set_of_combinations_103) {
   struct graph *g = graph_create(max_city);
   graph_initialization(g, max_city);
 
@@ -2106,10 +2310,12 @@ CTEST(length_of_road, numa_numa_103) {
   arr_cities[4] = 3;
   int real = length(arr_cities, g, i, path_long);
   int exp = 42;
+  free(arr_cities);
+  free(path_long);
   ASSERT_EQUAL(exp, real);
 }
 
-CTEST(length_of_road, numa_numa_104) {
+CTEST(length_of_road, set_of_combinations_104) {
   struct graph *g = graph_create(max_city);
   graph_initialization(g, max_city);
 
@@ -2124,10 +2330,12 @@ CTEST(length_of_road, numa_numa_104) {
   arr_cities[4] = 3;
   int real = length(arr_cities, g, i, path_long);
   int exp = 28;
+  free(arr_cities);
+  free(path_long);
   ASSERT_EQUAL(exp, real);
 }
 
-CTEST(length_of_road, numa_numa_105) {
+CTEST(length_of_road, set_of_combinations_105) {
   struct graph *g = graph_create(max_city);
   graph_initialization(g, max_city);
 
@@ -2142,10 +2350,12 @@ CTEST(length_of_road, numa_numa_105) {
   arr_cities[4] = 3;
   int real = length(arr_cities, g, i, path_long);
   int exp = 57;
+  free(arr_cities);
+  free(path_long);
   ASSERT_EQUAL(exp, real);
 }
 
-CTEST(length_of_road, numa_numa_106) {
+CTEST(length_of_road, set_of_combinations_106) {
   struct graph *g = graph_create(max_city);
   graph_initialization(g, max_city);
 
@@ -2160,10 +2370,12 @@ CTEST(length_of_road, numa_numa_106) {
   arr_cities[4] = 3;
   int real = length(arr_cities, g, i, path_long);
   int exp = 63;
+  free(arr_cities);
+  free(path_long);
   ASSERT_EQUAL(exp, real);
 }
 
-CTEST(length_of_road, numa_numa_107) {
+CTEST(length_of_road, set_of_combinations_107) {
   struct graph *g = graph_create(max_city);
   graph_initialization(g, max_city);
 
@@ -2178,10 +2390,12 @@ CTEST(length_of_road, numa_numa_107) {
   arr_cities[4] = 1;
   int real = length(arr_cities, g, i, path_long);
   int exp = 16;
+  free(arr_cities);
+  free(path_long);
   ASSERT_EQUAL(exp, real);
 }
 
-CTEST(length_of_road, numa_numa_108) {
+CTEST(length_of_road, set_of_combinations_108) {
   struct graph *g = graph_create(max_city);
   graph_initialization(g, max_city);
 
@@ -2196,10 +2410,12 @@ CTEST(length_of_road, numa_numa_108) {
   arr_cities[4] = 1;
   int real = length(arr_cities, g, i, path_long);
   int exp = 28;
+  free(arr_cities);
+  free(path_long);
   ASSERT_EQUAL(exp, real);
 }
 
-CTEST(length_of_road, numa_numa_109) {
+CTEST(length_of_road, set_of_combinations_109) {
   struct graph *g = graph_create(max_city);
   graph_initialization(g, max_city);
 
@@ -2214,10 +2430,12 @@ CTEST(length_of_road, numa_numa_109) {
   arr_cities[4] = 1;
   int real = length(arr_cities, g, i, path_long);
   int exp = 42;
+  free(arr_cities);
+  free(path_long);
   ASSERT_EQUAL(exp, real);
 }
 
-CTEST(length_of_road, numa_numa_110) {
+CTEST(length_of_road, set_of_combinations_110) {
   struct graph *g = graph_create(max_city);
   graph_initialization(g, max_city);
 
@@ -2232,10 +2450,12 @@ CTEST(length_of_road, numa_numa_110) {
   arr_cities[4] = 1;
   int real = length(arr_cities, g, i, path_long);
   int exp = 63;
+  free(arr_cities);
+  free(path_long);
   ASSERT_EQUAL(exp, real);
 }
 
-CTEST(length_of_road, numa_numa_111) {
+CTEST(length_of_road, set_of_combinations_111) {
   struct graph *g = graph_create(max_city);
   graph_initialization(g, max_city);
 
@@ -2250,10 +2470,12 @@ CTEST(length_of_road, numa_numa_111) {
   arr_cities[4] = 1;
   int real = length(arr_cities, g, i, path_long);
   int exp = 57;
+  free(arr_cities);
+  free(path_long);
   ASSERT_EQUAL(exp, real);
 }
 
-CTEST(length_of_road, numa_numa_112) {
+CTEST(length_of_road, set_of_combinations_112) {
   struct graph *g = graph_create(max_city);
   graph_initialization(g, max_city);
 
@@ -2268,10 +2490,12 @@ CTEST(length_of_road, numa_numa_112) {
   arr_cities[4] = 1;
   int real = length(arr_cities, g, i, path_long);
   int exp = 15;
+  free(arr_cities);
+  free(path_long);
   ASSERT_EQUAL(exp, real);
 }
 
-CTEST(length_of_road, numa_numa_113) {
+CTEST(length_of_road, set_of_combinations_113) {
   struct graph *g = graph_create(max_city);
   graph_initialization(g, max_city);
 
@@ -2286,10 +2510,12 @@ CTEST(length_of_road, numa_numa_113) {
   arr_cities[4] = 1;
   int real = length(arr_cities, g, i, path_long);
   int exp = 29;
+  free(arr_cities);
+  free(path_long);
   ASSERT_EQUAL(exp, real);
 }
 
-CTEST(length_of_road, numa_numa_114) {
+CTEST(length_of_road, set_of_combinations_114) {
   struct graph *g = graph_create(max_city);
   graph_initialization(g, max_city);
 
@@ -2304,10 +2530,12 @@ CTEST(length_of_road, numa_numa_114) {
   arr_cities[4] = 1;
   int real = length(arr_cities, g, i, path_long);
   int exp = 50;
+  free(arr_cities);
+  free(path_long);
   ASSERT_EQUAL(exp, real);
 }
 
-CTEST(length_of_road, numa_numa_115) {
+CTEST(length_of_road, set_of_combinations_115) {
   struct graph *g = graph_create(max_city);
   graph_initialization(g, max_city);
 
@@ -2322,10 +2550,12 @@ CTEST(length_of_road, numa_numa_115) {
   arr_cities[4] = 1;
   int real = length(arr_cities, g, i, path_long);
   int exp = 55;
+  free(arr_cities);
+  free(path_long);
   ASSERT_EQUAL(exp, real);
 }
 
-CTEST(length_of_road, numa_numa_116) {
+CTEST(length_of_road, set_of_combinations_116) {
   struct graph *g = graph_create(max_city);
   graph_initialization(g, max_city);
 
@@ -2340,10 +2570,12 @@ CTEST(length_of_road, numa_numa_116) {
   arr_cities[4] = 1;
   int real = length(arr_cities, g, i, path_long);
   int exp = 58;
+  free(arr_cities);
+  free(path_long);
   ASSERT_EQUAL(exp, real);
 }
 
-CTEST(length_of_road, numa_numa_117) {
+CTEST(length_of_road, set_of_combinations_117) {
   struct graph *g = graph_create(max_city);
   graph_initialization(g, max_city);
 
@@ -2358,10 +2590,12 @@ CTEST(length_of_road, numa_numa_117) {
   arr_cities[4] = 2;
   int real = length(arr_cities, g, i, path_long);
   int exp = 15;
+  free(arr_cities);
+  free(path_long);
   ASSERT_EQUAL(exp, real);
 }
 
-CTEST(length_of_road, numa_numa_118) {
+CTEST(length_of_road, set_of_combinations_118) {
   struct graph *g = graph_create(max_city);
   graph_initialization(g, max_city);
 
@@ -2376,10 +2610,12 @@ CTEST(length_of_road, numa_numa_118) {
   arr_cities[4] = 2;
   int real = length(arr_cities, g, i, path_long);
   int exp = 50;
+  free(arr_cities);
+  free(path_long);
   ASSERT_EQUAL(exp, real);
 }
 
-CTEST(length_of_road, numa_numa_119) {
+CTEST(length_of_road, set_of_combinations_119) {
   struct graph *g = graph_create(max_city);
   graph_initialization(g, max_city);
 
@@ -2394,10 +2630,12 @@ CTEST(length_of_road, numa_numa_119) {
   arr_cities[4] = 2;
   int real = length(arr_cities, g, i, path_long);
   int exp = 29;
+  free(arr_cities);
+  free(path_long);
   ASSERT_EQUAL(exp, real);
 }
 
-CTEST(length_of_road, numa_numa_120) {
+CTEST(length_of_road, set_of_combinations_120) {
   struct graph *g = graph_create(max_city);
   graph_initialization(g, max_city);
 
@@ -2412,10 +2650,12 @@ CTEST(length_of_road, numa_numa_120) {
   arr_cities[4] = 2;
   int real = length(arr_cities, g, i, path_long);
   int exp = 58;
+  free(arr_cities);
+  free(path_long);
   ASSERT_EQUAL(exp, real);
 }
 
-CTEST(length_of_road, numa_numa_121) {
+CTEST(length_of_road, set_of_combinations_121) {
   struct graph *g = graph_create(max_city);
   graph_initialization(g, max_city);
 
@@ -2430,5 +2670,7 @@ CTEST(length_of_road, numa_numa_121) {
   arr_cities[4] = 2;
   int real = length(arr_cities, g, i, path_long);
   int exp = 55;
+  free(arr_cities);
+  free(path_long);
   ASSERT_EQUAL(exp, real);
 }
