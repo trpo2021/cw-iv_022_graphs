@@ -1,9 +1,5 @@
 #include "library.h"
 
-int get_rand(int min, int max) {
-  return (double)rand() / (RAND_MAX + 1.0) * (max - min) + min;
-}
-
 void arguments_error(int s) {
   if (s == -1) {
     FILE *file = fopen("src/graphs/instruction.txt", "rt");

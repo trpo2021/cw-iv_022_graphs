@@ -16,13 +16,11 @@ enum cities {
 };
 
 struct graph {
-  int nvertices; // Число вершин
-  int **m;       // Матрица n x n
+  int **m;
 };
 
 void cities_numbers(int *list_of_cities);
 int length(int *list_of_cities, struct graph *g, int i, int *path_long);
-int get_rand(int min, int max);
 int arguments_check(char **argv);
 void arguments_error(int s);
 int memory_check(int *array);
