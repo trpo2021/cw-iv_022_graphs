@@ -67,7 +67,6 @@ struct graph *graph_create(int nvertices) {
     return NULL;
   }
 
-  g->nvertices = nvertices;
   g->m = malloc(sizeof(int *) * nvertices);
 
   if (g->m == NULL) {
