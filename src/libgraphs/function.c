@@ -68,53 +68,47 @@ int arguments_check(char **argv) {
 }
 
 void cities_numbers(int *list_of_cities) {
-  if (list_of_cities[1] != list_of_cities[2]) {
-    if ((list_of_cities[1] + first_city != list_of_cities[2]) &&
-        (list_of_cities[1] + first_city <= fourth_city)) {
-      list_of_cities[3] = list_of_cities[1] + first_city;
+  if ((list_of_cities[1] + first_city != list_of_cities[2]) &&
+      (list_of_cities[1] + first_city <= fourth_city)) {
+    list_of_cities[3] = list_of_cities[1] + first_city;
 
-      if ((list_of_cities[2] - first_city >= first_city) &&
-          (list_of_cities[2] - first_city != list_of_cities[3]) &&
-          (list_of_cities[2] - first_city != list_of_cities[1])) {
-        list_of_cities[4] = list_of_cities[2] - first_city;
-      } else {
-        if ((list_of_cities[2] + first_city <= fourth_city) &&
-            (list_of_cities[2] + first_city != list_of_cities[1])) {
-          list_of_cities[4] = list_of_cities[2] + first_city;
-        } else {
-          if (list_of_cities[2] + first_city > fourth_city) {
-            list_of_cities[4] = list_of_cities[1] - first_city;
-          } else {
-            list_of_cities[4] = list_of_cities[2] + list_of_cities[3];
-          }
-        }
-      }
+    if ((list_of_cities[2] - first_city >= first_city) &&
+        (list_of_cities[2] - first_city != list_of_cities[3]) &&
+        (list_of_cities[2] - first_city != list_of_cities[1])) {
+      list_of_cities[4] = list_of_cities[2] - first_city;
     } else {
-      if ((list_of_cities[1] - first_city != list_of_cities[2]) &&
-          (list_of_cities[1] > first_city)) {
-        list_of_cities[3] = list_of_cities[1] - first_city;
+      if ((list_of_cities[2] + first_city <= fourth_city) &&
+          (list_of_cities[2] + first_city != list_of_cities[1])) {
+        list_of_cities[4] = list_of_cities[2] + first_city;
       } else {
-        if (list_of_cities[1] == first_city) {
-          list_of_cities[3] = list_of_cities[1] + third_city;
+        if (list_of_cities[2] + first_city > fourth_city) {
+          list_of_cities[4] = list_of_cities[1] - first_city;
         } else {
-          list_of_cities[3] = list_of_cities[1] - third_city;
-        }
-      }
-      if ((list_of_cities[2] - first_city >= first_city) &&
-          (list_of_cities[2] - first_city != list_of_cities[3]) &&
-          (list_of_cities[2] - first_city != list_of_cities[1])) {
-        list_of_cities[4] = list_of_cities[2] - first_city;
-      } else {
-        if (list_of_cities[2] + first_city <= fourth_city) {
-          list_of_cities[4] = list_of_cities[2] + first_city;
-        } else {
-          list_of_cities[4] = list_of_cities[3] - first_city;
+          list_of_cities[4] = list_of_cities[2] + list_of_cities[3];
         }
       }
     }
   } else {
-    for (int i = 0; i < max_city + 1; i++) {
-      list_of_cities[i] = 0;
+    if ((list_of_cities[1] - first_city != list_of_cities[2]) &&
+        (list_of_cities[1] > first_city)) {
+      list_of_cities[3] = list_of_cities[1] - first_city;
+    } else {
+      if (list_of_cities[1] == first_city) {
+        list_of_cities[3] = list_of_cities[1] + third_city;
+      } else {
+        list_of_cities[3] = list_of_cities[1] - third_city;
+      }
+    }
+    if ((list_of_cities[2] - first_city >= first_city) &&
+        (list_of_cities[2] - first_city != list_of_cities[3]) &&
+        (list_of_cities[2] - first_city != list_of_cities[1])) {
+      list_of_cities[4] = list_of_cities[2] - first_city;
+    } else {
+      if (list_of_cities[2] + first_city <= fourth_city) {
+        list_of_cities[4] = list_of_cities[2] + first_city;
+      } else {
+        list_of_cities[4] = list_of_cities[3] - first_city;
+      }
     }
   }
 }
@@ -160,36 +154,31 @@ void all_paths(int *list_of_cities, struct graph *g, int *path_long,
   printf("\n----------------------------------------------");
   printf("\nВсе маршруты между городами: %d - %d\n", start_city, final_city);
 
-  if (list_of_cities[1] != list_of_cities[2]) {
-    int length_roads = 0;
+  int length_roads = 0;
 
-    printf("1 Путь. Вершины:  %d -> %d\n", list_of_cities[1],
-           list_of_cities[2]);
-    length_roads = length(list_of_cities, g, 1, path_long);
+  printf("1 Путь. Вершины:  %d -> %d\n", list_of_cities[1], list_of_cities[2]);
+  length_roads = length(list_of_cities, g, 1, path_long);
+  printf("Длина:  %d\n", length_roads);
+
+  int temp = list_of_cities[3];
+  int temp_2 = list_of_cities[3];
+
+  for (int i = second_city; i <= third_city; i++) {
+    printf("%d Путь. Вершины:  ", i);
+    printf("%d -> %d -> %d\n", list_of_cities[1], temp, list_of_cities[2]);
+    length_roads = length(list_of_cities, g, i, path_long);
     printf("Длина:  %d\n", length_roads);
+    temp = list_of_cities[4];
+  }
 
-    int temp = list_of_cities[3];
-    int temp_2 = list_of_cities[3];
-
-    for (int i = second_city; i <= third_city; i++) {
-      printf("%d Путь. Вершины:  ", i);
-      printf("%d -> %d -> %d\n", list_of_cities[1], temp, list_of_cities[2]);
-      length_roads = length(list_of_cities, g, i, path_long);
-      printf("Длина:  %d\n", length_roads);
-      temp = list_of_cities[4];
-    }
-
-    for (int i = fourth_city; i <= fourth_city + 1; i++) {
-      printf("%d Путь. Вершины:  ", i);
-      printf("%d -> %d -> %d -> %d\n", list_of_cities[1], temp_2, temp,
-             list_of_cities[2]);
-      length_roads = length(list_of_cities, g, i, path_long);
-      printf("Длина:  %d\n", length_roads);
-      temp_2 = temp;
-      temp = list_of_cities[3];
-    }
-  } else {
-    printf("Путей:  0\n");
+  for (int i = fourth_city; i <= fourth_city + 1; i++) {
+    printf("%d Путь. Вершины:  ", i);
+    printf("%d -> %d -> %d -> %d\n", list_of_cities[1], temp_2, temp,
+           list_of_cities[2]);
+    length_roads = length(list_of_cities, g, i, path_long);
+    printf("Длина:  %d\n", length_roads);
+    temp_2 = temp;
+    temp = list_of_cities[3];
   }
 }
 
@@ -199,27 +188,22 @@ void shortest_path(int *list_of_cities, int *arr_length, int *path_long,
 
   int index = 0;
   int min = 999;
-  if (list_of_cities[1] != list_of_cities[2]) {
-    for (int i = first_city; i <= fourth_city + 1; i++) {
-      arr_length[i] = length(list_of_cities, g, i, path_long);
-      if (arr_length[i] < min) {
-        min = arr_length[i];
-        index = i;
-      }
+
+  for (int i = first_city; i <= fourth_city + 1; i++) {
+    arr_length[i] = length(list_of_cities, g, i, path_long);
+    if (arr_length[i] < min) {
+      min = arr_length[i];
+      index = i;
     }
-  } else {
-    min = 0;
   }
 
   printf("\nСамый короткий путь между городами %d -- %d: %d", start_city,
          final_city, min);
   printf("\nСам путь:  %d ", start_city);
 
-  if (min != 0) {
-    length(list_of_cities, g, index, path_long);
-    for (int i = second_city; i <= index + 1; i++) {
-      printf("-> %d ", path_long[i]);
-    }
+  length(list_of_cities, g, index, path_long);
+  for (int i = second_city; i <= index + 1; i++) {
+    printf("-> %d ", path_long[i]);
   }
   printf("\n");
 }
@@ -229,27 +213,22 @@ void longest_path(int *list_of_cities, int *arr_length, int *path_long,
   printf("\n----------------------------------------------");
 
   int max = -1, index = 0;
-  if (list_of_cities[1] != list_of_cities[2]) {
-    for (int i = first_city; i <= fourth_city + 1; i++) {
-      arr_length[i] = length(list_of_cities, g, i, path_long);
-      if (arr_length[i] > max) {
-        max = arr_length[i];
-        index = i;
-      }
+
+  for (int i = first_city; i <= fourth_city + 1; i++) {
+    arr_length[i] = length(list_of_cities, g, i, path_long);
+    if (arr_length[i] > max) {
+      max = arr_length[i];
+      index = i;
     }
-  } else {
-    max = 0;
   }
 
   printf("\nСамый длинный путь между городами %d -- %d: %d\n", start_city,
          final_city, max);
   printf("Сам путь:  %d ", start_city);
 
-  if (max != 0) {
-    length(list_of_cities, g, index, path_long);
-    for (int i = second_city; i <= fourth_city; i++) {
-      printf("-> %d ", path_long[i]);
-    }
+  length(list_of_cities, g, index, path_long);
+  for (int i = second_city; i <= fourth_city; i++) {
+    printf("-> %d ", path_long[i]);
   }
   printf("\n");
 }
