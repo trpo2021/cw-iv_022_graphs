@@ -135,6 +135,7 @@ CTEST(get_edge, edge_1) {
 
   int real = graph_get_edge(g, i, j);
   int exp = 0;
+  graph_free(g, max_city);
   ASSERT_EQUAL(exp, real);
 }
 
@@ -148,6 +149,7 @@ CTEST(get_edge, edge_2) {
 
   int real = graph_get_edge(g, i, j);
   int exp = 0;
+  graph_free(g, max_city);
   ASSERT_EQUAL(exp, real);
 }
 
@@ -161,6 +163,7 @@ CTEST(get_edge, edge_3) {
 
   int real = graph_get_edge(g, i, j);
   int exp = 0;
+  graph_free(g, max_city);
   ASSERT_EQUAL(exp, real);
 }
 
@@ -174,6 +177,7 @@ CTEST(get_edge, edge_4) {
 
   int real = graph_get_edge(g, i - 1, j);
   int exp = 0;
+  graph_free(g, max_city);
   ASSERT_EQUAL(exp, real);
 }
 
@@ -187,6 +191,7 @@ CTEST(get_edge, edge_between_12) {
 
   int real = graph_get_edge(g, i - 1, j - 1);
   int exp = 17;
+  graph_free(g, max_city);
   ASSERT_EQUAL(exp, real);
 }
 
@@ -200,6 +205,7 @@ CTEST(get_edge, edge_between_13) {
 
   int real = graph_get_edge(g, i - 1, j - 1);
   int exp = 25;
+  graph_free(g, max_city);
   ASSERT_EQUAL(exp, real);
 }
 
@@ -213,6 +219,7 @@ CTEST(get_edge, edge_between_14) {
 
   int real = graph_get_edge(g, i - 1, j - 1);
   int exp = 25;
+  graph_free(g, max_city);
   ASSERT_EQUAL(exp, real);
 }
 
@@ -226,6 +233,7 @@ CTEST(get_edge, edge_between_23) {
 
   int real = graph_get_edge(g, i - 1, j - 1);
   int exp = 13;
+  graph_free(g, max_city);
   ASSERT_EQUAL(exp, real);
 }
 
@@ -239,6 +247,7 @@ CTEST(get_edge, edge_between_24) {
 
   int real = graph_get_edge(g, i - 1, j - 1);
   int exp = 16;
+  graph_free(g, max_city);
   ASSERT_EQUAL(exp, real);
 }
 
@@ -252,6 +261,7 @@ CTEST(get_edge, edge_between_34) {
 
   int real = graph_get_edge(g, i - 1, j - 1);
   int exp = 15;
+  graph_free(g, max_city);
   ASSERT_EQUAL(exp, real);
 }
 
@@ -272,6 +282,7 @@ CTEST(length_of_road, set_of_combinations_1) {
   int exp = 17;
   free(arr_cities);
   free(path_long);
+  graph_free(g, max_city);
   ASSERT_EQUAL(exp, real);
 }
 
@@ -292,6 +303,7 @@ CTEST(length_of_road, set_of_combinations_2) {
   int exp = 38;
   free(arr_cities);
   free(path_long);
+  graph_free(g, max_city);
   ASSERT_EQUAL(exp, real);
 }
 
@@ -312,6 +324,7 @@ CTEST(length_of_road, set_of_combinations_3) {
   int exp = 41;
   free(arr_cities);
   free(path_long);
+  graph_free(g, max_city);
   ASSERT_EQUAL(exp, real);
 }
 
@@ -332,6 +345,7 @@ CTEST(length_of_road, set_of_combinations_4) {
   int exp = 53;
   free(arr_cities);
   free(path_long);
+  graph_free(g, max_city);
   ASSERT_EQUAL(exp, real);
 }
 
@@ -352,6 +366,7 @@ CTEST(length_of_road, set_of_combinations_5) {
   int exp = 56;
   free(arr_cities);
   free(path_long);
+  graph_free(g, max_city);
   ASSERT_EQUAL(exp, real);
 }
 
@@ -372,6 +387,7 @@ CTEST(length_of_road, set_of_combinations_6) {
   int exp = 0;
   free(arr_cities);
   free(path_long);
+  graph_free(g, max_city);
   ASSERT_EQUAL(exp, real);
 }
 
@@ -392,6 +408,7 @@ CTEST(length_of_road, set_of_combinations_7) {
   int exp = 17;
   free(arr_cities);
   free(path_long);
+  graph_free(g, max_city);
   ASSERT_EQUAL(exp, real);
 }
 
@@ -412,6 +429,7 @@ CTEST(length_of_road, set_of_combinations_8) {
   int exp = 41;
   free(arr_cities);
   free(path_long);
+  graph_free(g, max_city);
   ASSERT_EQUAL(exp, real);
 }
 
@@ -432,6 +450,7 @@ CTEST(length_of_road, set_of_combinations_9) {
   int exp = 38;
   free(arr_cities);
   free(path_long);
+  graph_free(g, max_city);
   ASSERT_EQUAL(exp, real);
 }
 
@@ -452,6 +471,7 @@ CTEST(length_of_road, set_of_combinations_10) {
   int exp = 56;
   free(arr_cities);
   free(path_long);
+  graph_free(g, max_city);
   ASSERT_EQUAL(exp, real);
 }
 
@@ -472,6 +492,7 @@ CTEST(length_of_road, set_of_combinations_11) {
   int exp = 53;
   free(arr_cities);
   free(path_long);
+  graph_free(g, max_city);
   ASSERT_EQUAL(exp, real);
 }
 
@@ -492,6 +513,7 @@ CTEST(length_of_road, set_of_combinations_12) {
   int exp = 25;
   free(arr_cities);
   free(path_long);
+  graph_free(g, max_city);
   ASSERT_EQUAL(exp, real);
 }
 
@@ -512,6 +534,7 @@ CTEST(length_of_road, set_of_combinations_13) {
   int exp = 40;
   free(arr_cities);
   free(path_long);
+  graph_free(g, max_city);
   ASSERT_EQUAL(exp, real);
 }
 
@@ -532,6 +555,7 @@ CTEST(length_of_road, set_of_combinations_14) {
   int exp = 30;
   free(arr_cities);
   free(path_long);
+  graph_free(g, max_city);
   ASSERT_EQUAL(exp, real);
 }
 
@@ -552,6 +576,7 @@ CTEST(length_of_road, set_of_combinations_15) {
   int exp = 48;
   free(arr_cities);
   free(path_long);
+  graph_free(g, max_city);
   ASSERT_EQUAL(exp, real);
 }
 
@@ -572,6 +597,7 @@ CTEST(length_of_road, set_of_combinations_16) {
   int exp = 54;
   free(arr_cities);
   free(path_long);
+  graph_free(g, max_city);
   ASSERT_EQUAL(exp, real);
 }
 
@@ -592,6 +618,7 @@ CTEST(length_of_road, set_of_combinations_17) {
   int exp = 25;
   free(arr_cities);
   free(path_long);
+  graph_free(g, max_city);
   ASSERT_EQUAL(exp, real);
 }
 
@@ -612,6 +639,7 @@ CTEST(length_of_road, set_of_combinations_18) {
   int exp = 30;
   free(arr_cities);
   free(path_long);
+  graph_free(g, max_city);
   ASSERT_EQUAL(exp, real);
 }
 
@@ -632,6 +660,7 @@ CTEST(length_of_road, set_of_combinations_19) {
   int exp = 40;
   free(arr_cities);
   free(path_long);
+  graph_free(g, max_city);
   ASSERT_EQUAL(exp, real);
 }
 
@@ -652,6 +681,7 @@ CTEST(length_of_road, set_of_combinations_20) {
   int exp = 54;
   free(arr_cities);
   free(path_long);
+  graph_free(g, max_city);
   ASSERT_EQUAL(exp, real);
 }
 
@@ -672,6 +702,7 @@ CTEST(length_of_road, set_of_combinations_21) {
   int exp = 48;
   free(arr_cities);
   free(path_long);
+  graph_free(g, max_city);
   ASSERT_EQUAL(exp, real);
 }
 
@@ -692,6 +723,7 @@ CTEST(length_of_road, set_of_combinations_22) {
   int exp = 25;
   free(arr_cities);
   free(path_long);
+  graph_free(g, max_city);
   ASSERT_EQUAL(exp, real);
 }
 
@@ -712,6 +744,7 @@ CTEST(length_of_road, set_of_combinations_23) {
   int exp = 33;
   free(arr_cities);
   free(path_long);
+  graph_free(g, max_city);
   ASSERT_EQUAL(exp, real);
 }
 
@@ -732,6 +765,7 @@ CTEST(length_of_road, set_of_combinations_24) {
   int exp = 40;
   free(arr_cities);
   free(path_long);
+  graph_free(g, max_city);
   ASSERT_EQUAL(exp, real);
 }
 
@@ -752,6 +786,7 @@ CTEST(length_of_road, set_of_combinations_25) {
   int exp = 54;
   free(arr_cities);
   free(path_long);
+  graph_free(g, max_city);
   ASSERT_EQUAL(exp, real);
 }
 
@@ -772,6 +807,7 @@ CTEST(length_of_road, set_of_combinations_26) {
   int exp = 45;
   free(arr_cities);
   free(path_long);
+  graph_free(g, max_city);
   ASSERT_EQUAL(exp, real);
 }
 
@@ -792,6 +828,7 @@ CTEST(length_of_road, set_of_combinations_27) {
   int exp = 25;
   free(arr_cities);
   free(path_long);
+  graph_free(g, max_city);
   ASSERT_EQUAL(exp, real);
 }
 
@@ -812,6 +849,7 @@ CTEST(length_of_road, set_of_combinations_28) {
   int exp = 40;
   free(arr_cities);
   free(path_long);
+  graph_free(g, max_city);
   ASSERT_EQUAL(exp, real);
 }
 
@@ -832,6 +870,7 @@ CTEST(length_of_road, set_of_combinations_29) {
   int exp = 33;
   free(arr_cities);
   free(path_long);
+  graph_free(g, max_city);
   ASSERT_EQUAL(exp, real);
 }
 
@@ -852,6 +891,7 @@ CTEST(length_of_road, set_of_combinations_30) {
   int exp = 45;
   free(arr_cities);
   free(path_long);
+  graph_free(g, max_city);
   ASSERT_EQUAL(exp, real);
 }
 
@@ -872,6 +912,7 @@ CTEST(length_of_road, set_of_combinations_31) {
   int exp = 54;
   free(arr_cities);
   free(path_long);
+  graph_free(g, max_city);
   ASSERT_EQUAL(exp, real);
 }
 
@@ -892,6 +933,7 @@ CTEST(length_of_road, set_of_combinations_32) {
   int exp = 17;
   free(arr_cities);
   free(path_long);
+  graph_free(g, max_city);
   ASSERT_EQUAL(exp, real);
 }
 
@@ -912,6 +954,7 @@ CTEST(length_of_road, set_of_combinations_33) {
   int exp = 38;
   free(arr_cities);
   free(path_long);
+  graph_free(g, max_city);
   ASSERT_EQUAL(exp, real);
 }
 
@@ -932,6 +975,7 @@ CTEST(length_of_road, set_of_combinations_34) {
   int exp = 41;
   free(arr_cities);
   free(path_long);
+  graph_free(g, max_city);
   ASSERT_EQUAL(exp, real);
 }
 
@@ -952,6 +996,7 @@ CTEST(length_of_road, set_of_combinations_35) {
   int exp = 56;
   free(arr_cities);
   free(path_long);
+  graph_free(g, max_city);
   ASSERT_EQUAL(exp, real);
 }
 
@@ -972,6 +1017,7 @@ CTEST(length_of_road, set_of_combinations_36) {
   int exp = 53;
   free(arr_cities);
   free(path_long);
+  graph_free(g, max_city);
   ASSERT_EQUAL(exp, real);
 }
 
@@ -992,6 +1038,7 @@ CTEST(length_of_road, set_of_combinations_37) {
   int exp = 17;
   free(arr_cities);
   free(path_long);
+  graph_free(g, max_city);
   ASSERT_EQUAL(exp, real);
 }
 
@@ -1012,6 +1059,7 @@ CTEST(length_of_road, set_of_combinations_38) {
   int exp = 41;
   free(arr_cities);
   free(path_long);
+  graph_free(g, max_city);
   ASSERT_EQUAL(exp, real);
 }
 
@@ -1032,6 +1080,7 @@ CTEST(length_of_road, set_of_combinations_39) {
   int exp = 38;
   free(arr_cities);
   free(path_long);
+  graph_free(g, max_city);
   ASSERT_EQUAL(exp, real);
 }
 
@@ -1052,6 +1101,7 @@ CTEST(length_of_road, set_of_combinations_40) {
   int exp = 53;
   free(arr_cities);
   free(path_long);
+  graph_free(g, max_city);
   ASSERT_EQUAL(exp, real);
 }
 
@@ -1072,6 +1122,7 @@ CTEST(length_of_road, set_of_combinations_41) {
   int exp = 56;
   free(arr_cities);
   free(path_long);
+  graph_free(g, max_city);
   ASSERT_EQUAL(exp, real);
 }
 
@@ -1092,6 +1143,7 @@ CTEST(length_of_road, set_of_combinations_42) {
   int exp = 13;
   free(arr_cities);
   free(path_long);
+  graph_free(g, max_city);
   ASSERT_EQUAL(exp, real);
 }
 
@@ -1112,6 +1164,7 @@ CTEST(length_of_road, set_of_combinations_43) {
   int exp = 42;
   free(arr_cities);
   free(path_long);
+  graph_free(g, max_city);
   ASSERT_EQUAL(exp, real);
 }
 
@@ -1132,6 +1185,7 @@ CTEST(length_of_road, set_of_combinations_44) {
   int exp = 31;
   free(arr_cities);
   free(path_long);
+  graph_free(g, max_city);
   ASSERT_EQUAL(exp, real);
 }
 
@@ -1152,6 +1206,7 @@ CTEST(length_of_road, set_of_combinations_45) {
   int exp = 66;
   free(arr_cities);
   free(path_long);
+  graph_free(g, max_city);
   ASSERT_EQUAL(exp, real);
 }
 
@@ -1172,6 +1227,7 @@ CTEST(length_of_road, set_of_combinations_46) {
   int exp = 57;
   free(arr_cities);
   free(path_long);
+  graph_free(g, max_city);
   ASSERT_EQUAL(exp, real);
 }
 
@@ -1192,6 +1248,7 @@ CTEST(length_of_road, set_of_combinations_47) {
   int exp = 13;
   free(arr_cities);
   free(path_long);
+  graph_free(g, max_city);
   ASSERT_EQUAL(exp, real);
 }
 
@@ -1212,6 +1269,7 @@ CTEST(length_of_road, set_of_combinations_48) {
   int exp = 31;
   free(arr_cities);
   free(path_long);
+  graph_free(g, max_city);
   ASSERT_EQUAL(exp, real);
 }
 
@@ -1232,6 +1290,7 @@ CTEST(length_of_road, set_of_combinations_49) {
   int exp = 42;
   free(arr_cities);
   free(path_long);
+  graph_free(g, max_city);
   ASSERT_EQUAL(exp, real);
 }
 
@@ -1252,6 +1311,7 @@ CTEST(length_of_road, set_of_combinations_50) {
   int exp = 57;
   free(arr_cities);
   free(path_long);
+  graph_free(g, max_city);
   ASSERT_EQUAL(exp, real);
 }
 
@@ -1272,6 +1332,7 @@ CTEST(length_of_road, set_of_combinations_51) {
   int exp = 66;
   free(arr_cities);
   free(path_long);
+  graph_free(g, max_city);
   ASSERT_EQUAL(exp, real);
 }
 
@@ -1292,6 +1353,7 @@ CTEST(length_of_road, set_of_combinations_52) {
   int exp = 16;
   free(arr_cities);
   free(path_long);
+  graph_free(g, max_city);
   ASSERT_EQUAL(exp, real);
 }
 
@@ -1312,6 +1374,7 @@ CTEST(length_of_road, set_of_combinations_53) {
   int exp = 42;
   free(arr_cities);
   free(path_long);
+  graph_free(g, max_city);
   ASSERT_EQUAL(exp, real);
 }
 
@@ -1332,6 +1395,7 @@ CTEST(length_of_road, set_of_combinations_54) {
   int exp = 28;
   free(arr_cities);
   free(path_long);
+  graph_free(g, max_city);
   ASSERT_EQUAL(exp, real);
 }
 
@@ -1352,6 +1416,7 @@ CTEST(length_of_road, set_of_combinations_55) {
   int exp = 63;
   free(arr_cities);
   free(path_long);
+  graph_free(g, max_city);
   ASSERT_EQUAL(exp, real);
 }
 
@@ -1372,6 +1437,7 @@ CTEST(length_of_road, set_of_combinations_56) {
   int exp = 57;
   free(arr_cities);
   free(path_long);
+  graph_free(g, max_city);
   ASSERT_EQUAL(exp, real);
 }
 
@@ -1392,6 +1458,7 @@ CTEST(length_of_road, set_of_combinations_57) {
   int exp = 16;
   free(arr_cities);
   free(path_long);
+  graph_free(g, max_city);
   ASSERT_EQUAL(exp, real);
 }
 
@@ -1412,6 +1479,7 @@ CTEST(length_of_road, set_of_combinations_58) {
   int exp = 28;
   free(arr_cities);
   free(path_long);
+  graph_free(g, max_city);
   ASSERT_EQUAL(exp, real);
 }
 
@@ -1432,6 +1500,7 @@ CTEST(length_of_road, set_of_combinations_59) {
   int exp = 42;
   free(arr_cities);
   free(path_long);
+  graph_free(g, max_city);
   ASSERT_EQUAL(exp, real);
 }
 
@@ -1452,6 +1521,7 @@ CTEST(length_of_road, set_of_combinations_60) {
   int exp = 57;
   free(arr_cities);
   free(path_long);
+  graph_free(g, max_city);
   ASSERT_EQUAL(exp, real);
 }
 
@@ -1472,6 +1542,7 @@ CTEST(length_of_road, set_of_combinations_61) {
   int exp = 63;
   free(arr_cities);
   free(path_long);
+  graph_free(g, max_city);
   ASSERT_EQUAL(exp, real);
 }
 
@@ -1492,6 +1563,7 @@ CTEST(length_of_road, set_of_combinations_62) {
   int exp = 25;
   free(arr_cities);
   free(path_long);
+  graph_free(g, max_city);
   ASSERT_EQUAL(exp, real);
 }
 
@@ -1512,6 +1584,7 @@ CTEST(length_of_road, set_of_combinations_63) {
   int exp = 30;
   free(arr_cities);
   free(path_long);
+  graph_free(g, max_city);
   ASSERT_EQUAL(exp, real);
 }
 
@@ -1532,6 +1605,7 @@ CTEST(length_of_road, set_of_combinations_64) {
   int exp = 40;
   free(arr_cities);
   free(path_long);
+  graph_free(g, max_city);
   ASSERT_EQUAL(exp, real);
 }
 
@@ -1552,6 +1626,7 @@ CTEST(length_of_road, set_of_combinations_65) {
   int exp = 48;
   free(arr_cities);
   free(path_long);
+  graph_free(g, max_city);
   ASSERT_EQUAL(exp, real);
 }
 
@@ -1572,6 +1647,7 @@ CTEST(length_of_road, set_of_combinations_66) {
   int exp = 54;
   free(arr_cities);
   free(path_long);
+  graph_free(g, max_city);
   ASSERT_EQUAL(exp, real);
 }
 
@@ -1592,6 +1668,7 @@ CTEST(length_of_road, set_of_combinations_67) {
   int exp = 25;
   free(arr_cities);
   free(path_long);
+  graph_free(g, max_city);
   ASSERT_EQUAL(exp, real);
 }
 
@@ -1612,6 +1689,7 @@ CTEST(length_of_road, set_of_combinations_68) {
   int exp = 40;
   free(arr_cities);
   free(path_long);
+  graph_free(g, max_city);
   ASSERT_EQUAL(exp, real);
 }
 
@@ -1632,6 +1710,7 @@ CTEST(length_of_road, set_of_combinations_69) {
   int exp = 30;
   free(arr_cities);
   free(path_long);
+  graph_free(g, max_city);
   ASSERT_EQUAL(exp, real);
 }
 
@@ -1652,6 +1731,7 @@ CTEST(length_of_road, set_of_combinations_70) {
   int exp = 54;
   free(arr_cities);
   free(path_long);
+  graph_free(g, max_city);
   ASSERT_EQUAL(exp, real);
 }
 
@@ -1672,6 +1752,7 @@ CTEST(length_of_road, set_of_combinations_71) {
   int exp = 48;
   free(arr_cities);
   free(path_long);
+  graph_free(g, max_city);
   ASSERT_EQUAL(exp, real);
 }
 
@@ -1692,6 +1773,7 @@ CTEST(length_of_road, set_of_combinations_72) {
   int exp = 13;
   free(arr_cities);
   free(path_long);
+  graph_free(g, max_city);
   ASSERT_EQUAL(exp, real);
 }
 
@@ -1712,6 +1794,7 @@ CTEST(length_of_road, set_of_combinations_73) {
   int exp = 42;
   free(arr_cities);
   free(path_long);
+  graph_free(g, max_city);
   ASSERT_EQUAL(exp, real);
 }
 
@@ -1732,6 +1815,7 @@ CTEST(length_of_road, set_of_combinations_74) {
   int exp = 31;
   free(arr_cities);
   free(path_long);
+  graph_free(g, max_city);
   ASSERT_EQUAL(exp, real);
 }
 
@@ -1752,6 +1836,7 @@ CTEST(length_of_road, set_of_combinations_75) {
   int exp = 57;
   free(arr_cities);
   free(path_long);
+  graph_free(g, max_city);
   ASSERT_EQUAL(exp, real);
 }
 
@@ -1772,6 +1857,7 @@ CTEST(length_of_road, set_of_combinations_76) {
   int exp = 66;
   free(arr_cities);
   free(path_long);
+  graph_free(g, max_city);
   ASSERT_EQUAL(exp, real);
 }
 
@@ -1792,6 +1878,7 @@ CTEST(length_of_road, set_of_combinations_77) {
   int exp = 13;
   free(arr_cities);
   free(path_long);
+  graph_free(g, max_city);
   ASSERT_EQUAL(exp, real);
 }
 
@@ -1812,6 +1899,7 @@ CTEST(length_of_road, set_of_combinations_78) {
   int exp = 31;
   free(arr_cities);
   free(path_long);
+  graph_free(g, max_city);
   ASSERT_EQUAL(exp, real);
 }
 
@@ -1832,6 +1920,7 @@ CTEST(length_of_road, set_of_combinations_79) {
   int exp = 42;
   free(arr_cities);
   free(path_long);
+  graph_free(g, max_city);
   ASSERT_EQUAL(exp, real);
 }
 
@@ -1852,6 +1941,7 @@ CTEST(length_of_road, set_of_combinations_80) {
   int exp = 66;
   free(arr_cities);
   free(path_long);
+  graph_free(g, max_city);
   ASSERT_EQUAL(exp, real);
 }
 
@@ -1872,6 +1962,7 @@ CTEST(length_of_road, set_of_combinations_81) {
   int exp = 57;
   free(arr_cities);
   free(path_long);
+  graph_free(g, max_city);
   ASSERT_EQUAL(exp, real);
 }
 
@@ -1892,6 +1983,7 @@ CTEST(length_of_road, set_of_combinations_82) {
   int exp = 15;
   free(arr_cities);
   free(path_long);
+  graph_free(g, max_city);
   ASSERT_EQUAL(exp, real);
 }
 
@@ -1912,6 +2004,7 @@ CTEST(length_of_road, set_of_combinations_83) {
   int exp = 50;
   free(arr_cities);
   free(path_long);
+  graph_free(g, max_city);
   ASSERT_EQUAL(exp, real);
 }
 
@@ -1932,6 +2025,7 @@ CTEST(length_of_road, set_of_combinations_84) {
   int exp = 29;
   free(arr_cities);
   free(path_long);
+  graph_free(g, max_city);
   ASSERT_EQUAL(exp, real);
 }
 
@@ -1952,6 +2046,7 @@ CTEST(length_of_road, set_of_combinations_85) {
   int exp = 55;
   free(arr_cities);
   free(path_long);
+  graph_free(g, max_city);
   ASSERT_EQUAL(exp, real);
 }
 
@@ -1972,6 +2067,7 @@ CTEST(length_of_road, set_of_combinations_86) {
   int exp = 58;
   free(arr_cities);
   free(path_long);
+  graph_free(g, max_city);
   ASSERT_EQUAL(exp, real);
 }
 
@@ -1992,6 +2088,7 @@ CTEST(length_of_road, set_of_combinations_87) {
   int exp = 15;
   free(arr_cities);
   free(path_long);
+  graph_free(g, max_city);
   ASSERT_EQUAL(exp, real);
 }
 
@@ -2012,6 +2109,7 @@ CTEST(length_of_road, set_of_combinations_88) {
   int exp = 29;
   free(arr_cities);
   free(path_long);
+  graph_free(g, max_city);
   ASSERT_EQUAL(exp, real);
 }
 
@@ -2032,6 +2130,7 @@ CTEST(length_of_road, set_of_combinations_89) {
   int exp = 50;
   free(arr_cities);
   free(path_long);
+  graph_free(g, max_city);
   ASSERT_EQUAL(exp, real);
 }
 
@@ -2052,6 +2151,7 @@ CTEST(length_of_road, set_of_combinations_90) {
   int exp = 58;
   free(arr_cities);
   free(path_long);
+  graph_free(g, max_city);
   ASSERT_EQUAL(exp, real);
 }
 
@@ -2072,6 +2172,7 @@ CTEST(length_of_road, set_of_combinations_91) {
   int exp = 55;
   free(arr_cities);
   free(path_long);
+  graph_free(g, max_city);
   ASSERT_EQUAL(exp, real);
 }
 
@@ -2092,6 +2193,7 @@ CTEST(length_of_road, set_of_combinations_92) {
   int exp = 25;
   free(arr_cities);
   free(path_long);
+  graph_free(g, max_city);
   ASSERT_EQUAL(exp, real);
 }
 
@@ -2112,6 +2214,7 @@ CTEST(length_of_road, set_of_combinations_93) {
   int exp = 33;
   free(arr_cities);
   free(path_long);
+  graph_free(g, max_city);
   ASSERT_EQUAL(exp, real);
 }
 
@@ -2132,6 +2235,7 @@ CTEST(length_of_road, set_of_combinations_94) {
   int exp = 40;
   free(arr_cities);
   free(path_long);
+  graph_free(g, max_city);
   ASSERT_EQUAL(exp, real);
 }
 
@@ -2152,6 +2256,7 @@ CTEST(length_of_road, set_of_combinations_95) {
   int exp = 45;
   free(arr_cities);
   free(path_long);
+  graph_free(g, max_city);
   ASSERT_EQUAL(exp, real);
 }
 
@@ -2172,6 +2277,7 @@ CTEST(length_of_road, set_of_combinations_96) {
   int exp = 54;
   free(arr_cities);
   free(path_long);
+  graph_free(g, max_city);
   ASSERT_EQUAL(exp, real);
 }
 
@@ -2192,6 +2298,7 @@ CTEST(length_of_road, set_of_combinations_97) {
   int exp = 25;
   free(arr_cities);
   free(path_long);
+  graph_free(g, max_city);
   ASSERT_EQUAL(exp, real);
 }
 
@@ -2212,6 +2319,7 @@ CTEST(length_of_road, set_of_combinations_98) {
   int exp = 40;
   free(arr_cities);
   free(path_long);
+  graph_free(g, max_city);
   ASSERT_EQUAL(exp, real);
 }
 
@@ -2232,6 +2340,7 @@ CTEST(length_of_road, set_of_combinations_99) {
   int exp = 33;
   free(arr_cities);
   free(path_long);
+  graph_free(g, max_city);
   ASSERT_EQUAL(exp, real);
 }
 
@@ -2252,6 +2361,7 @@ CTEST(length_of_road, set_of_combinations_100) {
   int exp = 54;
   free(arr_cities);
   free(path_long);
+  graph_free(g, max_city);
   ASSERT_EQUAL(exp, real);
 }
 
@@ -2272,6 +2382,7 @@ CTEST(length_of_road, set_of_combinations_101) {
   int exp = 45;
   free(arr_cities);
   free(path_long);
+  graph_free(g, max_city);
   ASSERT_EQUAL(exp, real);
 }
 
@@ -2292,6 +2403,7 @@ CTEST(length_of_road, set_of_combinations_102) {
   int exp = 16;
   free(arr_cities);
   free(path_long);
+  graph_free(g, max_city);
   ASSERT_EQUAL(exp, real);
 }
 
@@ -2312,6 +2424,7 @@ CTEST(length_of_road, set_of_combinations_103) {
   int exp = 42;
   free(arr_cities);
   free(path_long);
+  graph_free(g, max_city);
   ASSERT_EQUAL(exp, real);
 }
 
@@ -2332,6 +2445,7 @@ CTEST(length_of_road, set_of_combinations_104) {
   int exp = 28;
   free(arr_cities);
   free(path_long);
+  graph_free(g, max_city);
   ASSERT_EQUAL(exp, real);
 }
 
@@ -2352,6 +2466,7 @@ CTEST(length_of_road, set_of_combinations_105) {
   int exp = 57;
   free(arr_cities);
   free(path_long);
+  graph_free(g, max_city);
   ASSERT_EQUAL(exp, real);
 }
 
@@ -2372,6 +2487,7 @@ CTEST(length_of_road, set_of_combinations_106) {
   int exp = 63;
   free(arr_cities);
   free(path_long);
+  graph_free(g, max_city);
   ASSERT_EQUAL(exp, real);
 }
 
@@ -2392,6 +2508,7 @@ CTEST(length_of_road, set_of_combinations_107) {
   int exp = 16;
   free(arr_cities);
   free(path_long);
+  graph_free(g, max_city);
   ASSERT_EQUAL(exp, real);
 }
 
@@ -2412,6 +2529,7 @@ CTEST(length_of_road, set_of_combinations_108) {
   int exp = 28;
   free(arr_cities);
   free(path_long);
+  graph_free(g, max_city);
   ASSERT_EQUAL(exp, real);
 }
 
@@ -2432,6 +2550,7 @@ CTEST(length_of_road, set_of_combinations_109) {
   int exp = 42;
   free(arr_cities);
   free(path_long);
+  graph_free(g, max_city);
   ASSERT_EQUAL(exp, real);
 }
 
@@ -2452,6 +2571,7 @@ CTEST(length_of_road, set_of_combinations_110) {
   int exp = 63;
   free(arr_cities);
   free(path_long);
+  graph_free(g, max_city);
   ASSERT_EQUAL(exp, real);
 }
 
@@ -2472,6 +2592,7 @@ CTEST(length_of_road, set_of_combinations_111) {
   int exp = 57;
   free(arr_cities);
   free(path_long);
+  graph_free(g, max_city);
   ASSERT_EQUAL(exp, real);
 }
 
@@ -2492,6 +2613,7 @@ CTEST(length_of_road, set_of_combinations_112) {
   int exp = 15;
   free(arr_cities);
   free(path_long);
+  graph_free(g, max_city);
   ASSERT_EQUAL(exp, real);
 }
 
@@ -2512,6 +2634,7 @@ CTEST(length_of_road, set_of_combinations_113) {
   int exp = 29;
   free(arr_cities);
   free(path_long);
+  graph_free(g, max_city);
   ASSERT_EQUAL(exp, real);
 }
 
@@ -2532,6 +2655,7 @@ CTEST(length_of_road, set_of_combinations_114) {
   int exp = 50;
   free(arr_cities);
   free(path_long);
+  graph_free(g, max_city);
   ASSERT_EQUAL(exp, real);
 }
 
@@ -2552,6 +2676,7 @@ CTEST(length_of_road, set_of_combinations_115) {
   int exp = 55;
   free(arr_cities);
   free(path_long);
+  graph_free(g, max_city);
   ASSERT_EQUAL(exp, real);
 }
 
@@ -2572,6 +2697,7 @@ CTEST(length_of_road, set_of_combinations_116) {
   int exp = 58;
   free(arr_cities);
   free(path_long);
+  graph_free(g, max_city);
   ASSERT_EQUAL(exp, real);
 }
 
@@ -2592,6 +2718,7 @@ CTEST(length_of_road, set_of_combinations_117) {
   int exp = 15;
   free(arr_cities);
   free(path_long);
+  graph_free(g, max_city);
   ASSERT_EQUAL(exp, real);
 }
 
@@ -2612,6 +2739,7 @@ CTEST(length_of_road, set_of_combinations_118) {
   int exp = 50;
   free(arr_cities);
   free(path_long);
+  graph_free(g, max_city);
   ASSERT_EQUAL(exp, real);
 }
 
@@ -2632,6 +2760,7 @@ CTEST(length_of_road, set_of_combinations_119) {
   int exp = 29;
   free(arr_cities);
   free(path_long);
+  graph_free(g, max_city);
   ASSERT_EQUAL(exp, real);
 }
 
@@ -2652,6 +2781,7 @@ CTEST(length_of_road, set_of_combinations_120) {
   int exp = 58;
   free(arr_cities);
   free(path_long);
+  graph_free(g, max_city);
   ASSERT_EQUAL(exp, real);
 }
 
@@ -2672,5 +2802,6 @@ CTEST(length_of_road, set_of_combinations_121) {
   int exp = 55;
   free(arr_cities);
   free(path_long);
+  graph_free(g, max_city);
   ASSERT_EQUAL(exp, real);
 }
