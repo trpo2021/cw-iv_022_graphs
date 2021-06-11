@@ -37,7 +37,6 @@ void arguments_error(int s) {
 
   } else if (s == 2) {
     printf("Ошибка: Вы забыли ввести название файла\n");
-
   }
 }
 
@@ -67,6 +66,7 @@ int incorrect_input(int nvert, int start, int end) {
 
 void print_matrix(int nvert, int matrix[][nvert]) {
   printf("\n");
+  printf("Ваша матрица смежности:\n");
   for (int i = 0; i < nvert; i++) {
     for (int j = 0; j < nvert; j++) {
       printf("%5d ", matrix[i][j]);
@@ -149,10 +149,9 @@ void dijkstra(int start, int end, int nvert, int matrix[][nvert]) {
   preg = get_short_path(nvert, start, end, matrix, d, ver, preg, weight);
 
   //Вывод пути (начальная вершина оказалась в конце массива из k элементов)
-  printf("\nВывод кратчайшего пути\n");
+  printf("\nКратчайший путь между данными вершинами:\n");
   for (int i = preg - 1; i >= 0; i--) {
     printf("%3d ", ver[i]);
   }
   printf("\n");
 }
-
