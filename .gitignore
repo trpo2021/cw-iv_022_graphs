@@ -1,6 +1,0 @@
-#ignore object files
-/bin/graphs
-/bin/graphs_test
-*.o
-*.d
-*.a
