@@ -1,6 +1,6 @@
 #include <libgraph/library.h>
 int main(int argc, char **argv) {
-  
+
   int s = arguments_check(argv);
   if (s != 0) {
     arguments_error(s);
