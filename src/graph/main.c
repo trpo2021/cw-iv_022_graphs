@@ -47,15 +47,8 @@ int main() {
     }
     }
     // Вывод матрицы смежности
-    printf("\n");
-    for (int i = 0; i < nvert; i++) {
-        for (int j = 0; j < nvert; j++) {
-        printf("%5d ", matrix[i][j]);
-    }
-    printf("\n");
-    }
-    printf("\n");
-
+    print_matrix(nvert, matrix);
+    
     fclose(file);
     return 0;
 }

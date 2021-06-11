@@ -24,3 +24,14 @@ int incorrect_input(int nvert, int start, int end) {
     } 
     return 0;
 }
+
+void print_matrix(int nvert, int matrix[][nvert]) {
+    printf("\n");
+    for (int i = 0; i < nvert; i++) {
+        for (int j = 0; j < nvert; j++) {
+            printf("%5d ", matrix[i][j]);
+        }
+        printf("\n");
+    }
+    printf("\n");
+}
