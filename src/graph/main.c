@@ -1,7 +1,7 @@
 #include <libgraph/library.h>
 int main() {
     int start, end;
-    int nvert = 0;
+    int nvert = 0, check = 0;
     char *str = (char *)malloc(MAX_LENGTH_STR * sizeof(char));
 
     FILE *file = fopen("bin/matrix4.txt", "r");
@@ -19,18 +19,11 @@ int main() {
     fgets(str, MAX_LENGTH_STR, file);
     end = getdigit(str);
     
-    
-    if (nvert > 10 || nvert <= 0) {
+
+    check = incorrect_input(nvert, start, end);
+    if (check == -1) {
         printf("Некорректные данные графа\n");
-        return -1;
-    }
-    if (start > nvert || start <= 0) {
-        printf("Некорректные данные графа\n");
-        return -1;
-    }
-    if (end > nvert || end <= 0) {
-        printf("Некорректные данные графа\n");
-        return -1;
+        return 0;
     } 
 
     printf("Начальный город: %d, конечный город: %d", start, end);
