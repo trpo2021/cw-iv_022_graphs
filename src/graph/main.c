@@ -1,21 +1,15 @@
 #include <libgraph/library.h>
 int main(int argc, char **argv) {
+  
+  int s = arguments_check(argv);
+  if (s != 0) {
+    arguments_error(s);
+    return -1;
+  }
+
   int check;
   //массив для имени файла
   char *input_name_matrix = (char *)malloc((MAX_LENGTH_STR) * sizeof(char));
-
-  if (argv[1] == NULL) {
-    printf("файл с инструкцией\n");
-    return 0;
-  }
-  if (strcmp(argv[1], "-m") != 0) {
-    printf("Ошибка: неизвестный аргумент!\n");
-    return 0;
-  }
-  if (strcmp(argv[1], "-m") == 0 && argv[2] == NULL) {
-    printf("Ведите название файла\n");
-    return 0;
-  }
 
   while ((check = getopt(argc, argv, "m:")) != -1) {
     switch (check) {
@@ -42,9 +36,7 @@ int main(int argc, char **argv) {
     return 0;
   }
 
-  for (int i = 0; i < 2; i++) {
-    fgets(str, MAX_LENGTH_STR, file);
-  }
+  fgets(str, MAX_LENGTH_STR, file);
   nvert = getdigit(str);
   fgets(str, MAX_LENGTH_STR, file);
   start = getdigit(str);

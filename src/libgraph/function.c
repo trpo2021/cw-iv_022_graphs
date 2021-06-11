@@ -1,5 +1,46 @@
 #include <libgraph/library.h>
 
+int arguments_check(char **argv) {
+  if (argv[1] == NULL) {
+    return -1;
+  }
+
+  if (strcmp(argv[1], "-m") != 0) {
+    return 1;
+  }
+
+  if (strcmp(argv[1], "-m") == 0 && argv[2] == NULL) {
+    return 2;
+  }
+  return 0;
+}
+
+void arguments_error(int s) {
+  if (s == -1) {
+    FILE *file = fopen("src/graph/instruction.txt", "rt");
+    if (file == NULL) {
+      printf("Ошибка: не удаётся открыть инструкцию\n");
+      return;
+    }
+
+    char *arr = malloc(sizeof(char) * 75);
+    while (fgets(arr, 75, file) != NULL)
+      printf("%s", arr);
+    printf("\n");
+
+    free(arr);
+    fclose(file);
+
+  } else if (s == 1) {
+    printf("Ошибка: Введите название файла с матрицей, с помощью ключа '-m'\n");
+    printf("Например '-m matrix4.txt'\n");
+
+  } else if (s == 2) {
+    printf("Ошибка: Вы забыли ввести название файла\n");
+
+  }
+}
+
 int getdigit(char *str) {
   int i = 0, digit = 0;
   while (str[i] != ' ') {
@@ -114,3 +155,4 @@ void dijkstra(int start, int end, int nvert, int matrix[][nvert]) {
   }
   printf("\n");
 }
+
