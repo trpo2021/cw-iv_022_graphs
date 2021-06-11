@@ -1,11 +1,15 @@
-#include "library.h"
+#include <libgraph/library.h>
 int main() {
     int start, end;
     int nvert = 0;
     char *str = (char *)malloc(MAX_LENGTH_STR * sizeof(char));
 
-    FILE *file = fopen("matrix4.txt", "r");
-
+    FILE *file = fopen("bin/matrix4.txt", "r");
+    if (file == NULL) {
+      printf("Ошибка: не удаётся открыть матрицу\n");
+      return 0;
+    }
+    
     for (int i = 0; i < 2; i++) {
     fgets(str, MAX_LENGTH_STR, file);
     }
