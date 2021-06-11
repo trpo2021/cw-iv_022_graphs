@@ -1,7 +1,7 @@
 #include <libgraph/library.h>
 int main() {
     int start, end;
-    int nvert = 0;
+    int nvert = 0, check = 0;
     char *str = (char *)malloc(MAX_LENGTH_STR * sizeof(char));
 
     FILE *file = fopen("bin/matrix4.txt", "r");
@@ -13,44 +13,17 @@ int main() {
     for (int i = 0; i < 2; i++) {
     fgets(str, MAX_LENGTH_STR, file);
     }
-    int i = 0;
-    while (str[i] != ' ')
-    {
-        nvert += str[i] - '0';
-        nvert *= 10;
-        i++;
-    }
-    nvert /= 10;
+    nvert = getdigit(str);
     fgets(str, MAX_LENGTH_STR, file);
-    i = 0, start = 0;
-    while (str[i] != ' ')
-    {
-        start += str[i] - '0';
-        start *= 10;
-        i++;
-    }
-    start /= 10;
+    start = getdigit(str);
     fgets(str, MAX_LENGTH_STR, file);
-    i = 0, end = 0;
-    while (str[i] != ' ')
-    {
-        end += str[i] - '0';
-        end *= 10;
-        i++;
-    }
-    end /= 10;
+    end = getdigit(str);
+    
 
-    if (nvert > 10 || nvert <= 0) {
+    check = incorrect_input(nvert, start, end);
+    if (check == -1) {
         printf("Некорректные данные графа\n");
-        return -1;
-    }
-    if (start > nvert || start <= 0) {
-        printf("Некорректные данные графа\n");
-        return -1;
-    }
-    if (end > nvert || end <= 0) {
-        printf("Некорректные данные графа\n");
-        return -1;
+        return 0;
     } 
 
     printf("Начальный город: %d, конечный город: %d", start, end);
@@ -74,15 +47,8 @@ int main() {
     }
     }
     // Вывод матрицы смежности
-    printf("\n");
-    for (int i = 0; i < nvert; i++) {
-        for (int j = 0; j < nvert; j++) {
-        printf("%5d ", matrix[i][j]);
-    }
-    printf("\n");
-    }
-    printf("\n");
-
+    print_matrix(nvert, matrix);
+    
     fclose(file);
     return 0;
 }
