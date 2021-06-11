@@ -13,3 +13,5 @@ void dijkstra(int start, int end, int nvert, int matrix[][nvert]);
 void get_min_minindex(int nvert, int *visit, int *d, int *min, int *minindex);
 int get_short_path(int nvert, int start, int end, int matrix[][nvert], int *d,
                    int *ver, int preg, int weight);
+int arguments_check(char **argv);
+void arguments_error(int s);
