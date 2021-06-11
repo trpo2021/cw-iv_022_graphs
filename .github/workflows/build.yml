@@ -19,6 +19,6 @@ jobs:
         run: make test
 
       - name: Run test
-        run: bin/graphs_test
+        run: bin/graph_test
 
       
