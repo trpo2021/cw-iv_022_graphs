@@ -13,33 +13,13 @@ int main() {
     for (int i = 0; i < 2; i++) {
     fgets(str, MAX_LENGTH_STR, file);
     }
-    int i = 0;
-    while (str[i] != ' ')
-    {
-        nvert += str[i] - '0';
-        nvert *= 10;
-        i++;
-    }
-    nvert /= 10;
+    nvert = getdigit(str);
     fgets(str, MAX_LENGTH_STR, file);
-    i = 0, start = 0;
-    while (str[i] != ' ')
-    {
-        start += str[i] - '0';
-        start *= 10;
-        i++;
-    }
-    start /= 10;
+    start = getdigit(str);
     fgets(str, MAX_LENGTH_STR, file);
-    i = 0, end = 0;
-    while (str[i] != ' ')
-    {
-        end += str[i] - '0';
-        end *= 10;
-        i++;
-    }
-    end /= 10;
-
+    end = getdigit(str);
+    
+    
     if (nvert > 10 || nvert <= 0) {
         printf("Некорректные данные графа\n");
         return -1;
