@@ -49,6 +49,8 @@ int main() {
     // Вывод матрицы смежности
     print_matrix(nvert, matrix);
     
+    dijkstra(start, end, nvert, matrix);
+
     fclose(file);
     return 0;
 }
