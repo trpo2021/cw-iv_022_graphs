@@ -56,6 +56,23 @@ int main(int argc, char **argv) {
   point_begin--;
   point_end--;
 
+  int r = graph_adj_init(graph_adj_size);
+  if (r < 0) {
+    printf("Ошибка: матрица смежности не проинициализирована\n");
+    return -1;
+  }
+
+  char string[5] = {0};
+  int digit1, digit2;
+  while (!feof(file)) { //идет считывание ребер
+    fgets(str, MAX_LENGTH_STR, file);
+    sscanf(str, "%d%s%d", &digit1, string, &digit2);
+    graph_adj_add(digit1 - 1, digit2 - 1);
+  }
+
+  printf("Ваша матрица смежности:\n");
+  graph_adj_print();
+  int *lgraph_adj = graph_adj_get();
   fclose(file);
   return 0;
 }
