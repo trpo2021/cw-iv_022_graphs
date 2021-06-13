@@ -2,31 +2,49 @@
 int main(int argc, char **argv) {
 
   char *input_name_matrix = (char *)malloc((MAX_LENGTH_STR) * sizeof(char));
-  int check;
+  int check, check_2;
   int tmp_flag = -1;
   while ((check = getopt(argc, argv, "nslm:")) != -1) {
     switch (check) {
     case 'm':
+      if (strcmp(argv[1], "-m") == 0 && argv[2] == NULL) {
+        printf(
+            "Ошибка: После ключа введите название eopghiuфайла с матрицей\n");
+        return 0;
+      }
       input_name_matrix = argv[2];
       break;
     case 'n': // отобразить все пути
+      if (strcmp(argv[1], "-m") != 0) {
+        check_2 = -1;
+      }
       tmp_flag = 0;
       break;
     case 's': // которткий путь
+      if (strcmp(argv[1], "-m") != 0) {
+        check_2 = -1;
+      }
       tmp_flag = 1;
       break;
     case 'l': // длинный путь
+      if (strcmp(argv[1], "-m") != 0) {
+        check_2 = -1;
+      }
       tmp_flag = 2;
       break;
     case '?':
       if (strcmp(argv[1], "-m") == 0 && argv[2] == NULL) {
-        printf("Ошибка: Введите название файла с матрицей и ключ, что вы хотите узнать\n");
+        printf("Ошибка: После ключа введите название файла с матрицей и любой "
+               "ключ из списка в инструкции\n");
         return 0;
-      } else {
-        printf("Ошибка: неизвестный аргумент!\n");
       }
+      printf("Ошибка: неизвестный аргумент!\n");
       break;
     }
+  }
+  if (check_2 < 0) {
+    printf("Ошибка: Для начала ведите ключ, название файла с матрицей\n");
+    return 0;
   }
 
   if (tmp_flag < 0) {
@@ -44,7 +62,6 @@ int main(int argc, char **argv) {
     fclose(file);
     return 0;
   }
-  
 
   int point_begin, point_end;
   int graph_adj_size = 0;
@@ -58,6 +75,22 @@ int main(int argc, char **argv) {
   FILE *file = fopen(name_matrix, "r");
   if (file == NULL) {
     printf("Ошибка: не удаётся открыть файл с матрицей\n");
+    return 0;
+  }
+
+  if (tmp_flag < 0) {
+    FILE *file = fopen("src/graph/instruction.txt", "rt");
+    if (file == NULL) {
+      printf("Ошибка: не удаётся открыть инструкцию\n");
+      return 0;
+    }
+    char *arr = malloc(sizeof(char) * MAX_LENGTH_STR);
+    while (fgets(arr, MAX_LENGTH_STR, file) != NULL)
+      printf("%s", arr);
+    printf("\n");
+
+    free(arr);
+    fclose(file);
     return 0;
   }
 
@@ -93,13 +126,14 @@ int main(int argc, char **argv) {
   int *lgraph_adj = graph_adj_get();
 
   r = all_paths_init(lgraph_adj, graph_adj_size, tmp_flag);
-	if (r < 0) {
-		printf("Ошибка: массивы путей и посещенных вершин не проинициализированы\n");
-		return -1;
-	}
-	all_paths_print(point_begin, point_end);
-	graph_adj_free();
-	all_paths_free();
+  if (r < 0) {
+    printf(
+        "Ошибка: массивы путей и посещенных вершин не проинициализированы\n");
+    return 0;
+  }
+  all_paths_print(point_begin, point_end);
+  graph_adj_free();
+  all_paths_free();
 
   fclose(file);
   return 0;
