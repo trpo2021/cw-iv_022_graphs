@@ -37,8 +37,8 @@ int all_paths_init(int *g_adj, int g_adj_size, int aflag) {
   }
 }
 
-int all_paths_print_recur(int node, int dst, int visited[], int path[],
-                          int *path_index) {
+void all_paths_print_recur(int node, int dst, int visited[], int path[],
+                           int *path_index) {
   visited[node] = 1;
   path[*path_index] = node;
   (*path_index)++;
@@ -73,10 +73,9 @@ int all_paths_print_recur(int node, int dst, int visited[], int path[],
 
   (*path_index)--;
   visited[node] = 0;
-  return 0;
 }
 
-int all_paths_print(int src, int dst) {
+void all_paths_print(int src, int dst) {
   // 0 - все пути, 1 - короткий, 2 - длинный
 
   all_paths_print_recur(src, dst, visited, path, &path_index);
@@ -92,15 +91,13 @@ int all_paths_print(int src, int dst) {
       printf("%d ", longest_path[i] + 1);
     printf("\n");
   }
-  return 0;
 }
 
-int all_paths_free() {
+void all_paths_free() {
   free(visited);
   free(path);
   free(shortest_path);
   free(longest_path);
-  return 0;
 }
 
 int getdigit(char *str) {

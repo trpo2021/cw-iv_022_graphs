@@ -4,6 +4,7 @@
 int *graph_adj;
 int graph_adj_size;
 int graph_adj_initialized = 0;
+
 int graph_adj_init(int size) {
   graph_adj_size = size;
   graph_adj = (int *)malloc(graph_adj_size * graph_adj_size * sizeof(int));
@@ -49,9 +50,6 @@ int graph_adj_print() {
   return 0;
 }
 
-int graph_adj_free() {
-  free(graph_adj);
-  return 0;
-}
+void graph_adj_free() { free(graph_adj); }
 
 int *graph_adj_get() { return graph_adj; }
