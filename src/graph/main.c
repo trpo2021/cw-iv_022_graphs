@@ -73,6 +73,16 @@ int main(int argc, char **argv) {
   printf("Ваша матрица смежности:\n");
   graph_adj_print();
   int *lgraph_adj = graph_adj_get();
+
+  r = all_paths_init(lgraph_adj, graph_adj_size, tmp_flag);
+	if (r < 0) {
+		printf("Ошибка: массивы путей и посещенных вершин не проинициализированы\n");
+		return -1;
+	}
+	all_paths_print(point_begin, point_end);
+	graph_adj_free();
+	all_paths_free();
+
   fclose(file);
   return 0;
 }
