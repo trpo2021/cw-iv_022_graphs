@@ -1,28 +1,35 @@
 #include <libgraph/library.h>
 int main(int argc, char **argv) {
 
-  int s = arguments_check(argv);
-  if (s != 0) {
-    arguments_error(s);
-    return -1;
-  }
-
-  int check;
-  //массив для имени файла
   char *input_name_matrix = (char *)malloc((MAX_LENGTH_STR) * sizeof(char));
-
-  while ((check = getopt(argc, argv, "m:")) != -1) {
+  int check;
+  int tmp_flag = -1;
+  while ((check = getopt(argc, argv, "nslm:")) != -1) {
     switch (check) {
     case 'm':
       input_name_matrix = argv[2];
+      break;
+    case 'n': // отобразить все пути
+      tmp_flag = 0;
+      break;
+    case 's': // которткий путь
+      tmp_flag = 1;
+      break;
+    case 'l': // длинный путь
+      tmp_flag = 2;
       break;
     case '?':
       printf("Ошибка: неизвестный аргумент!\n");
       break;
     }
   }
-  int start, end;
-  int nvert = 0;
+  if (tmp_flag < 0) {
+    printf("Наряду с матрицей укажите обязательные ключи n s l\n");
+    return 0;
+  }
+
+  int point_begin, point_end;
+  int graph_adj_size = 0;
   check = 0;
 
   char name_matrix[MAX_LENGTH_STR] = "bin/";
@@ -37,42 +44,17 @@ int main(int argc, char **argv) {
   }
 
   fgets(str, MAX_LENGTH_STR, file);
-  nvert = getdigit(str);
+  graph_adj_size = getdigit(str);
   fgets(str, MAX_LENGTH_STR, file);
-  start = getdigit(str);
+  point_begin = getdigit(str);
   fgets(str, MAX_LENGTH_STR, file);
-  end = getdigit(str);
+  point_end = getdigit(str);
 
-  check = incorrect_input(nvert, start, end);
-  if (check == -1) {
-    printf("Некорректные данные графа\n");
-    return 0;
-  }
+  printf("начальный город: %d, конечный город: %d\n", point_begin, point_end);
+  printf("количество введенных городов: %d\n", graph_adj_size);
 
-  printf("Начальный город: %d, конечный город: %d\n", start, end);
-
-  start--;
-  end--;
-
-  int matrix[nvert][nvert];
-  // матрица смежности
-  int temp;
-
-  // Инициализация двоичной матрицы смежности
-  for (int i = 0; i < nvert; i++) {
-    matrix[i][i] = 0;
-    for (int j = 0; j < nvert; j++) {
-      //считывать строку и получать из нее вес ребра, записывать в матрицу
-      fgets(str, MAX_LENGTH_STR, file);
-      temp = 0;
-      temp += str[18] - '0';
-      matrix[i][j] = temp;
-    }
-  }
-  // Вывод матрицы смежности
-  print_matrix(nvert, matrix);
-
-  dijkstra(start, end, nvert, matrix);
+  point_begin--;
+  point_end--;
 
   fclose(file);
   return 0;
