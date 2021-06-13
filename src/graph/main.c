@@ -19,14 +19,32 @@ int main(int argc, char **argv) {
       tmp_flag = 2;
       break;
     case '?':
-      printf("Ошибка: неизвестный аргумент!\n");
+      if (strcmp(argv[1], "-m") == 0 && argv[2] == NULL) {
+        printf("Ошибка: Введите название файла с матрицей и ключ, что вы хотите узнать\n");
+        return 0;
+      } else {
+        printf("Ошибка: неизвестный аргумент!\n");
+      }
       break;
     }
   }
+
   if (tmp_flag < 0) {
-    printf("Наряду с матрицей укажите обязательные ключи n s l\n");
+    FILE *file = fopen("src/graph/instruction.txt", "rt");
+    if (file == NULL) {
+      printf("Ошибка: не удаётся открыть инструкцию\n");
+      return 0;
+    }
+    char *arr = malloc(sizeof(char) * MAX_LENGTH_STR);
+    while (fgets(arr, MAX_LENGTH_STR, file) != NULL)
+      printf("%s", arr);
+    printf("\n");
+
+    free(arr);
+    fclose(file);
     return 0;
   }
+  
 
   int point_begin, point_end;
   int graph_adj_size = 0;
