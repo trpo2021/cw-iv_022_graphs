@@ -10,8 +10,8 @@ int graph_adj_init(int size) {
 
   if (graph_adj != NULL) {
     int r, c;
-    for (r = 0; r < graph_adj_size; r++) //������ �������
-      for (c = 0; c < graph_adj_size; c++) //������� �������
+    for (r = 0; r < graph_adj_size; r++)
+      for (c = 0; c < graph_adj_size; c++)
         graph_adj[r * graph_adj_size + c] = 0;
     graph_adj_initialized = 1;
     return 0;
@@ -34,8 +34,8 @@ int graph_adj_print() {
   }
 
   int r, c;
-  for (r = 0; r < graph_adj_size; r++) { //������ �������
-    for (c = 0; c < graph_adj_size; c++) { //������� �������
+  for (r = 0; r < graph_adj_size; r++) {
+    for (c = 0; c < graph_adj_size; c++) {
       if (r == c) {
         printf("x ");
       } else if (graph_adj[r * graph_adj_size + c] == 0) {
