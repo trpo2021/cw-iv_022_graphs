@@ -23,7 +23,7 @@ CTEST(graph_adj_init_check, correct_memory_size) {
 
 CTEST(graph_adj_add_check, correct_add_adj) {
 
-  int real = graph_adj_add(0,2);
+  int real = graph_adj_add(0, 2);
 
   int exp = 0;
 
@@ -57,7 +57,7 @@ CTEST(all_paths_print_check, correct_shortest_path) {
   all_paths_init(lgraph_adj, 4, 1, 1);
 
   char *real = (char *)malloc(100 * sizeof(char));
-  strcat(real, all_paths_print(2,3));
+  strcat(real, all_paths_print(2, 3));
 
   char exp[100] = "3 1 4 ";
 
@@ -71,7 +71,7 @@ CTEST(all_paths_print_check, correct_longest_path) {
   all_paths_init(lgraph_adj, 4, 2, 1);
 
   char *real = (char *)malloc(100 * sizeof(char));
-  strcat(real, all_paths_print(2,3));
+  strcat(real, all_paths_print(2, 3));
 
   char exp[100] = "3 1 2 4 ";
 

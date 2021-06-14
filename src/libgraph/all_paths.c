@@ -79,37 +79,36 @@ void all_paths_print_recur(int node, int dst, int visited[], int path[],
   visited[node] = 0;
 }
 
-char* all_paths_print(int src, int dst) {
+char *all_paths_print(int src, int dst) {
   // 0 - все пути, 1 - короткий, 2 - длинный
 
   all_paths_print_recur(src, dst, visited, path, &path_index);
   char *tmp = (char *)malloc(100 * sizeof(char));
   char *tmp2 = (char *)malloc(100 * sizeof(char));
-  bzero(tmp,100);
-  bzero(tmp2,100);
+  bzero(tmp, 100);
+  bzero(tmp2, 100);
   if (flag == 1) {
-    if(silent != 1)
+    if (silent != 1)
       printf("кратчайший путь:\n");
     for (int i = 0; i < shortest_path_len; i++) {
       sprintf(tmp2, "%d ", shortest_path[i] + 1);
       strcat(tmp, tmp2);
-      if(silent != 1)
+      if (silent != 1)
         printf("%d ", shortest_path[i] + 1);
     }
     printf("\n");
     return tmp;
   } else if (flag == 2) {
-    if(silent != 1)
+    if (silent != 1)
       printf("длиннейший путь:\n");
     for (int i = 0; i < longest_path_len; i++) {
       sprintf(tmp2, "%d ", longest_path[i] + 1);
       strcat(tmp, tmp2);
-      if(silent != 1)
+      if (silent != 1)
         printf("%d ", longest_path[i] + 1);
     }
     printf("\n");
     return tmp;
-
   }
   return tmp;
 }
