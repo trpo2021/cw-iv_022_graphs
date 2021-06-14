@@ -1,5 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
+
+int silent = 0;
 
 int *visited;
 int *graph_adj;
@@ -13,10 +16,11 @@ int shortest_path_len;
 int *longest_path;
 int longest_path_len;
 
-int all_paths_init(int *g_adj, int g_adj_size, int aflag) {
+int all_paths_init(int *g_adj, int g_adj_size, int aflag, int asilent) {
   graph_adj = g_adj;
   graph_adj_size = g_adj_size;
   flag = aflag;
+  silent = asilent;
 
   visited = (int *)malloc(graph_adj_size * sizeof(int));
   path = (int *)malloc(graph_adj_size * sizeof(int));
@@ -75,22 +79,39 @@ void all_paths_print_recur(int node, int dst, int visited[], int path[],
   visited[node] = 0;
 }
 
-void all_paths_print(int src, int dst) {
+char* all_paths_print(int src, int dst) {
   // 0 - все пути, 1 - короткий, 2 - длинный
 
   all_paths_print_recur(src, dst, visited, path, &path_index);
-
+  char *tmp = (char *)malloc(100 * sizeof(char));
+  char *tmp2 = (char *)malloc(100 * sizeof(char));
+  bzero(tmp,100);
+  bzero(tmp2,100);
   if (flag == 1) {
-    printf("кратчайший путь:\n");
-    for (int i = 0; i < shortest_path_len; i++)
-      printf("%d ", shortest_path[i] + 1);
+    if(silent != 1)
+      printf("кратчайший путь:\n");
+    for (int i = 0; i < shortest_path_len; i++) {
+      sprintf(tmp2, "%d ", shortest_path[i] + 1);
+      strcat(tmp, tmp2);
+      if(silent != 1)
+        printf("%d ", shortest_path[i] + 1);
+    }
     printf("\n");
+    return tmp;
   } else if (flag == 2) {
-    printf("длиннейший путь:\n");
-    for (int i = 0; i < longest_path_len; i++)
-      printf("%d ", longest_path[i] + 1);
+    if(silent != 1)
+      printf("длиннейший путь:\n");
+    for (int i = 0; i < longest_path_len; i++) {
+      sprintf(tmp2, "%d ", longest_path[i] + 1);
+      strcat(tmp, tmp2);
+      if(silent != 1)
+        printf("%d ", longest_path[i] + 1);
+    }
     printf("\n");
+    return tmp;
+
   }
+  return tmp;
 }
 
 void all_paths_free() {
