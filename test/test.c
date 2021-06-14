@@ -12,6 +12,44 @@ CTEST(getdigit_check, correct_str) {
   ASSERT_EQUAL(exp, real);
 }
 
+CTEST(graph_adj_init_check, correct_memory_size) {
+
+  int real = graph_adj_init(4);
+
+  int exp = 0;
+
+  ASSERT_EQUAL(exp, real);
+}
+
+CTEST(graph_adj_add_check, correct_add_adj) {
+
+  int real = graph_adj_add(0,2);
+
+  int exp = 0;
+
+  ASSERT_EQUAL(exp, real);
+}
+
+CTEST(all_paths_init_check, correct_path_init) {
+
+  graph_adj_init(4);
+
+  graph_adj_add(0, 1);
+  graph_adj_add(0, 2);
+  graph_adj_add(0, 3);
+  graph_adj_add(2, 0);
+  graph_adj_add(2, 1);
+  graph_adj_add(1, 3);
+
+  int *lgraph_adj = graph_adj_get();
+
+  int real = all_paths_init(lgraph_adj, 4, 1, 1);
+
+  int exp = 0;
+
+  ASSERT_EQUAL(exp, real);
+}
+
 CTEST(all_paths_print_check, correct_shortest_path) {
 
   int *lgraph_adj = graph_adj_get();
